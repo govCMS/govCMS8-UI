@@ -5,11 +5,13 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
   if (isset($form_id)) {
     return;
   }
+  $ui_modules = scandir('css/toolkit');
 
-  $form['foo_example'] = array(
-    '#type'          => 'textfield',
+
+  $form['govcmsui_use_bootstrap'] = array(
+    '#type'          => 'checkbox',
     '#title'         => t('Widget'),
-    '#default_value' => theme_get_setting('foo_example'),
-    '#description'   => t("Place this text in the widget spot on your site."),
+    '#default_value' => theme_get_setting('govcmsui_use_bootstrap'),
+    '#description'   => t("Do you want to include bootstrap. See <a href='http://getbootstrap.com/' target='_blank'>getbootstrap.com/</a>"),
   );
 }

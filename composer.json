@@ -1,0 +1,22 @@
+{
+    "name": "govcms/govcms-d8-theme",
+    "description": "govCMS Drupal 8 Theme",
+
+    "repositories": [
+        {
+            "type":"package",
+            "package": {
+                "name": "govau/uikit",
+                "version":"dev-develop",
+                "source": {
+                    "url": "https://github.com/govau/uikit.git",
+                    "type": "git",
+                    "reference":"develop"
+                }
+            }
+        }
+    ],
+    "require": {
+        "govau/uikit": "dev-develop"
+    }
+}
