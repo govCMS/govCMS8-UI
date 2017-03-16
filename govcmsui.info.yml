@@ -1,0 +1,17 @@
+name: 'govCMS UI'
+type: theme
+description: 'A Drupal 8 theme for govCMS incorporating the DTA ui toolkit.'
+core: 8.x
+base theme: classy
+regions:
+  header: 'Header'
+  nav_secondary: 'Secondary links'
+  nav: 'Nav bar'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Hightlight'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  sub_footer: 'Sub footer'
+  footer: 'Footer'
