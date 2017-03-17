@@ -1,2 +1,3 @@
 
 govcmsui_use_bootstrap: 1
+govcmsui_use_jquery: 1

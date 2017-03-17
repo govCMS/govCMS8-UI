@@ -1,0 +1,73 @@
+<div class="layout-container">
+    <div class="uikit-global-nav">
+        {{ page.nav_secondary }}
+    </div>
+    <header role="banner" class="navbar">
+        {{ page.header }}
+        <nav class="navbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <h2 class="brand brand-name navbar-left has-img style-line">
+                    <a href="/">
+                        <img src="{{ govlogo }}" alt="Australian Government" height="70" />
+                        govCMS
+                        <span class="label">test</span>
+                    </a>
+                </h2>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-full main-nav">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="main-navigation">
+                {{ page.nav }}
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div>
+
+
+    {{ page.breadcrumb }}
+
+    {{ page.highlighted }}
+
+    {{ page.help }}
+
+    <main role="main">
+        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+        <div class="layout-content">
+            {{ page.content }}
+        </div>{# /.layout-content #}
+
+        {% if page.sidebar_first %}
+            <aside class="layout-sidebar-first" role="complementary">
+                {{ page.sidebar_first }}
+            </aside>
+        {% endif %}
+
+        {% if page.sidebar_second %}
+            <aside class="layout-sidebar-second" role="complementary">
+                {{ page.sidebar_second }}
+            </aside>
+        {% endif %}
+
+    </main>
+    {% if page.sub_footer %}
+        <div class="sub_footer">
+            {{ page.sub_footer }}
+        </div>
+    {% endif %}
+    {% if page.footer %}
+        <footer role="contentinfo">
+            {{ page.footer }}
+        </footer>
+    {% endif %}
+
+</div>{# /.layout-container #}

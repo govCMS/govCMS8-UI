@@ -8,8 +8,8 @@ stylesheets:
 scripts:
   - js/scripts.js
 regions:
+  nav_secondary: 'Secondary nav'
   header: 'Header'
-  nav_secondary: 'Secondary links'
   nav: 'Nav bar'
   breadcrumb: 'Breadcrumb'
   highlighted: 'Hightlight'

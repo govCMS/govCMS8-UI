@@ -14,4 +14,53 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
     '#default_value' => theme_get_setting('govcmsui_use_bootstrap'),
     '#description'   => t("Do you want to include bootstrap. See <a href='http://getbootstrap.com/' target='_blank'>http://getbootstrap.com/</a>"),
   );
+    $form['govcmsui_use_jquery'] = array(
+        '#type'          => 'checkbox',
+        '#title'         => t('Use jQuery'),
+        '#attributes' => array('disabled' => TRUE),
+        '#default_value' => theme_get_setting('govcmsui_use_jquery'),
+        '#description'   => t("Do you want to include the latest jQuery"),
+    );
+}
+
+function govcmsui_preprocess_page(&$variables) {
+    $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/govicon-white.svg';
+}
+
+function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+    // Swap out jQuery to use an updated version of the library.
+    if(theme_get_setting('govcmsui_use_bootstrap') || theme_get_setting('govcmsui_use_jquery')) {
+        $javascript['core/assets/vendor/jquery/jquery.min.js']['data'] = '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js';
+    }
+    if(theme_get_setting('govcmsui_use_bootstrap')) {
+        $javascript['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'] = array(
+            'weight' => 0,
+            'group' => -99,
+            'version' => '3.3.7',
+            'type' => 'file',
+            'cache' => true,
+            'preprocess' => true,
+            'browsers' => array(),
+            'scope' => 'footer',
+            'attributes' => array(),
+            'data' => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js',
+
+        );
+    }
+}
+
+function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+    if(theme_get_setting('govcmsui_use_bootstrap')) {
+        $css['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'] = array(
+            'weight' => 0,
+            'group' => -99,
+            'version' => '3.3.7',
+            'type' => 'file',
+            'preprocess' => true,
+            'browsers' => array(),
+            'media' => 'all',
+            'data' => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css',
+
+        );
+    }
 }
