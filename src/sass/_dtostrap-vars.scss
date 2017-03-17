@@ -1,0 +1,51 @@
+// Variables
+
+// Colours
+$primary: #18788d;                          // the favourite
+$primary-alt: #27798b;                      // as above but for use on bgs like $blue-light
+$primary-dark: #043751;                     // as above but super dark, use sparingly
+
+$darker-aqua: #115361;
+$dark-aqua: #146577;
+$light-aqua: #5bcbe3;
+
+$gradient-light: #25819e;                   // used only in header background gradient
+$gradient-dark: $primary-dark;              // used only in header background gradient
+
+$blue-light: #dff4f8;                       // light blue, used as a background colour
+$blue-bright: #00bfe9;                      // "Picton Blue", used to highlight
+$blue-dark: #0b3850;                        // navy-ish blue
+
+$grey-light: #f0f3f5;                       // faint background colour
+$grey-border: #bbb;                         // a lighter grey mainly for borders for borders
+$grey: #6e6e6e;                             // lightest a11y compliant body text
+$grey-dark: #313131;                        // near black text
+
+$success: #007554;                          // done
+$info: $blue-bright;                        // blue
+$danger: #cc0000;                           // error
+$warning: #f9c642;                          // warning
+$maroon: #880e48;                           // used for 'beta' label in their example
+
+
+// Border radius options
+$radius-small: 1px;                         // wells etc
+$radius: 3px;                               // default
+$radius-large: ($radius * 4);               // for labels
+
+
+// Font families
+$font-serif: 'Book Antiqua', Georgia, 'Bitstream Vera Serif', serif;
+$font-sans-serif: 'Open Sans', Verdana, 'Bitstream Vera Sans', sans-serif;
+$font-monospace: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
+$font-family-base: $font-sans-serif;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Leading/line-height.
+$base-leading: 1.6;
+$base-heading-leading: 1.4;
+$small-leading: 1.2;
+$double-leading: 2;

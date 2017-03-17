@@ -1,0 +1,37 @@
+// Mixins
+
+
+// @include button-colours($darker-aqua, #fff);
+@mixin button-colours($bg, $fg) {
+  $darken-percent: 8%;
+  background-color: $bg;
+  border-color: darken($bg, $darken-percent);
+  color: $fg;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($bg, $darken-percent);
+    border-color: darken($bg, $darken-percent);
+    color: $fg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &.focus,
+    &:focus {
+      background-color: darken( lighten($bg, $darken-percent), $darken-percent );
+      border-color: $bg;
+      color: $fg;
+    }
+  }
+}
+
+
+// iOS style background blurring
+// TODO: update as more support available
+@mixin blurBG() {
+  $blurAmount: 10px;
+  -webkit-backdrop-filter: blur($blurAmount);
+  backdrop-filter: blur($blurAmount);
+}

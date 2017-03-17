@@ -1,0 +1,1087 @@
+// Elements
+
+
+// Buttons
+.btn {
+  border-radius: $radius-small;
+  transition: 0.16s all;
+}
+.btn-default {
+  // can't use mixin here as its different pattern to the others - has a transparent bg, etc.
+  background-color: transparent;
+  color: $dark-aqua;
+  border-color: $dark-aqua;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $darker-aqua;
+    color: #fff;
+    border-color: darken($darker-aqua, 10%);
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &.focus,
+    &:focus {
+      background-color: #fff;
+      color: $dark-aqua;
+      border-color: $dark-aqua;
+    }
+  }
+}
+.btn-primary {
+  @include button-colours($darker-aqua, #fff);
+}
+.btn-success {
+  @include button-colours($success, #fff);
+}
+.btn-info {
+  @include button-colours($info, $grey-dark);
+}
+.btn-warning {
+  @include button-colours($warning, $grey-dark);
+}
+.btn-danger {
+  @include button-colours($danger, #fff);
+}
+.btn-link {
+  color: $grey-dark;
+  border-bottom: solid 1px $light-aqua;
+  transition: 0.1s all ease-in-out;
+  &:not(:disabled) {
+    &:hover,
+    &:focus,
+    &:active {
+      color: $grey-dark;
+      background-color: $light-aqua;
+      text-decoration: none;
+    }
+  }
+}
+
+// Large forms (commentted out = super large, full width form)
+.input-group-lg > {
+  .form-control,
+  .input-group-addon,
+  .input-group-btn > .btn {
+    border-radius: $radius;
+  }
+}
+
+
+
+// Labels
+.label {
+  font-weight: $font-weight-normal;
+  border-radius: $radius-large;
+}
+.label-default {
+  background-color: $grey;
+}
+.label-primary {
+  background-color: $primary;
+}
+.label-success {
+  background-color: $success;
+}
+.label-info {
+  background-color: $info;
+}
+.label-warning {
+  background-color: $warning;
+  color: $grey-dark;
+}
+.label-danger {
+  background-color: $danger;
+}
+.label-alpha {
+  background-color: $grey-dark;
+}
+.label-beta {
+  background-color: $maroon;
+}
+.label-hover {
+  opacity: 0.8;
+  text-decoration: none !important;
+}
+a {
+  &:hover,
+  &:active,
+  &:focus {
+    .label {
+      @extend .label-hover;
+    }
+  }
+  &.label {
+    &:hover,
+    &:active,
+    &:focus {
+      @extend .label-hover;
+    }
+  }
+  &.label-warning[href] {
+    &:hover,
+    &:active,
+    &:focus {
+      color: $grey-dark;
+      background-color: $warning;
+    }
+  }
+}
+
+
+
+// Progress bars
+.progress-bar {
+  background-color: $maroon;  //  ¯\_(ツ)_/¯ ...I needed another colour
+}
+.progress-bar-default {
+  background-color: $grey;
+}
+.progress-bar-primary {
+  background-color: $primary;
+}
+.progress-bar-success {
+  background-color: $success;
+}
+.progress-bar-info {
+  background-color: $info;
+}
+.progress-bar-warning {
+  background-color: $warning;
+}
+.progress-bar-danger {
+  background-color: $danger;
+}
+
+
+// Badges
+.badge {
+  background-color: $grey;
+}
+
+
+// Alert
+.alert {
+  border-radius: $radius-small;
+  padding: 1.2em;
+  box-shadow: 0 0 8px $grey-border;
+  color: $grey-dark;
+  background: transparent;
+  border: none;
+}
+.alert-default {
+  padding-left: 1.6em;
+}
+.alert-primary {
+  border-left: 0.4em solid $primary;
+}
+.alert-success {
+  border-left: 0.4em solid $success;
+}
+.alert-info {
+  border-left: 0.4em solid $info;
+}
+.alert-warning {
+  border-left: 0.4em solid $warning;
+}
+.alert-danger {
+  border-left: 0.4em solid $danger;
+}
+
+.alert-calendar {
+  border-left: 0.4em solid $primary;
+  .calendar-date,
+  .calendar-name {
+    display: block;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  .calendar-date {
+    font-weight: 700;
+  }
+}
+
+// Basically the p tag equiv of above
+.text-muted {
+  color: $grey;
+}
+.text-primary {
+  color: $primary;
+}
+.text-success {
+  color: $success;
+}
+.text-info {
+  color: darken($info, 15%);  // darker for a11y
+}
+.text-warning {
+  color: darken($warning, 15%); // darker to atempt a11y - but please, just don't use this
+}
+.text-danger {
+  color: $danger;
+}
+
+
+
+
+// Jumbotrons and Wells
+.jumbotron,
+.well {
+  border-radius: $radius-small;
+  border: 0;
+  background-color: $grey-light;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:first-child {
+      margin-top: 0;
+      margin-bottom: 0.8em;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.container {
+  .jumbotron{
+    h1 {
+      font-size: 230%;
+    }
+  }
+}
+
+
+.page-header {
+  border-bottom: 1px solid $grey-light;
+}
+
+
+
+
+
+// Inline list of links
+.nav-tabs,
+.nav-pills {
+  border-bottom: 1px solid $grey;
+  li {
+    list-style: none;
+    a {
+      border-radius: 0;
+      border: none;
+      border-bottom: solid 4px transparent;
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $blue-bright;
+        border-bottom-color: $primary;
+        border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
+      }
+    }
+    &.active {
+      & > a {
+        color: $primary;
+        background-color: $blue-light;
+        margin-right: 0;
+        border: none;
+        border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
+        &:active,
+        &:focus,
+        &:hover {
+          color: $primary;
+          background-color: $blue-light;
+          border: none;
+          border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
+        }
+        .badge {
+          background-color: $primary;
+          color: #fff;
+        }
+      }
+    }
+    & + li {
+      margin-left: 0;
+    }
+  }
+}
+
+
+
+// Breadcrumbs
+.breadcrumb {
+  background-color: $grey-light;
+  margin-top: 10px;
+  .active {
+    color: $grey-dark;
+  }
+  li {
+    margin-bottom: 2px;
+    &+li:before {
+      content: "\0203A";
+      color: $grey;
+      padding: 0 15px;
+    }
+  }
+}
+
+
+
+// Pagination
+.pagination,
+.pager {
+  & > li {
+    & > a,
+    & > span {
+      color: $primary;
+      background-color: #fff;
+      border: 1px solid $grey-border;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $grey-dark;
+        color: $darker-aqua;
+        background-color: $grey-light;
+        border: 1px solid $dark-aqua;
+      }
+      &:active,
+      &:focus {
+        color: $grey-dark;
+        background-color: $light-aqua;
+        border-color: $grey;
+      }
+    }
+    &:first-child > {
+      a,
+      span {
+        border-top-left-radius: $radius-small;
+        border-bottom-left-radius: $radius-small;
+      }
+    }
+    &:last-child > {
+      a,
+      span {
+        border-top-right-radius: $radius-small;
+        border-bottom-right-radius: $radius-small;
+      }
+    }
+    &.active {
+      a,
+      span {
+        background-color: $darker-aqua;
+        border-color: $darker-aqua;
+        &:hover,
+        &:active,
+        &:focus {
+          color: #fff;
+          background-color: $darker-aqua;
+          border-color: $darker-aqua;
+        }
+      }
+    }
+    &.disabled {
+      a,
+      span {
+        color: $grey;
+        background-color: #fff;
+        border-color: $grey-border;
+      }
+    }
+  }
+}
+.pager {
+  li {
+    a,
+    span {
+      border-radius: $radius-small;
+    }
+  }
+}
+
+
+
+
+// Forms
+form {
+  [type='text'],
+  [type='number'],
+  [type='tel'],
+  [type='email'],
+  [type='password'],
+  input[type='radio'],
+  input[type='checkbox']
+  select,
+  optgroup,
+  textarea {
+    font: inherit;
+    padding: 1.1em 0.7em;
+    &:active,
+    &:focus {
+      outline: 2px solid $light-aqua;
+    }
+  }
+  [type='text']:invalid,
+  [type='number']:invalid,
+  [type='tel']:invalid,
+  [type='email']:invalid,
+  [type='password']:invalid,
+  textarea:invalid,
+  input[type='radio']:invalid,
+  input[type='checkbox']:invalid,
+  .invalid[type='text'],
+  .invalid[type='number'],
+  .invalid[type='tel'],
+  .invalid[type='email'],
+  .invalid[type='password'],
+  textarea.invalid,
+  input.invalid[type='radio'],
+  input.invalid[type='checkbox'] {
+      outline: 2px solid $danger;
+  }
+}
+.help-block {
+  color: $grey;
+}
+.has-success {
+  .checkbox,
+  .checkbox-inline,
+  .control-label,
+  .help-block,
+  .radio,
+  .radio-inline,
+  &.checkbox label,
+  &.checkbox-inline label,
+  &.radio label,
+  &.radio-inline label {
+    color: $success;
+  }
+}
+.has-warning {
+  .checkbox,
+  .checkbox-inline,
+  .control-label,
+  .help-block,
+  .radio,
+  .radio-inline,
+  &.checkbox label,
+  &.checkbox-inline label,
+  &.radio label,
+  &.radio-inline label {
+    color: $warning;
+  }
+}
+.has-error {
+  .checkbox,
+  .checkbox-inline,
+  .control-label,
+  .help-block,
+  .radio,
+  .radio-inline,
+  &.checkbox label,
+  &.checkbox-inline label,
+  &.radio label,
+  &.radio-inline label {
+    color: $danger;
+  }
+}
+.form-control {
+  border-radius: $radius-small;
+}
+
+// TODO:
+// Custom styled radio btns and checkboxes
+// form input {
+//   &[type='radio'],
+//   &[type='checkbox'] {
+//     height: 1px;
+//     left: -10000px;
+//     position: absolute;
+//     visibility: visible;
+//     width: 1px;
+//   }
+//   &[type='radio']:focus + label,
+//   &[type='checkbox']:focus + label {
+//     outline: 1px solid $grey-border;
+//   }
+//   &[type='radio']:invalid + label,
+//   &[type='checkbox']:invalid + label {
+//     color: $danger;
+//   }
+//   &[type='radio']:invalid + label:before,
+//   &[type='checkbox']:invalid + label:before {
+//     border-color: $danger;
+//   }
+//   &[type='radio'] + label,
+//   &[type='checkbox'] + label {
+//     display: inline-block;
+//     float: left;
+//     width: 100%;
+//     margin-left: 0.8em;
+//   }
+//   &[type='radio'] + label:before,
+//   &[type='checkbox'] + label:before {
+//     display: inline-block;
+//     float: left;
+//     height: 27px;
+//     width: 27px;
+//     text-align: center;
+//     margin-right: 14px;
+//   }
+//   &[type='radio'] {
+//     + label:before {
+//       border: 2px solid $grey-dark;
+//       border-radius: 50%;
+//       content: '';
+//       left: 18px;
+//     }
+//     &:checked + label {
+//       font-weight: bold;
+//       &:before {
+//         border-radius: 50%;
+//         content: "";
+//       }
+//       &:after {
+//         width: 17px;
+//         height: 17px;
+//         background-color: $grey-dark;
+//         border: 1px solid transparent;
+//         border-radius: 50%;
+//         content: '';
+//         float: left;
+//         margin-left: -36px;
+//         margin-top: 5px;
+//       }
+//     }
+//   }
+//   &[type='checkbox'] {
+//     + label:before {
+//       border: 2px solid $grey-dark;
+//       content: "";
+//     }
+//     &:checked + label {
+//       font-weight: bold;
+//       &:before {
+//         font-size: 18px;
+//         content: "";
+//       }
+//       &:after {
+//         width: 17px;
+//         height: 17px;
+//         background-color: $grey-dark;
+//         border: 1px solid transparent;
+//         content: '';
+//         float: left;
+//         margin-left: -36px;
+//         margin-top: 5px;
+//       }
+//     }
+//   }
+// }
+
+
+
+
+
+// Tables
+.table {
+  & > tbody > tr:nth-of-type(even) {
+    background-color: $grey-light;
+  }
+}
+.table {
+  & > thead,
+  & > tbody,
+  & > tfoot {
+    & > tr {
+      &>td,
+      &>th {
+        border-top: 1px solid $grey-light;
+        padding: 1em;
+      }
+      & > td {
+        border-bottom: solid 1px $grey-border;
+      }
+    }
+  }
+  & > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: solid 2px $grey;
+  }
+}
+.table-bordered {
+  border: 1px solid $grey-light;
+  & > thead,
+  & > tbody,
+  & > tfoot {
+    & > tr {
+      &>td,
+      &>th {
+        border: 1px solid $grey-light;
+      }
+    }
+  }
+}
+
+
+
+// Images
+.img-circle,
+.img-rounded,
+.img-thumbnail {
+  border: 1px solid $grey-light;
+}
+.img-rounded,
+.img-thumbnail {
+  border-radius: $radius;
+}
+
+// Thumbnails
+.thumbnail {
+  padding: 0;
+  border: 1px solid $grey-light;
+  .caption {
+    padding: 9px 13px;
+    .meta,
+    time,
+    small {
+      @extend .meta;
+      padding: 0.8em 0;
+      display: inline-block;
+    }
+  }
+}
+
+// Misc. ".meta" text
+.meta {
+  color: $grey;
+}
+
+// Media
+.media-heading {
+  margin-bottom: 10px;
+}
+.media-left {
+  a {
+    border-bottom: 0;
+    display: inline-block;
+  }
+}
+
+
+// Panels / accordions / collapsible navigation
+.panel {
+  .panel-heading,
+  .panel-footer {
+    background-color: $grey-light;
+  }
+  .panel-heading {
+    color: #fff;
+    padding: 0;
+    border-top-left-radius: $radius-small;
+    border-top-right-radius: $radius-small;
+    .panel-title {
+      padding: 1.5em 1em;
+    }
+    a.panel-title { // Yes, that's right - the a tag is the title. Heading needs to be nested unless http://caniuse.com/#feat=css-has or silimar car be used 😒
+      display: block;
+      border-bottom: none;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $grey-border;
+      }
+      &:after {   // ">" symbol
+        font-family:'Glyphicons Halflings';
+        content: "\e113";
+        float: right;
+        color: $grey;
+      }
+      &.collapsed:after {
+        content: "\e114";
+      }
+      & > * {   // Stop the h4 etc from stuffing up the ">" symbol location
+        display: inline;
+      }
+    }
+  }
+  .panel-body {
+    padding: 1.5em 1em;
+  }
+  .panel-footer {
+    border-top: 1px solid $grey-border;
+    padding: 1.2em 1em;
+    border-bottom-right-radius: $radius-small;
+    border-bottom-left-radius: $radius-small;
+  }
+}
+
+// Panel types
+.panel-default {
+  border-color: $grey-border;
+  .panel-heading {
+    color: $grey-dark;
+    border: none;
+  }
+  .panel-body {
+    border-top: 1px solid $grey-border !important;
+  }
+}
+.panel-primary {
+  border-color: $primary;
+  .panel-heading {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+.panel-success {
+  border-color: $success;
+  .panel-heading {
+    background-color: $success;
+    border-color: $success;
+  }
+}
+.panel-info {
+  border-color: $info;
+  .panel-heading {
+    background-color: $info;
+    border-color: $info;
+    color: $grey-dark;  // for a11y
+  }
+}
+.panel-warning {
+  border-color: $warning;
+  .panel-heading {
+    background-color: $warning;
+    border-color: $warning;
+    color: $grey-dark;  // for a11y
+  }
+}
+.panel-danger {
+  border-color: $danger;
+  .panel-heading {
+    background-color: $danger;
+    border-color: $danger;
+  }
+}
+
+
+
+// List groups
+.list-group {
+  border-radius: 0;
+  .list-group-item.active {
+    background-color: $primary;
+  }
+  &.list-group-icon {
+    margin-top: 2em;
+    .list-group-item {
+      font-size: 18px;  // Visually like a h4
+      font-weight: bold;
+      padding: 0.8em 0 1.6em 30px; // Extra padding ...for some reason (requested by SDT)
+      a {
+        padding: 2px;
+        margin-left: 45px;
+        &:hover,
+        &:active,
+        &:focus {
+          .icon {
+            color: $light-aqua;
+          }
+        }
+        .icon {
+          margin-left: -65px;
+          color: $grey;
+          font-size: 35px;
+          top: 7px;
+          position: relative;
+          &:before {
+            margin-right: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
+.list-group-item {
+  border: 1px solid $grey-border;
+  border-left: none;
+  border-right: none;
+  &:first-child,
+  &:last-child {
+    border-radius: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 10px;
+  }
+  .list-group-item-text {
+    margin-bottom: 10px;
+  }
+}
+.repeat-word {
+  a {
+    font-size: 150%;
+    font-weight: 700;
+    line-height: 1.4;
+    display: inline-block;
+    span {
+      display: block;
+      font-size: 65%;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      font-size: 100%;
+    }
+  }
+}
+
+
+
+// forms
+.input-group-addon {
+    border-radius: $radius;
+}
+.input-group-addon {
+  color: $grey;
+  background-color: $grey-light;
+  border: 1px solid $grey-border;
+}
+.form-control {
+  color: $grey;
+  border: 1px solid $grey-border;
+}
+select.form-control {
+  margin-bottom: 10px;
+}
+
+
+
+
+// Dropdown Menus
+.dropdown-menu {
+  li {
+    margin: 0;
+    padding: 0;
+    a {
+      padding: 1em;
+      margin: 0;
+      color: $primary-dark;
+    }
+    &.dropdown-header {
+      padding: 15px 20px 5px 0.5em;
+    }
+  }
+}
+
+
+.caret {
+  border-top-color: $primary-dark;
+}
+
+
+
+// Code snippets
+pre,
+code {
+  background-color: $grey-light;
+}
+kbd {
+  display: inline-block;
+  border: solid 1px $light-aqua;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 0 $light-aqua;
+  background-color: $grey-light;
+  color: $dark-aqua;
+  text-align: center;
+  font-size: 87.5%;
+  padding: 0 0.8em;
+  margin: 1px 0.4em;
+  kbd {
+    border: none;
+  }
+}
+
+
+// This isn't bootstrap, but may be useful
+.index-links {
+  margin: 3.2em 0 1.6em 0;
+  border-left: 0.4em solid $grey-light;
+  padding: 0 0 1.2em 1.2em;   // yes, this is uneven. Should be: '0 0 0 1.2em' imo, but sticking to their look.
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1em;
+    margin-top: 1.6em;
+    padding-bottom: 1.2em;
+    color: $grey;
+    font-weight: 400;
+  }
+  a {
+    font-weight: bold;
+  }
+  ul,
+  ol {
+    padding-left: 0;
+    list-style: none;
+    ul,
+    ol {
+      padding-left: 2em;  // in case nested
+    }
+  }
+  li:not(:last-of-type) {
+    margin-bottom: 1.5em;
+  }
+}
+
+
+// Slider / Carousel
+.carousel {
+  .carousel-control {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+
+
+// Dsahboard
+.dashboard-item {
+  margin: 1em 0 3em 0;
+  .dashboard-icon {
+    font-size: 8em;
+    color: $primary;
+    margin-bottom: 0.2em;
+  }
+  .dashboard-title {
+    margin: 0;
+    padding-bottom: 0.5em;
+  }
+  .dashboard-more-info {
+    outline: 0;
+    transition: all .2s;
+    font-size: 80%;
+    color: #fff;
+    border-bottom: none;
+    background-color: $primary;
+    border-radius: 100%;
+    width: 1.1em;
+    height: 1.1em;
+    display: inline-block;
+    top: 0.2em;
+    position: relative;
+    &:hover,
+    &:active,
+    &:focus{
+      color: $primary-alt;
+      text-decoration: none;
+      background-color: transparent;
+    }
+    i {
+      top: -0.15em;
+      position: relative;
+    }
+  }
+  .dashboard-highlight {
+    color: $primary;
+    display: block;
+    font-size: 180%;
+    margin: 0.5em 0;
+    a {
+      padding: 0.5em 0.1em 0;
+      color: $primary;
+      &:hover,
+      &:active,
+      &:focus{
+        color: $grey-dark;
+      }
+    }
+    strong {
+      font-size: 180%;
+      a {
+        padding: 0;
+      }
+    }
+  }
+  .dashboard-extra {
+    color: $grey-dark;
+  }
+}
+
+// Popovers
+.popover {
+  border-radius: $radius;
+  &.right > .arrow {
+    left: -11px;
+  }
+  .popover-title {
+    background-color: $grey-light;
+    color: $primary-dark;
+    font-weight: 500;
+  }
+}
+
+
+
+// Date layout - mostly stolen from previous work on australia.gov.au
+.calendar-list {
+  max-width: 48em;
+  padding-left: 0;
+  .calendar-item {
+    display: table;
+    width: 100%;
+    background-color: $grey-light;
+    border-bottom: 1px solid #fff;
+    .calendar-number {
+      display: block;
+      margin: 6px 0;
+      color: $primary;
+      font-size: 1.8em;
+    }
+    .calendar-title {
+      padding: 0 0 0 20px;
+      line-height: 1.4;
+      padding-top: 3px;
+      font-size: 1.25em;
+    }
+    .calendar-note {
+      font-size: 14px;
+      display: block;
+      margin: 3px 0;
+      padding-right: 10px;
+      color: $grey-dark;
+    }
+    .calendar-date,
+    .calendar-name {
+      width: 70px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 0.8;
+      padding: 12px 10px;
+      border-right: 1px solid #fff;
+    }
+    .calendar-date,
+    .calendar-title {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+// Header, Footer and other global styles
+
+body {
+  // Page header
+  & > header {
+    background-color: $gradient-dark;
+    background: linear-gradient(200deg, $gradient-light, $gradient-dark 80%);
+    color: #fff;
+    padding: 1.6em 0;
+    margin-bottom: 1.6em;
+    a {
+      color: #fff;
+    }
+    .navbar-brand,
+    .brand-name {
+      font-weight: 400;
+      margin: 0;
+      font-size: 30px;
+      a {
+        &:hover,
+        &:active,
+        &:focus {
+          color: #fff;
+          opacity: 0.9;
+        }
+        img {
+          display: inline-block;
+          margin-right: 20px;
+        }
+      }
+      .label {
+        position: relative;
+        margin-right: -3.65em;
+        padding: 0 10px;
+        margin-left: 0.3em;
+        background-color: $primary;
+        transition: all 0.2s;
+        font-size: 47%;
+        top: -0.38em;
+        padding-bottom: 0.1em;
+      }
+    }
+    a {
+      &:hover,
+      &:active,
+      &:focus {
+        .caret {
+          border-top-color: $primary-dark;
+        }
+        .label {
+          opacity: 1;
+        }
+      }
+    }
+    &.navbar {
+      border-radius: 0;
+    }
+    .navbar-right {
+      // vertically center the menu, assuming default logo size is used. TODO: do this smarter.
+      // margin-top: 0.5em;
+      margin-top: 1.1em;
+    }
+    .caret {
+      border-top-color: #fff;
+    }
+    // Inverted colour scheme
+    .inverse {
+      // TODO ********************
+    }
+    .brand.style-line {   // DTO 3 shades of $blue thick underline
+      a {
+        &:before {
+          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
+          height: 7px;
+          background-color: $gradient-light;
+          background-size: 2.4em 7px;
+          content: "";
+          position: relative;
+          bottom: -2.1em;
+          // right: 5.3em;  // normal label size
+          right: 5.7em;     // smaller, inline label size
+          float: right;
+          width: 2.4em;
+        }
+        &:after {
+          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
+          height: 7px;
+          background: linear-gradient(to left, $blue-bright 0, $blue-bright 25%, $blue-light 25%, $blue-light 75%, $gradient-light 75%) no-repeat;
+          background-size: 2.4em 7px;
+          content: "";
+          position: relative;
+          bottom: -2.1em;
+          // right: 2.4em;  // normal label size
+          right: 2.75em;    // smaller, inline label size
+          float: right;
+          width: 2.9em;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+          opacity: 1;
+          text-decoration: none;
+          &:before {
+            // right: 7.3em;  // normal label size
+            right: 7.65em;    // smaller, inline label size
+          }
+        }
+      }
+    }
+  }
+
+
+  // Page header
+  .page-header {
+    margin-top: 100px;
+  }
+
+  .navbar + .jumbotron {
+    margin-top: -20px;
+  }
+
+
+  // Footer
+  & > footer {
+    margin-top: 3.2em;
+    padding: 1.6em 0;
+    background-color: $grey-light;
+    border-top: 6px solid #043751;
+    .row {
+      padding-bottom: 3em;
+      margin-bottom: 3em;
+      border-bottom: 1px solid $grey-border;
+      &:last-of-type {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+    small {
+      display: inline-block;
+      margin-top: 2.2em;
+    }
+  }
+}

@@ -1,0 +1,229 @@
+// Responsive styles
+
+@media (min-width: 992px) {
+  .navbar-header {
+    width: 50%
+  }
+} // min-width: 992px
+
+
+@media (max-width: 991px) {
+  .brand {
+    width: 100%;
+    &.style-line a {
+      &:before,
+      &:after {
+        display: none;  // It's lovely to have, but not worth the effort to get it aligned on small screens atm...
+      }
+    }
+  }
+} // max-width: 991px
+
+
+@media (min-width: 768px) {
+  header {
+    .navbar-header {
+      width: 45%;
+      .brand-name a {
+        margin-top: 0.25em;
+        display: block;
+      }
+    }
+  }
+} // min-width: 768px
+
+
+// Breakpoint for mobile/hamburger menu
+@media (max-width: 767px) {
+  // Main menu
+  .navbar-toggle {
+    border: 1px solid #fff;
+    margin-top: 1.05em;
+    border-radius: $radius-small;
+    .icon-bar {
+      background-color: #fff;
+      transition: color 0.2s, opacity 0.4s, transform 0.6s
+    }
+    &:not(.collapsed) {
+      .icon-bar {
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+        &:nth-of-type(4) {
+          transform: rotate(45deg);
+          margin-top: -2px !important;
+          margin-bottom: 6px;
+        }
+        &:nth-of-type(3) {
+          transform: rotate(-225deg);
+          margin-top: 6px;
+          // If we want a "^" instead, tweaks thsese:
+          // margin-top: -2px !important;
+          // margin-bottom: 6px;
+          // margin-left: 8px;
+        }
+      }
+    }
+  }
+  .navbar-collapse {
+    border-top: none;
+    box-shadow: none;
+    margin-top: 1em;
+    background-color: rgba(#fff, 0.1);
+    @include blurBG();
+    li a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: #fff;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $grey-dark;
+      }
+    }
+    .dropdown {
+      .divider {
+        background-color: rgba(#fff, 0.5);
+      }
+    }
+    .dropdown.open {
+      color: $grey-dark;
+      background-color: rgba(#fff, 0.3);
+      li a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    }
+    .dropdown.open > a,
+    .dropdown > a:hover {
+      color: $grey-dark;
+    }
+    .dropdown-header {
+      color: $blue-light;
+      margin-left: -10px;
+    }
+  }
+  body > header .brand-name {
+    margin: 0 15px;
+  }
+  // Date layouts - mostly stolen from previous work on australia.gov.au
+  .calendar-list {
+    .calendar-item {
+      .calendar-title {
+        padding-bottom: 10px;
+        line-height: 1.1;
+      }
+    }
+  }
+} // max-width: 768px
+
+
+
+
+@media screen and (min-width: 768px) {
+  header {
+    .brand.has-img {
+      margin-top: -0.5em;
+      img {
+        margin-top: 0.5em;
+      }
+    }
+  }
+  form input[type='radio']+label::before,
+  form input[type='checkbox']+label::before {
+    top:9px
+  }
+  form input[type='radio']:checked+label::after {
+    top:14px
+  }
+  .nav-tabs.nav-justified>li>a {
+    border-bottom: 4px solid transparent;
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom-color: $primary;
+    }
+  }
+
+  // DTO style colour bar under site title in header
+  // - very much made to work for the specific content, so will need to tweak for other headings
+  // - made cooler with on hover awesomeness :) ...but not for IE - see _browser-hacks.scss
+  header {
+    .brand.style-line {
+      a {
+        &:before {
+          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
+          height: 7px;
+          background-color: $gradient-light;
+          background-size: 2.4em 7px;
+          content: "";
+          position: relative;
+          bottom: -2.1em;
+          right: 5.3em;
+          float: right;
+          width: 2.4em;
+        }
+        &:after {
+          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
+          height: 7px;
+          background: linear-gradient(to left, $blue-bright 0, $blue-bright 25%, $blue-light 25%, $blue-light 75%, $gradient-light 75%) no-repeat;
+          background-size: 2.4em 7px;
+          content: "";
+          position: relative;
+          bottom: -2.1em;
+          right: 2.4em;
+          float: right;
+          width: 2.9em;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+          opacity: 1;
+          text-decoration: none;
+          &:before {
+            right: 7.3em;
+          }
+        }
+      }
+    }
+  }
+} // min-width 768px
+
+
+
+@media (min-width: 430px) {
+  .popover-title {
+    min-width: 200px;
+  }
+  header .navbar-header {
+    display: inline-block;
+  }
+} // min-width 400px
+
+
+
+// Center align the header
+@media (max-width: 430px) {
+  body > header {
+    a {
+      display: block;
+    }
+    .brand-name{
+      text-align: center;
+      margin: 0;
+      img {
+        width: 100%;
+        margin: auto;
+      }
+      .label {
+        margin: 0;
+      }
+    }
+    .navbar-toggle {
+      float: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+} // max-width 430px
