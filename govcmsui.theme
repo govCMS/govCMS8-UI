@@ -2,24 +2,54 @@
 
 
 function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
-  // Work-around for a core bug affecting admin themes. See issue #943212.
-  if (isset($form_id)) {
+    // Work-around for a core bug affecting admin themes. See issue #943212.
+    if (isset($form_id)) {
     return;
-  }
+    }
 
-  $form['govcmsui_use_bootstrap'] = array(
+    // Let's tidy up the page by minifying all options
+    foreach($form as &$form_item) {
+        $form_item['#open'] = false;
+    }
+
+    // govCMS UI Framework Settings
+    $form['govcmsui_framework_details'] = array(
+      '#type' => 'details',
+      '#title' => t('govCMS Theme Framework'),
+      '#open' => false,
+      '#description' => t('Options for the govCMS Framework e.g. Bootstrap, govau UI Toolkit, jQuery')
+    );
+    $form['govcmsui_framework_details']['govcmsui_use_bootstrap'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Use Bootstrap'),
-    '#attributes' => array('disabled' => TRUE),
+    '#attributes' => array('disabled' => FALSE),
     '#default_value' => theme_get_setting('govcmsui_use_bootstrap'),
     '#description'   => t("Do you want to include bootstrap. See <a href='http://getbootstrap.com/' target='_blank'>http://getbootstrap.com/</a>"),
-  );
-    $form['govcmsui_use_jquery'] = array(
+    );
+    $form['govcmsui_framework_details']['govcmsui_use_jquery'] = array(
         '#type'          => 'checkbox',
         '#title'         => t('Use jQuery'),
-        '#attributes' => array('disabled' => TRUE),
+        '#attributes' => array('disabled' => FALSE),
         '#default_value' => theme_get_setting('govcmsui_use_jquery'),
         '#description'   => t("Do you want to include the latest jQuery"),
+    );
+
+    $form['govcmsui_coa_details'] = array(
+        '#type' => 'details',
+        '#title' => t('Coat of Arms'),
+        '#open' => false,
+        '#description' => t('Select which Coat of Arms you want to display on your site')
+    );
+    $form['govcmsui_coa_details']['govcmsui_coa'] = array(
+        '#type' => 'radios',
+        '#default_value' => theme_get_setting('govcmsui_coa'),
+        '#options' => array(
+            0 => t('None (I\'ll use my own)'),
+            1 => t('Inline (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-inline-admin.svg" /></p>',
+            2 => t('Inline (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-inline-colour.svg" /></p>',
+            3 => t('Stacked (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-admin.svg" /></p>',
+            4 => t('Stacked (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-colour.svg" /></p>',
+         ),
     );
 }
 
@@ -37,7 +67,7 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
             'weight' => 0,
             'group' => -99,
             'version' => '3.3.7',
-            'type' => 'file',
+            'type' => 'external',
             'cache' => true,
             'preprocess' => true,
             'browsers' => array(),
@@ -55,7 +85,7 @@ function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $a
             'weight' => 0,
             'group' => -99,
             'version' => '3.3.7',
-            'type' => 'file',
+            'type' => 'external',
             'preprocess' => true,
             'browsers' => array(),
             'media' => 'all',
