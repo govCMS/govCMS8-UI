@@ -90,6 +90,20 @@ $info = array(
         'link' => '#0073b6',
       ),
     ),
+    'tim' => array(
+      'title' => t('Tim'),
+      'colors' => array(
+          'top' => '#d5078a',
+          'bottom' => '#d3abc5',
+          'bg' => '#815f75',
+          'sidebar' => '#ffffff',
+          'sidebarborders' => '#d0d0d0',
+          'footer' => '#323acd',
+          'titleslogan' => '#ffffff',
+          'text' => '#2f6043',
+          'link' => '#0073b6',
+      ),
+    ),
   ),
 
   // CSS files (excluding @import) to rewrite with new color scheme.
