@@ -44,23 +44,38 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         '#type' => 'radios',
         '#default_value' => theme_get_setting('govcmsui_coa'),
         '#options' => array(
-            0 => t('None (I\'ll use my own)'),
-            1 => t('Inline (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-inline-admin.svg" /></p>',
-            2 => t('Inline (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-inline-colour.svg" /></p>',
-            3 => t('Stacked (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-admin.svg" /></p>',
-            4 => t('Stacked (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-colour.svg" /></p>',
+            '' => t('None (I\'ll use my own)'),
+            'coas-inline.svg' => t('Inline (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-inline-admin.svg" /></p>',
+            'coas-inline-colour.svg' => t('Inline (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-inline-colour.svg" /></p>',
+            'coas-stacked.svg' => t('Stacked (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-admin.svg" /></p>',
+            'coas-stacked-colour.svg' => t('Stacked (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-colour.svg" /></p>',
          ),
     );
 }
 
 function govcmsui_preprocess_page(&$variables) {
-    $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/govicon-white.svg';
+    $coa = theme_get_setting('govcmsui_coa');
+    if(!empty($coa)) {
+        $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/' . $coa;
+    }
 }
 
 function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
     // Swap out jQuery to use an updated version of the library.
     if(theme_get_setting('govcmsui_use_bootstrap') || theme_get_setting('govcmsui_use_jquery')) {
-        $javascript['core/assets/vendor/jquery/jquery.min.js']['data'] = '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js';
+        $javascript['//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'] = array(
+            'weight' => 0,
+            'group' => -98,
+            'version' => '3.1.1',
+            'type' => 'external',
+            'cache' => true,
+            'preprocess' => true,
+            'browsers' => array(),
+            'scope' => 'footer',
+            'attributes' => array(),
+            'data' => '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
+
+        );
     }
     if(theme_get_setting('govcmsui_use_bootstrap')) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'] = array(
