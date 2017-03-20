@@ -10,7 +10,7 @@ regions:
   header: 'Header'
   nav: 'Nav bar'
   breadcrumb: 'Breadcrumb'
-  highlighted: 'Hightlight'
+  highlighted: 'Highlight'
   help: 'Help'
   content: 'Content'
   sidebar_first: 'Sidebar first'

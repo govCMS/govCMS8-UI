@@ -1770,14 +1770,60 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
 .region-nav-secondary {
   background-color: #000000;
   color: #FFFFFF;
-  padding: 10px 0px;
+  padding: 0px;
 }
 .region-nav-secondary a {
   color: #FFFFFF;
 }
 
-nav.navbar div.navbar-header a {
+ul.menu.admin-nav-menu {
+  text-align: right;
+  margin-right: 15px;
+  margin-bottom: 0px;
+}
+ul.menu.admin-nav-menu li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+ul.menu.admin-nav-menu li:hover {
+  background-color: #00bfe9;
+}
+ul.menu.admin-nav-menu a {
   border-bottom: none;
+  font-size: 75%;
+}
+
+div.main-nav {
+  background-color: #f0f3f5;
+  border-bottom: 4px solid #bbb;
+}
+div.main-nav .nav-tabs.nav-justified {
+  margin-bottom: -4px;
+}
+div.main-nav .nav-tabs.nav-justified > li > a {
+  border-radius: 0px;
+  border-bottom: 4px solid transparent;
+}
+div.main-nav .nav-tabs.nav-justified > li > a:hover {
+  border-radius: 0px;
+}
+
+header.navbar {
+  border-top: none;
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+header.navbar nav.navbar {
+  margin-bottom: 0px;
+}
+header.navbar nav.navbar div.navbar-header {
+  width: 90%;
+}
+header.navbar nav.navbar div.navbar-header a {
+  border-bottom: none;
+}
+header.navbar nav.navbar div.navbar-header a:hover {
+  background-color: transparent;
 }
 
 @font-face {

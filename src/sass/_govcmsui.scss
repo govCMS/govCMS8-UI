@@ -7,17 +7,66 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
 .region-nav-secondary {
   background-color: #000000;
   color: #FFFFFF;
-  padding: 10px 0px;
+  padding: 0px;
 
   a {
     color: #FFFFFF;
   }
 }
 
-nav.navbar {
-  div.navbar-header {
-    a {
-      border-bottom: none;
+ul.menu.admin-nav-menu {
+  text-align:right;
+  margin-right: 15px;
+  margin-bottom: 0px;
+
+  li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:hover {
+      background-color: $blue-bright;
+    }
+  }
+
+  a {
+    border-bottom: none;
+    font-size: 75%;
+  }
+}
+
+div.main-nav {
+  background-color: #f0f3f5;
+  border-bottom: 4px solid #bbb;
+
+  .nav-tabs.nav-justified {
+    margin-bottom: -4px;
+
+    & > li > a {
+      border-radius: 0px;
+      border-bottom: 4px solid transparent;
+
+      &:hover {
+        border-radius: 0px;
+      }
+    }
+  }
+
+}
+
+header.navbar {
+  border-top: none;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  nav.navbar {
+    margin-bottom: 0px;
+    div.navbar-header {
+      width: 90%;
+      a {
+        border-bottom: none;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
     }
   }
 }

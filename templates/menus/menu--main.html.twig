@@ -32,9 +32,9 @@
       {% import _self as menus %}
       {% if items %}
         {% if menu_level == 0 %}
-<ul{{ attributes.addClass('menu', 'list-inline', 'small-links', 'admin-nav-menu') }}>
+<ul{{ attributes.addClass('main-menu', 'nav', 'nav-justified', 'nav-tabs') }}>
     {% else %}
-    <ul>
+    <ul {{ attributes.addClass('dropdown-menu') }}>
         {% endif %}
         {% for item in items %}
             <li{{ item.attributes }}>
