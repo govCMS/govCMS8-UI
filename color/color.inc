@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Lists available colors and color schemes for the Bartik theme.
+ * Lists available colors and color schemes for the govCMS theme.
  */
 
 $info = array(
@@ -124,7 +124,7 @@ $info = array(
   ),
 
   // Preview files.
-  'preview_library' => 'color.preview',
+  'preview_library' => 'govcmsui/color.preview',
   'preview_html' => 'color/preview.html',
 
   // Attachments.
