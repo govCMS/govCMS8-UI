@@ -36,6 +36,7 @@
 
       // Footer wrapper background.
       $colorPreview.find('.color-preview-footer-wrapper').css('background-color', $colorPalette.find('input[name="palette[footer]"]').val());
+      $colorPreview.find('.color-preview-footer-footer-wrapper').css('background-color', $colorPalette.find('input[name="palette[footerlinks]"]').val());
 
       // CSS3 Gradients.
       var gradient_start = $colorPalette.find('input[name="palette[top]"]').val();

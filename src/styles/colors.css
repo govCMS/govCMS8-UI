@@ -52,6 +52,10 @@ a:active,
   background: #3F7A9F;
 }
 
+footer {
+  background-color: #f0f3f5;
+}
+
 .region-header,
 .region-header a,
 .region-header li a.is-active,
