@@ -41,8 +41,15 @@
                         {{ page.sidebar_first }}
                     </aside>
                 {% endif %}
-
-                <section id="main-content-section" class="col-sm-6 content-section" role="main">
+                {%
+                    set content_classes = [
+                    page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+                    page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
+                    page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+                    page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+                ]
+                %}
+                <section id="main-content-section" {{ content_attributes.addClass(content_classes) }} role="main">
                     <div id="page-content">
                         {{ page.content }}
                     </div>
@@ -53,7 +60,7 @@
                         {{ page.sidebar_second }}
                     </aside>
                 {% endif %}
-            </div.
+            </div>
         </div>
     </main>
     {% if page.sub_footer %}
