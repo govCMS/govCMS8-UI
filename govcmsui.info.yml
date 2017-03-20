@@ -3,10 +3,8 @@ type: theme
 description: 'A Drupal 8 theme for govCMS incorporating the DTA ui toolkit.'
 core: 8.x
 base theme: classy
-stylesheets:
-  - css/styles.css
-scripts:
-  - js/scripts.js
+libraries:
+  - govcmsui/govcmsui
 regions:
   nav_secondary: 'Secondary nav'
   header: 'Header'

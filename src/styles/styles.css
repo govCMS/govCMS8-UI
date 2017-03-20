@@ -1764,6 +1764,18 @@ kbd kbd {
     margin-right: auto;
   }
 }
+/**
+This stuff below here, should really go in DTOStrap / and / or UI KIT once we get that in.
+*/
+.region-nav-secondary {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 10px 0px;
+}
+.region-nav-secondary a {
+  color: #FFFFFF;
+}
+
 @font-face {
   font-family: 'god-icons';
   src: url("../font/god-icons.eot?66833308");

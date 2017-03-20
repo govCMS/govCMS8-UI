@@ -1,4 +1,11 @@
 
+govcmsui:
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    js/scripts.js: {}
+
 color.preview:
   version: VERSION
   css:
