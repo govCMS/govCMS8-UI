@@ -40,6 +40,7 @@
       // CSS3 Gradients.
       var gradient_start = $colorPalette.find('input[name="palette[top]"]').val();
       var gradient_end = $colorPalette.find('input[name="palette[bottom]"]').val();
+      alert(gradient_start);
 
       $colorPreview.find('.color-preview-header').attr('style', 'background-color: ' + gradient_start + '; background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' + gradient_start + '), to(' + gradient_end + ')); background-image: -moz-linear-gradient(-90deg, ' + gradient_start + ', ' + gradient_end + ');');
 

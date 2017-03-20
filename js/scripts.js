@@ -1,1 +1,1 @@
-!function(t,o){"use strict";o.behaviors.govstrap={attach:function(t,o){jQuery('[data-toggle="tooltip"]').tooltip()}}}(jQuery,Drupal);
+!function(t,a){"use strict";a.behaviors.govstrap={attach:function(t,a){}}}(jQuery,Drupal);

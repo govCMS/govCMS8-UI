@@ -13,3 +13,11 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
     color: #FFFFFF;
   }
 }
+
+nav.navbar {
+  div.navbar-header {
+    a {
+      border-bottom: none;
+    }
+  }
+}

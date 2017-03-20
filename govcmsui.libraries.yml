@@ -1,13 +1,14 @@
-
-govcmsui:
+global-styling:
+  version: 1.x
   css:
     theme:
       css/styles.css: {}
+      css/colors.css: {}
   js:
     js/scripts.js: {}
 
 color.preview:
-  version: VERSION
+  version: 1.x
   css:
     theme:
       color/preview.css: {}

@@ -9,7 +9,7 @@
 
     Drupal.behaviors.govstrap = {
         attach: function (context, settings) {
-            jQuery('[data-toggle="tooltip"]').tooltip();
+            //jQuery('[data-toggle="tooltip"]').tooltip();
         }
     };
 

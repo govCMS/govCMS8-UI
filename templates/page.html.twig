@@ -2,11 +2,11 @@
     <div class="uikit-global-nav">
         {{ page.nav_secondary }}
     </div>
-    <header role="banner" class="navbar">
+    <header id="header" role="banner" class="navbar">
         <nav class="navbar">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <h2 class="brand brand-name navbar-left has-img style-line">
+                <h2 class="brand brand-name navbar-left has-img">
                     <a href="/">
                         <img src="{{ govlogo }}" alt="Australian Government" height="80" />
                         {{ page.header }}
@@ -29,42 +29,59 @@
             </div><!-- /.navbar-collapse -->
         </div>
     </div>
-
-
     {{ page.breadcrumb }}
-
     {{ page.highlighted }}
-
     {{ page.help }}
+    <main class="container">
+        <a id="main-content" tabindex="-1"></a>
+        <div id="main" class="main-container row">
+            <div id="content">
+                {% if page.sidebar_first %}
+                    <aside class="col-sm-3" role="complementary">
+                        {{ page.sidebar_first }}
+                    </aside>
+                {% endif %}
 
-    <main role="main">
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+                <section id="main-content-section" class="col-sm-6 content-section" role="main">
+                    <div id="page-content">
+                        {{ page.content }}
+                    </div>
+                </section>
 
-        <div class="layout-content">
-            {{ page.content }}
-        </div>{# /.layout-content #}
-
-        {% if page.sidebar_first %}
-            <aside class="layout-sidebar-first" role="complementary">
-                {{ page.sidebar_first }}
-            </aside>
-        {% endif %}
-
-        {% if page.sidebar_second %}
-            <aside class="layout-sidebar-second" role="complementary">
-                {{ page.sidebar_second }}
-            </aside>
-        {% endif %}
-
+                {% if page.sidebar_second %}
+                    <aside class="col-sm-3 right-bar" role="complementary">
+                        {{ page.sidebar_second }}
+                    </aside>
+                {% endif %}
+            </div.
+        </div>
     </main>
     {% if page.sub_footer %}
-        <div class="sub_footer">
-            {{ page.sub_footer }}
+        <div class="container-full">
+            <div class="highlight-footer">
+                <div class="container">
+                    {{ page.sub_footer }}
+                </div>
+            </div>
         </div>
     {% endif %}
     {% if page.footer %}
-        <footer role="contentinfo">
-            {{ page.footer }}
+        <footer>
+            <h1 class="sr-only">Footer links</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!--<img src="" alt="Australian Government" width="163">-->
+                    </div>
+                    <div class="col-md-9">
+                        {{ page.footer }}
+                        <small>
+                            &copy; Commonwealth of Australia <br>
+                            <a href="https://creativecommons.org/licenses/by/3.0/au/">Licensed under Creative Commons.</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
         </footer>
     {% endif %}
 

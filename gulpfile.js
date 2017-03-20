@@ -58,7 +58,14 @@ gulp.task('images', function() {
 
 // Compile the Sass
 gulp.task('compass', function() {
-    gulp.src('./src/sass/*.scss')
+    gulp.src('./src/sass/styles.scss')
+        .pipe(compass({
+            css: './src/styles',
+            sass: './src/sass'
+        }))
+        .pipe(gulp.dest('./src/styles'));
+
+    gulp.src('./src/sass/colors.scss')
         .pipe(compass({
             css: './src/styles',
             sass: './src/sass'
@@ -70,8 +77,14 @@ gulp.task('compass', function() {
 
 // CSS concat, auto-prefix, optimise and minify
 gulp.task('styles', function() {
-    gulp.src(['./src/styles/*.css'])
+    gulp.src(['./src/styles/styles.css'])
         .pipe(concat('./styles.css'))
+        .pipe(autoprefix('last 2 versions'))
+        .pipe(minifyCSS())
+        .pipe(gulp.dest('./css/'));
+
+    gulp.src(['./src/styles/colors.css'])
+        .pipe(concat('./colors.css'))
         .pipe(autoprefix('last 2 versions'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('./css/'));

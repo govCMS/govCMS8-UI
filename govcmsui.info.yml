@@ -4,7 +4,7 @@ description: 'A Drupal 8 theme for govCMS incorporating the DTA ui toolkit.'
 core: 8.x
 base theme: classy
 libraries:
-  - govcmsui/govcmsui
+  - govcmsui/global-styling
 regions:
   nav_secondary: 'Secondary nav'
   header: 'Header'

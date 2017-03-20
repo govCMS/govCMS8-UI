@@ -21,21 +21,21 @@ $info = array(
   // Pre-defined color schemes.
   'schemes' => array(
     'default' => array(
-      'title' => t('Blue Lagoon (default)'),
+      'title' => t('govCMS (default)'),
       'colors' => array(
-        'top' => '#055a8e',
-        'bottom' => '#1d84c3',
-        'bg' => '#ffffff',
+        'top' => '#458fb4',
+        'bottom' => '#47b8ac',
+        'bg' => '#FFFFFF',
         'sidebar' => '#f6f6f2',
         'sidebarborders' => '#f9f9f9',
-        'footer' => '#292929',
+        'footer' => '#3F7A9F',
         'titleslogan' => '#fffeff',
-        'text' => '#3b3b3b',
-        'link' => '#0071B3',
+        'text' => '#333333',
+        'link' => '#3b7498',
       ),
     ),
-    'firehouse' => array(
-      'title' => t('Firehouse'),
+    'jason' => array(
+      'title' => t('Jason'),
       'colors' => array(
         'top' => '#cd2d2d',
         'bottom' => '#d64e4e',
@@ -48,8 +48,8 @@ $info = array(
         'link' => '#d6121f',
       ),
     ),
-    'ice' => array(
-      'title' => t('Ice'),
+    'joseph' => array(
+      'title' => t('Joseph'),
       'colors' => array(
         'top' => '#d0d0d0',
         'bottom' => '#c2c4c5',
@@ -62,8 +62,8 @@ $info = array(
         'link' => '#019dbf',
       ),
     ),
-    'plum' => array(
-      'title' => t('Plum'),
+    'paul' => array(
+      'title' => t('Paul'),
       'colors' => array(
         'top' => '#4c1c58',
         'bottom' => '#593662',
@@ -76,8 +76,8 @@ $info = array(
         'link' => '#9d408d',
       ),
     ),
-    'slate' => array(
-      'title' => t('Slate'),
+    'ruwan' => array(
+      'title' => t('Ruwan'),
       'colors' => array(
         'top' => '#4a4a4a',
         'bottom' => '#4e4e4e',
@@ -97,11 +97,6 @@ $info = array(
     'css/colors.css',
   ),
 
-  // Files to copy.
-  'copy' => array(
-    'logo.svg',
-  ),
-
   // Gradient definitions.
   'gradients' => array(
     array(
@@ -115,7 +110,7 @@ $info = array(
   ),
 
   // Preview files.
-  'preview_library' => 'bartik/color.preview',
+  'preview_library' => 'color.preview',
   'preview_html' => 'color/preview.html',
 
   // Attachments.

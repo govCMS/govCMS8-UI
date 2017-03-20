@@ -1776,6 +1776,10 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
   color: #FFFFFF;
 }
 
+nav.navbar div.navbar-header a {
+  border-bottom: none;
+}
+
 @font-face {
   font-family: 'god-icons';
   src: url("../font/god-icons.eot?66833308");
