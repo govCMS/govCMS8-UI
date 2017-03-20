@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Theme override for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ */
+#}
+{% block content %}
+        {% if govlogo %}
+            <img src="{{ govlogo }}" alt="Australian Government" height="80" />
+        {% endif %}
+
+        {% if site_logo %}
+            <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" style="max-height: 90px;" />
+        {% endif %}
+        {% if site_name %}
+            {{ site_name }}
+        {% endif %}
+        {% if site_slogan %}
+            <div class="site-slogan">{{ site_slogan }}</div>
+        {% endif %}
+{% endblock %}

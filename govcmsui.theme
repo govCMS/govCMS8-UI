@@ -53,7 +53,14 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
     );
 }
 
-function govcmsui_preprocess_page(&$variables) {
+/*function govcmsui_preprocess_page(&$variables) {
+    $coa = theme_get_setting('govcmsui_coa');
+    if(!empty($coa)) {
+        $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/' . $coa;
+    }
+}*/
+
+function govcmsui_preprocess_block(&$variables) {
     $coa = theme_get_setting('govcmsui_coa');
     if(!empty($coa)) {
         $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/' . $coa;
