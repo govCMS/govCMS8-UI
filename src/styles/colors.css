@@ -41,14 +41,11 @@ a:active,
 
 .highlight-footer {
   background-color: #3f7a9f;
-}
-
-.highlight-footer {
-  color: #222222;
+  color: #fcf8f8;
 }
 
 .highlight-footer a {
-  color: #222222;
+  color: #fcf8f8;
 }
 
 footer {

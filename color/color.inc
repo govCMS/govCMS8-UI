@@ -9,7 +9,7 @@ $info = array(
   // Available colors and color labels used in theme.
   // Current ones not working
     /**
-     * footertext
+     * na
      */
   'fields' => array(
     'top' => t('Header background top'),
@@ -35,7 +35,7 @@ $info = array(
         'sidebar' => '#f6f6f2',
         'sidebarborders' => '#f9f9f9',
         'footer' => '#3f7a9f',
-        'footertext' => '#222222',
+        'footertext' => '#fcf8f8',
         'footerlinks' => '#f0f3f5',
         'titleslogan' => '#fffeff',
         'text' => '#333333',
