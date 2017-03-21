@@ -36,6 +36,21 @@ $info = array(
         'link' => '#3b7498',
       ),
     ),
+    'dtauikit' => array(
+      'title' => t('DTA UI Kit'),
+      'colors' => array(
+          'top' => '#043751',
+          'bottom' => '#227A97',
+          'bg' => '#FFFFFF',
+          'sidebar' => '#FFFFFF',
+          'sidebarborders' => '#FFFFFF',
+          'footer' => '#3F7A9F',
+          'footerlinks' => '##F0F3F5',
+          'titleslogan' => '#FFFFFF',
+          'text' => '#313131',
+          'link' => '#313131',
+      ),
+    ),
     'jason' => array(
       'title' => t('Jason'),
       'colors' => array(

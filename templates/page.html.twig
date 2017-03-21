@@ -41,16 +41,16 @@
                     {{ page.breadcrumb }}
                     {{ page.help }}
                 </div>
-                {% if page.sidebar_first %}
+                {% if page.sidebar_first is defined and page.sidebar_first|render|striptags|trim %}
                     <aside class="col-sm-3" role="complementary">
                         {{ page.sidebar_first }}
                     </aside>
                 {% endif %}
                 {%
                     set content_classes = [
-                    page.sidebar_first and page.sidebar_second ? 'col-sm-6',
-                    page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
-                    page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+                    (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim) and (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim) ? 'col-sm-6',
+                    (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim) and page.sidebar_second is empty ? 'col-sm-9',
+                    (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim) and page.sidebar_first is empty ? 'col-sm-9',
                     page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
                 ]
                 %}
@@ -60,7 +60,7 @@
                     </div>
                 </section>
 
-                {% if page.sidebar_second %}
+                {% if page.sidebar_second is defined and page.sidebar_second|render|striptags|trim %}
                     <aside class="col-sm-3 right-bar" role="complementary">
                         {{ page.sidebar_second }}
                     </aside>
