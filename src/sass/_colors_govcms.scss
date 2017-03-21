@@ -3,21 +3,15 @@
 
 body {
   color: #333333;
-  background: #FFFFFF;
+  background-color: #f3ffff;
 }
 #page,
 #main-wrapper,
 .region-primary-menu .menu-item a.is-active,
 .region-primary-menu .menu-item--active-trail a {
-  background: #FFFFFF;
+  background-color: #ffffff;
 }
-.tabs ul.primary li a.is-active {
-  background-color: #FFFFFF;
-}
-.tabs ul.primary li.is-active a {
-  background-color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
-}
+
 #header {
   background-color: #47b8ac;
   background-image: -webkit-linear-gradient(top, #458fb4 0%, #47b8ac 100%);
@@ -42,7 +36,15 @@ a:active,
   border-color: #f9f9f9;
 }
 .highlight-footer {
-  background: #3F7A9F;
+  background-color: #3f7a9f;
+}
+
+.highlight-footer {
+  color: #222222;
+}
+
+.highlight-footer a {
+  color: #222222;
 }
 
 footer {

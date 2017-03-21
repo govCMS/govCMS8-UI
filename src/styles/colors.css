@@ -1,23 +1,14 @@
 /* ---------- Color Module Styles ----------- */
 body {
   color: #333333;
-  background: #FFFFFF;
+  background-color: #f3ffff;
 }
 
 #page,
 #main-wrapper,
 .region-primary-menu .menu-item a.is-active,
 .region-primary-menu .menu-item--active-trail a {
-  background: #FFFFFF;
-}
-
-.tabs ul.primary li a.is-active {
-  background-color: #FFFFFF;
-}
-
-.tabs ul.primary li.is-active a {
-  background-color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 #header {
@@ -49,7 +40,15 @@ a:active,
 }
 
 .highlight-footer {
-  background: #3F7A9F;
+  background-color: #3f7a9f;
+}
+
+.highlight-footer {
+  color: #222222;
+}
+
+.highlight-footer a {
+  color: #222222;
 }
 
 footer {
