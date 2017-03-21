@@ -51,6 +51,7 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
             'coas-stacked-colour.svg' => t('Stacked (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-colour.svg" /></p>',
          ),
     );
+
 }
 
 function govcmsui_preprocess_page(&$variables) {
@@ -135,4 +136,5 @@ function govcmsui_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormSt
     $form['actions']['#prefix'] = '<div class="input-group input-group-btn">';
     $form['actions']['#suffix'] = '</div>';
 }
+
 
