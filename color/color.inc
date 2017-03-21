@@ -14,6 +14,7 @@ $info = array(
     'sidebar' => t('Sidebar background'),
     'sidebarborders' => t('Sidebar borders'),
     'footer' => t('Jumbo Footer background'),
+    'footertext' => t('Jumbo Footer Text color'),
     'footerlinks' => t('Small Footer background'),
     'titleslogan' => t('Title and slogan'),
     'text' => t('Text color'),
