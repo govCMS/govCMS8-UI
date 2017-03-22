@@ -50,9 +50,14 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         '#type' => 'details',
         '#title' => t('Coat of Arms'),
         '#open' => false,
-        '#description' => t('Select which Coat of Arms you want to display on your site')
+    );
+    $form['govcmsui_coa_details']['govcmsui_coa_footer'] = array(
+        '#type'          => 'checkbox',
+        '#title'         => t('Show Coat of Arms in footer'),
+        '#default_value' => theme_get_setting('govcmsui_coa_footer'),
     );
     $form['govcmsui_coa_details']['govcmsui_coa'] = array(
+        '#title' => t('Select which Coat of Arms you want to display on your site'),
         '#type' => 'radios',
         '#default_value' => theme_get_setting('govcmsui_coa'),
         '#options' => array(

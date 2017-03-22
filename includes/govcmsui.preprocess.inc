@@ -1,7 +1,10 @@
 <?php
 
 function govcmsui_preprocess_page(&$variables) {
-    $variables['coa_bottom'] = '/' . drupal_get_path('theme','govcmsui') . '/img/coas-dark.svg';
+    $coa_footer = theme_get_setting('govcmsui_coa_footer');
+    if(!empty($coa_footer) && $coa_footer == 1) {
+        $variables['coa_bottom'] = '/' . drupal_get_path('theme','govcmsui') . '/img/coas-dark.svg';
+    }
 }
 
 function govcmsui_preprocess_block(&$variables) {

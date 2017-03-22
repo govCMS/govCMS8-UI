@@ -73,7 +73,7 @@ gulp.task('styles', function() {
     gulp.src(['./src/styles/colors.css'])
         .pipe(concat('./colors.css'))
         .pipe(autoprefix('last 2 versions'))
-        //.pipe(minifyCSS())
+        .pipe(minifyCSS())
         .pipe(gulp.dest('./css/'));
 });
 

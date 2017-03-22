@@ -26,8 +26,10 @@
 
 <div class="container-full main-nav">
     <div class="container">
-        <div class="collapse navbar-collapse" id="main-navigation">
-            {{ page.nav }}
+        <div class="row">
+            <div class="collapse navbar-collapse" id="main-navigation">
+                {{ page.nav }}
+            </div>
         </div><!-- /.navbar-collapse -->
     </div>
 </div>
@@ -94,49 +96,60 @@
 {% endif %}
 
 
-{% if page.footer %}
-    <footer>
-        <h1 class="sr-only">Footer links</h1>
-        <div class="container">
-            {% if count > 0 %}
-            {% set jumbo_content_class = 12 / count %}
-            <div class="row">
-                {% if page.jumbo_footer_1 is defined and page.jumbo_footer_1|render|striptags|trim %}
-                    <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                        {{ page.jumbo_footer_1 }}
-                    </div>
-                {% endif %}
-                {% if page.jumbo_footer_2 is defined and page.jumbo_footer_2|render|striptags|trim %}
-                    <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                        {{ page.jumbo_footer_2 }}
-                    </div>
-                {% endif %}
-                {% if page.jumbo_footer_3 is defined and page.jumbo_footer_3|render|striptags|trim %}
-                    <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                        {{ page.jumbo_footer_3 }}
-                    </div>
-                {% endif %}
-                {% if page.jumbo_footer_4 is defined and page.jumbo_footer_4|render|striptags|trim %}
-                    <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                        {{ page.jumbo_footer_4 }}
-                    </div>
-                {% endif %}
-            </div>
+
+<footer>
+    <h2 class="sr-only">Footer links</h2>
+    <div class="container">
+        {% if count > 0 %}
+        {% set jumbo_content_class = 12 / count %}
+        <div class="row">
+            {% if page.jumbo_footer_1 is defined and page.jumbo_footer_1|render|striptags|trim %}
+                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                    {{ page.jumbo_footer_1 }}
+                </div>
             {% endif %}
-            <div class="row">
+            {% if page.jumbo_footer_2 is defined and page.jumbo_footer_2|render|striptags|trim %}
+                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                    {{ page.jumbo_footer_2 }}
+                </div>
+            {% endif %}
+            {% if page.jumbo_footer_3 is defined and page.jumbo_footer_3|render|striptags|trim %}
+                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                    {{ page.jumbo_footer_3 }}
+                </div>
+            {% endif %}
+            {% if page.jumbo_footer_4 is defined and page.jumbo_footer_4|render|striptags|trim %}
+                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                    {{ page.jumbo_footer_4 }}
+                </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        <div class="row">
+            {%
+            set coa_footer_class = [
+            (coa_bottom is defined ? 'col-md-12')
+            ]
+            %}
+            {% if coa_bottom is defined %}
+                {%
+                set coa_footer_class = [
+                (coa_bottom is defined ? 'col-md-9')
+                ]
+                %}
                 <div class="col-md-3">
                     <img src="{{ coa_bottom }}" alt="Australian Government" width="163">
                 </div>
-                <div class="col-md-9">
-                    {{ page.footer }}
-                    <small>
-                        &copy; Commonwealth of Australia <br>
-                        <a href="https://creativecommons.org/licenses/by/3.0/au/">Licensed under Creative Commons.</a>
-                    </small>
-                </div>
+            {% endif %}
+            <div class="{{ coa_footer_class }}">
+                {{ page.footer }}
+                <small>
+                    &copy; Commonwealth of Australia <br>
+                    <a href="https://creativecommons.org/licenses/by/3.0/au/">Licensed under Creative Commons.</a>
+                </small>
             </div>
         </div>
-    </footer>
-{% endif %}
+    </div>
+</footer>
 
 

@@ -1,79 +1,137 @@
 <div class="color-preview">
-
-  <div class="color-preview-header">
-    <div class="color-preview-logo"></div>
-    <div class="color-preview-site-name">govCMS</div>
-    <div class="color-preview-main-menu">
-      <ul class="color-preview-main-menu-links">
-        <li><a>Home</a></li>
-        <li><a>Te Quidne</a></li>
-        <li><a>Vel Torqueo Quae Erat</a></li>
-      </ul>
+  <div class="uikit-global-nav">
+    <div class="container">
     </div>
   </div>
+  <header id="header" role="banner" class="navbar">
+      <div class="region region-header">
+        <!-- Remove hardcoding -->
+        <img src="/sites/default/themes/govcmsui/img/coas-stacked.svg" alt="Australian Government" height="70">
+        <img src="/sites/default/themes/govcmsui/logo.svg" alt="Home" class="logo" height="70">
+        govCMS
+      </div>
+  </header>
 
-  <div class="color-preview-main clearfix">
-    <div class="color-preview-sidebar">
-      <div class="color-preview-block preview-block">
-        <h2>Etiam est risus</h2>
-        <div class="preview-content">
-          Maecenas id porttitor Ut enim ad minim veniam, quis nostrudfelis.
-          Laboris nisi ut aliquip ex ea.
-        </div>
-      </div>
-    </div>
-    <div class="color-preview-content">
-      <h1 class="color-preview-page-title">Lorem ipsum dolor</h1>
-      <div class="color-preview-node">
-        <div class="preview-content">
-          Sit amet, <a>consectetur adipisicing elit</a>, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-          nostrud <a>exercitation ullamco</a> laboris nisi ut aliquip ex ea
-          commodo consequat. Maecenas id porttitor Ut enim ad minim veniam, quis nostr udfelis.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="color-preview-footer-wrapper">
-    <div class="color-preview-footer-columns clearfix">
-      <div class="preview-footer-column">
-        <div class="preview-block">
-          <h2>Etiam est risus</h2>
-          <div class="content">
-            Maecenas id porttitor Ut enim ad minim veniam, quis nostrudfelis.
-            Laboris nisi ut aliquip ex ea.
-          </div>
-        </div>
-      </div>
-      <div class="preview-footer-column">
-        <div class="preview-block preview-block-menu">
-          <h2>Erisus dolor</h2>
-          <div class="preview-content">
-            <ul>
-              <li><a>Donec placerat</a></li>
-              <li><a>Nullam nibh dolor</a></li>
-              <li><a>Blandit sed</a></li>
-              <li><a>Fermentum id</a></li>
-            </ul>
+  <div class="container-full main-nav">
+    <div class="container">
+      <div class="row">
+        <div class="collapse navbar-collapse" id="main-navigation">
+          <div class="region region-nav">
+            <nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" data-block-plugin-id="system_menu_block:main" class="block block-menu navigation menu--main">
+              <h2 class="visually-hidden" id="block-mainnavigation-menu">Main navigation</h2>
+              <ul block="block-mainnavigation" class="nav-justified main-menu nav nav-tabs">
+                <li>
+                  <a class="is-active">Home</a>
+                </li>
+                <li>
+                  <a>Link 1</a>
+                </li>
+                <li>
+                  <a>Link 2</a>
+                </li>
+                <li>
+                  <a>Link 3</a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="color-preview-footer-footer-wrapper">
-    <div class="color-preview-footer-footer-columns clearfix">
-      <div class="preview-block preview-block-menu">
-        <div class="preview-content">
-          <ul>
-            <li><a>Donec placerat</a></li>
-            <li><a>Nullam nibh dolor</a></li>
-            <li><a>Blandit sed</a></li>
-            <li><a>Fermentum id</a></li>
-          </ul>
+  <main class="container">
+    <a id="main-content" tabindex="-1"></a>
+    <div id="main" class="main-container row">
+      <div id="content">
+        <div class="title-block">
+        </div>
+        <section id="main-content-section" class="col-sm-12" role="main">
+          <div id="page-content">
+            <div class="region region-content">
+              <div id="block-govcmsui-page-title" data-block-plugin-id="page_title_block" class="block block-core block-page-title-block">
+                <h1 class="js-quickedit-page-title page-title">Page Title</h1>
+              </div>
+              <div id="block-govcmsui-content" data-block-plugin-id="system_main_block" class="block block-system block-system-main-block">
+                <div class="views-element-container">
+                  <div class="view view-frontpage view-id-frontpage view-display-id-page_1 js-view-dom-id-32bd1938a8b50ac4cb5f62090f5664d53dc8557ac92caf997844c2f3f6e300b4">
+                    <div class="view-empty">
+                      <p>Page content</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="region region-jumbo-footer-1">
+            <nav role="navigation" aria-labelledby="block-jumbofootermenu1-menu" id="block-jumbofootermenu1" data-block-plugin-id="system_menu_block:jumbo-footer-menu-1" class="block block-menu navigation menu--jumbo-footer-menu-1">
+              <h2 id="block-jumbofootermenu1-menu">Footer Title 1</h2>
+              <ul block="block-jumbofootermenu1" class="menu">
+                <li class="menu-item">
+                  <a>Menu Link 1</a>
+                </li>
+                <li class="menu-item">
+                  <a>Menu Link 2</a>
+                </li>
+                <li class="menu-item">
+                  <a>Menu Link 3</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="region region-jumbo-footer-2">
+            <nav role="navigation" aria-labelledby="block-jumbofootermenu1-2-menu" id="block-jumbofootermenu1-2" data-block-plugin-id="system_menu_block:jumbo-footer-menu-1" class="block block-menu navigation menu--jumbo-footer-menu-1">
+              <h2 id="block-jumbofootermenu1-2-menu">Footer Menu 2</h2>
+              <ul block="block-jumbofootermenu1-2" class="menu">
+                <li class="menu-item">
+                  <a>Menu Link 1</a>
+                </li>
+                <li class="menu-item">
+                  <a>Menu Link 2</a>
+                </li>
+                <li class="menu-item">
+                  <a>Menu Link 3</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <!-- Remove hard coding -->
+          <img src="/sites/default/themes/govcmsui/img/coas-dark.svg" alt="Australian Government" width="163">
+        </div>
+        <div class="">
+          <div class="region region-footer">
+            <nav role="navigation" aria-labelledby="block-footer-menu" id="block-footer" data-block-plugin-id="system_menu_block:footer" class="block block-menu navigation menu--footer">
+              <h2 class="visually-hidden" id="block-footer-menu">Footer</h2>
+              <ul block="block-footer" class="list-inline small-links">
+                <li>
+                  <a>Link 1</a>
+                </li>
+                <li>
+                  <a class="is-active">Link 2</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <small>
+            &copy; Commonwealth of Australia <br>
+            <a href="https://creativecommons.org/licenses/by/3.0/au/">Licensed under Creative Commons.</a>
+          </small>
         </div>
       </div>
     </div>
-  </div>
-
+  </footer>
 </div>

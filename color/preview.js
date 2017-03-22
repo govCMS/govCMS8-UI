@@ -11,12 +11,12 @@
     callback: function (context, settings, $form) {
       // Change the logo to be the real one.
       if (!this.logoChanged) {
-        $('.color-preview .color-preview-logo img').attr('src', drupalSettings.color.logo);
+        $('.color-preview .logo').attr('src', drupalSettings.color.logo);
         this.logoChanged = true;
       }
       // Remove the logo if the setting is toggled off.
       if (drupalSettings.color.logo === null) {
-        $('div').remove('.color-preview-logo');
+        $('div').remove('.logo');
       }
 
       var $colorPreview = $form.find('.color-preview');
@@ -41,12 +41,12 @@
       $colorPreview.find('.color-preview-footer-wrapper a').css('color', $colorPalette.find('input[name="palette[footertext]"]').val());
 
       // CSS3 Gradients.
-      var gradient_start = $colorPalette.find('input[name="palette[top]"]').val();
-      var gradient_end = $colorPalette.find('input[name="palette[bottom]"]').val();
+      var gradient_start = $colorPalette.find('input[name="palette[primarydarker]"]').val();
+      var gradient_end = $colorPalette.find('input[name="palette[primaryalt]"]').val();
 
-      $colorPreview.find('.color-preview-header').attr('style', 'background-color: ' + gradient_start + '; background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' + gradient_start + '), to(' + gradient_end + ')); background-image: -moz-linear-gradient(-90deg, ' + gradient_start + ', ' + gradient_end + ');');
+      $colorPreview.find('#header').attr('style', 'background-color: ' + gradient_start + '; background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' + gradient_start + '), to(' + gradient_end + ')); background-image: -moz-linear-gradient(-20deg, ' + gradient_start + ', ' + gradient_end + ');');
 
-      $colorPreview.find('.color-preview-site-name').css('color', $colorPalette.find('input[name="palette[titleslogan]"]').val());
+      $colorPreview.find('#header').css('color', '#ffffff');
     }
   };
 })(jQuery, Drupal, drupalSettings);
