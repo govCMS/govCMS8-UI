@@ -8,7 +8,9 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
 
     // Let's tidy up the page by minifying all options
     foreach($form as &$form_item) {
-        $form_item['#open'] = false;
+        if(isset($form_item['#open'])) {
+            $form_item['#open'] = false;
+        }
     }
 
     // govCMS UI Framework Settings
