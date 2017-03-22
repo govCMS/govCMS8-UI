@@ -1,6 +1,8 @@
 <div class="layout-container">
     <div class="uikit-global-nav">
-        {{ page.nav_secondary }}
+        <div class="container">
+            {{ page.nav_secondary }}
+        </div>
     </div>
     <header id="header" role="banner" class="navbar">
         <div class="container">
@@ -31,15 +33,23 @@
         </div>
     </div>
     {% if page.highlighted %}
-        {{ page.highlighted }}
+        <div class="jumbotron">
+            <div id="highlight-region" class="container">
+                {{ page.highlighted }}
+            </div>
+        </div>
     {% endif %}
     <main class="container">
         <a id="main-content" tabindex="-1"></a>
         <div id="main" class="main-container row">
             <div id="content">
                 <div class="title-block">
-                    {{ page.breadcrumb }}
-                    {{ page.help }}
+                    {% if page.breadcrumb is defined and page.breadcrumb|render|striptags|trim %}
+                        {{ page.breadcrumb }}
+                    {% endif %}
+                    {% if page.help is defined and page.help|render|striptags|trim %}
+                        {{ page.help }}
+                    {% endif %}
                 </div>
                 {% if page.sidebar_first is defined and page.sidebar_first|render|striptags|trim %}
                     <aside class="col-sm-3" role="complementary">
@@ -68,11 +78,47 @@
             </div>
         </div>
     </main>
-    {% if page.sub_footer %}
+
+    {% set count = 0 %}
+
+    {% if  page.jumbo_footer_1 is defined and page.jumbo_footer_1|render|striptags|trim %}
+        {% set count = count + 1 %}
+    {% endif %}
+    {% if  page.jumbo_footer_2 is defined and page.jumbo_footer_2|render|striptags|trim %}
+        {% set count = count + 1 %}
+    {% endif %}
+    {% if  page.jumbo_footer_3 is defined and page.jumbo_footer_3|render|striptags|trim %}
+        {% set count = count + 1 %}
+    {% endif %}
+    {% if  page.jumbo_footer_4 is defined and page.jumbo_footer_4|render|striptags|trim %}
+        {% set count = count + 1 %}
+    {% endif %}
+
+    {% if count > 0 %}
+        {% set jumbo_content_class = 12 / count %}
         <div class="container-full">
             <div class="highlight-footer">
                 <div class="container">
-                    {{ page.sub_footer }}
+                    {% if page.jumbo_footer_1 is defined and page.jumbo_footer_1|render|striptags|trim %}
+                        <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                            {{ page.jumbo_footer_1 }}
+                        </div>
+                    {% endif %}
+                    {% if page.jumbo_footer_2 is defined and page.jumbo_footer_2|render|striptags|trim %}
+                        <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                            {{ page.jumbo_footer_2 }}
+                        </div>
+                    {% endif %}
+                    {% if page.jumbo_footer_3 is defined and page.jumbo_footer_3|render|striptags|trim %}
+                        <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                            {{ page.jumbo_footer_3 }}
+                        </div>
+                    {% endif %}
+                    {% if page.jumbo_footer_4 is defined and page.jumbo_footer_4|render|striptags|trim %}
+                        <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
+                            {{ page.jumbo_footer_4 }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

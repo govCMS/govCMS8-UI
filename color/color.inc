@@ -26,117 +26,38 @@ $info = array(
   ),
   // Pre-defined color schemes.
   'schemes' => array(
-    'default' => array(
-      'title' => t('govCMS (default)'),
-      'colors' => array(
-        'top' => '#458fb4',
-        'bottom' => '#47b8ac',
-        'bg' => '#f3ffff',
-        'sidebar' => '#f6f6f2',
-        'sidebarborders' => '#f9f9f9',
-        'footer' => '#3f7a9f',
-        'footertext' => '#fcf8f8',
-        'footerlinks' => '#f0f3f5',
-        'titleslogan' => '#fffeff',
-        'text' => '#333333',
-        'link' => '#3b7498',
-      ),
-    ),
-    'dtauikit' => array(
-      'title' => t('DTA UI Kit'),
-      'colors' => array(
-          'top' => '#043751',
-          'bottom' => '#227a97',
-          'bg' => '#f3ffff',
-          'sidebar' => '#ffffff',
-          'sidebarborders' => '#ffffff',
-          'footer' => '#3f7a9f',
-          'footertext' => '#fffff0',
-          'footerlinks' => '#f0f3f5',
-          'titleslogan' => '#ffffff',
-          'text' => '#313131',
-          'link' => '#313131',
-      ),
-    ),
-    'jason' => array(
-      'title' => t('Jason'),
-      'colors' => array(
-        'top' => '#cd2d2d',
-        'bottom' => '#d64e4e',
-        'bg' => '#ffffff',
-        'sidebar' => '#f1f4f0',
-        'sidebarborders' => '#ededed',
-        'footer' => '#1f1d1c',
-        'footertext' => '#fffff0',
-        'footerlinks' => '#f0f3f5',
-        'titleslogan' => '#fffeff',
-        'text' => '#888888',
-        'link' => '#d6121f',
-      ),
-    ),
-    'joseph' => array(
-      'title' => t('Joseph'),
-      'colors' => array(
-        'top' => '#d0d0d0',
-        'bottom' => '#c2c4c5',
-        'bg' => '#ffffff',
-        'sidebar' => '#ffffff',
-        'sidebarborders' => '#cccccc',
-        'footer' => '#016b83',
-        'footertext' => '#fffff0',
-        'footerlinks' => '#f0f3f5',
-        'titleslogan' => '#000000',
-        'text' => '#4a4a4a',
-        'link' => '#019dbf',
-      ),
-    ),
-    'paul' => array(
-      'title' => t('Paul'),
-      'colors' => array(
-        'top' => '#4c1c58',
-        'bottom' => '#593662',
-        'bg' => '#fffdf7',
-        'sidebar' => '#edede7',
-        'sidebarborders' => '#e7e7e7',
-        'footer' => '#2c2c28',
-        'footertext' => '#fffff0',
-        'footerlinks' => '#f0f3f5',
-        'titleslogan' => '#ffffff',
-        'text' => '#301313',
-        'link' => '#9d408d',
-      ),
-    ),
-    'ruwan' => array(
-      'title' => t('Ruwan'),
-      'colors' => array(
-        'top' => '#4a4a4a',
-        'bottom' => '#4e4e4e',
-        'bg' => '#ffffff',
-        'sidebar' => '#ffffff',
-        'sidebarborders' => '#d0d0d0',
-        'footer' => '#161617',
-        'footertext' => '#fffff0',
-        'footerlinks' => '#f0f3f5',
-        'titleslogan' => '#ffffff',
-        'text' => '#3b3b3b',
-        'link' => '#0073b6',
-      ),
-    ),
-    'tim' => array(
-      'title' => t('Tim'),
-      'colors' => array(
-          'top' => '#d5078a',
-          'bottom' => '#d3abc5',
-          'bg' => '#815f75',
-          'sidebar' => '#ffffff',
-          'sidebarborders' => '#d0d0d0',
-          'footer' => '#323acd',
-          'footertext' => '#fffff0',
-          'footerlinks' => '#f0f3f5',
-          'titleslogan' => '#ffffff',
-          'text' => '#2f6043',
-          'link' => '#0073b6',
-      ),
+      'default' => array(
+          'title' => t('DTA UI Kit'),
+          'colors' => array(
+              'top' => '#043751',
+              'bottom' => '#227a97',
+              'bg' => '#f3ffff',
+              'sidebar' => '#ffffff',
+              'sidebarborders' => '#ffffff',
+              'footer' => '#3f7a9f',
+              'footertext' => '#fffff0',
+              'footerlinks' => '#f0f3f5',
+              'titleslogan' => '#ffffff',
+              'text' => '#313131',
+              'link' => '#313131',
+          ),
+        'govcms' => array(
+          'title' => t('govCMS (default)'),
+          'colors' => array(
+              'top' => '#458fb4',
+              'bottom' => '#47b8ac',
+              'bg' => '#f3ffff',
+              'sidebar' => '#f6f6f2',
+              'sidebarborders' => '#f9f9f9',
+              'footer' => '#3f7a9f',
+              'footertext' => '#fcf8f8',
+              'footerlinks' => '#f0f3f5',
+              'titleslogan' => '#fffeff',
+              'text' => '#333333',
+              'link' => '#3b7498',
+          ),
+        ),
+
     ),
   ),
 
@@ -145,7 +66,13 @@ $info = array(
     'css/colors.css',
   ),
 
-  // Gradient definitions.
+  // Files to copy.
+  'copy' => array(
+    'logo.svg',
+  ),
+
+
+    // Gradient definitions.
   'gradients' => array(
     array(
       // (x, y, width, height).
