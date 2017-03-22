@@ -9,14 +9,14 @@
 .btn-default {
   // can't use mixin here as its different pattern to the others - has a transparent bg, etc.
   background-color: transparent;
-  color: $dark-aqua;
-  border-color: $dark-aqua;
+  color: $primary;
+  border-color: $primary;
   &:hover,
   &:active,
   &:focus {
-    background-color: $darker-aqua;
+    background-color: $primary-dark;
     color: #fff;
-    border-color: darken($darker-aqua, 10%);
+    border-color: darken($primary-dark, 10%);
   }
   &.disabled,
   &[disabled],
@@ -25,13 +25,13 @@
     &.focus,
     &:focus {
       background-color: #fff;
-      color: $dark-aqua;
-      border-color: $dark-aqua;
+      color: $primary;
+      border-color: $primary;
     }
   }
 }
 .btn-primary {
-  @include button-colours($darker-aqua, #fff);
+  @include button-colours($primary-dark, #fff);
 }
 .btn-success {
   @include button-colours($success, #fff);
@@ -47,14 +47,14 @@
 }
 .btn-link {
   color: $grey-dark;
-  border-bottom: solid 1px $light-aqua;
+  border-bottom: solid 1px $primary-bright;
   transition: 0.1s all ease-in-out;
   &:not(:disabled) {
     &:hover,
     &:focus,
     &:active {
       color: $grey-dark;
-      background-color: $light-aqua;
+      background-color: $primary-bright;
       text-decoration: none;
     }
   }
@@ -99,7 +99,7 @@
   background-color: $grey-dark;
 }
 .label-beta {
-  background-color: $maroon;
+  background-color: $beta;
 }
 .label-hover {
   opacity: 0.8;
@@ -134,7 +134,7 @@ a {
 
 // Progress bars
 .progress-bar {
-  background-color: $maroon;  //  ¯\_(ツ)_/¯ ...I needed another colour
+  background-color: $beta;  //  ¯\_(ツ)_/¯ ...I needed another colour
 }
 .progress-bar-default {
   background-color: $grey;
@@ -199,7 +199,7 @@ a {
     line-height: 1.2;
   }
   .calendar-date {
-    font-weight: 700;
+    font-weight: $font-weight-bold;
   }
 }
 
@@ -277,7 +277,7 @@ a {
       &:active,
       &:focus,
       &:hover {
-        background-color: $blue-bright;
+        background-color: $primary-highlight;
         border-bottom-color: $primary;
         border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
       }
@@ -285,7 +285,7 @@ a {
     &.active {
       & > a {
         color: $primary;
-        background-color: $blue-light;
+        background-color: $primary-light;
         margin-right: 0;
         border: none;
         border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
@@ -293,7 +293,7 @@ a {
         &:focus,
         &:hover {
           color: $primary;
-          background-color: $blue-light;
+          background-color: $primary-light;
           border: none;
           border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
         }
@@ -343,14 +343,14 @@ a {
       &:active,
       &:focus {
         color: $grey-dark;
-        color: $darker-aqua;
+        color: $primary-dark;
         background-color: $grey-light;
-        border: 1px solid $dark-aqua;
+        border: 1px solid $primary;
       }
       &:active,
       &:focus {
         color: $grey-dark;
-        background-color: $light-aqua;
+        background-color: $primary-bright;
         border-color: $grey;
       }
     }
@@ -371,14 +371,14 @@ a {
     &.active {
       a,
       span {
-        background-color: $darker-aqua;
-        border-color: $darker-aqua;
+        background-color: $primary-dark;
+        border-color: $primary-dark;
         &:hover,
         &:active,
         &:focus {
           color: #fff;
-          background-color: $darker-aqua;
-          border-color: $darker-aqua;
+          background-color: $primary-dark;
+          border-color: $primary-dark;
         }
       }
     }
@@ -420,7 +420,7 @@ form {
     padding: 1.1em 0.7em;
     &:active,
     &:focus {
-      outline: 2px solid $light-aqua;
+      outline: 2px solid $primary-bright;
     }
   }
   [type='text']:invalid,
@@ -788,7 +788,7 @@ form {
         &:active,
         &:focus {
           .icon {
-            color: $light-aqua;
+            color: $primary-bright;
           }
         }
         .icon {
@@ -825,10 +825,13 @@ form {
     margin-bottom: 10px;
   }
 }
+.list-group-item-heading {
+    margin-bottom: 10px;
+}
 .repeat-word {
   a {
     font-size: 150%;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     line-height: 1.4;
     display: inline-block;
     span {
@@ -900,11 +903,11 @@ code {
 }
 kbd {
   display: inline-block;
-  border: solid 1px $light-aqua;
+  border: solid 1px $primary-bright;
   border-radius: 3px;
-  box-shadow: 0 1px 0 0 $light-aqua;
+  box-shadow: 0 1px 0 0 $primary-bright;
   background-color: $grey-light;
-  color: $dark-aqua;
+  color: $primary;
   text-align: center;
   font-size: 87.5%;
   padding: 0 0.8em;
@@ -930,7 +933,7 @@ kbd {
     margin-top: 1.6em;
     padding-bottom: 1.2em;
     color: $grey;
-    font-weight: 400;
+    font-weight: $font-weight-normal;
   }
   a {
     font-weight: bold;

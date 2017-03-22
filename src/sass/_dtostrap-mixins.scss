@@ -1,7 +1,7 @@
 // Mixins
 
 
-// @include button-colours($darker-aqua, #fff);
+// @include button-colours($primary-dark, #fff);
 @mixin button-colours($bg, $fg) {
   $darken-percent: 8%;
   background-color: $bg;

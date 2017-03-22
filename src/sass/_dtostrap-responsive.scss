@@ -17,6 +17,11 @@
       }
     }
   }
+  footer {
+    img {
+      padding-bottom: 20px;
+    }
+  }
 } // max-width: 991px
 
 
@@ -99,7 +104,7 @@
       color: $grey-dark;
     }
     .dropdown-header {
-      color: $blue-light;
+      color: $primary-light;
       margin-left: -10px;
     }
   }
@@ -166,7 +171,7 @@
         &:after {
           transition: 0.35s all; // transitions don't work for gradient bgs, so using position
           height: 7px;
-          background: linear-gradient(to left, $blue-bright 0, $blue-bright 25%, $blue-light 25%, $blue-light 75%, $gradient-light 75%) no-repeat;
+          background: linear-gradient(to left, $primary-highlight 0, $primary-highlight 25%, $primary-light 25%, $primary-light 75%, $gradient-light 75%) no-repeat;
           background-size: 2.4em 7px;
           content: "";
           position: relative;
@@ -191,14 +196,14 @@
 
 
 
-@media (min-width: 430px) {
+@media (min-width: 431px) {
   .popover-title {
     min-width: 200px;
   }
   header .navbar-header {
     display: inline-block;
   }
-} // min-width 400px
+} // min-width 431px
 
 
 

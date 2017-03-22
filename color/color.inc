@@ -5,97 +5,92 @@
  * Lists available colors and color schemes for the govCMS theme.
  */
 
+
+
 $info = array(
     // Available colors and color labels used in theme.
-    // Current ones not working
-    /**
-     * na
-     */
     'fields' => array(
-        'top' => t('Header background top'),
-        'bottom' => t('Header background bottom'),
-        'bg' => t('Main background'),
-        'sidebar' => t('Sidebar background'),
-        'sidebarborders' => t('Sidebar borders'),
-        'footer' => t('Jumbo Footer background'),
-        'footertext' => t('Jumbo Footer Text color'),
-        'footerlinks' => t('Small Footer background'),
-        'titleslogan' => t('Title and slogan'),
-        'text' => t('Text color'),
-        'link' => t('Link color'),
+        'primarylight' => t('Primary Light'),
+        'primarybright' => t('Primary Bright'),
+        'primaryhighlight' => t('Primary Highlight'),
+        'primaryalt' => t('Primary Alternative'),
+        'primary' => t('Primary'),
+        'primarydark' => t('Primary Dark'),
+        'primarydarker' => t('Primary Darker'),
+        'success' => t('Success'),
+        'danger' => t('Danger'),
+        'warning' => t('Warning'),
+        'beta' => t('Beta'),
     ),
     // Pre-defined color schemes.
     'schemes' => array(
         'default' => array(
             'title' => t('DTA UI Kit (Default)'),
             'colors' => array(
-                'top' => '#043751',
-                'bottom' => '#227a97',
-                'bg' => '#f3ffff',
-                'sidebar' => '#ffffff',
-                'sidebarborders' => '#ffffff',
-                'footer' => '#3f7a9f',
-                'footertext' => '#fffff0',
-                'footerlinks' => '#f0f3f5',
-                'titleslogan' => '#ffffff',
-                'text' => '#313131',
-                'link' => '#313131',
+                'primarylight' => '#dff4f8',
+                'primarybright' => '#5bcbe3',
+                'primaryhighlight' => '#00bfe9',
+                'primaryalt' => '#27798b',
+                'primary' => '#146577',
+                'primarydark' => '#115361',
+                'primarydarker' => '#043751',
+                'success' => '#007554',
+                'danger' => '#cc0000',
+                'warning' => '#f9c642',
+                'beta' => '#880e48',
             ),
         ),
         'govcms' => array(
             'title' => t('govCMS'),
             'colors' => array(
-                'top' => '#458fb4',
-                'bottom' => '#47b8ac',
-                'bg' => '#f3ffff',
-                'sidebar' => '#f6f6f2',
-                'sidebarborders' => '#f9f9f9',
-                'footer' => '#3f7a9f',
-                'footertext' => '#fcf8f8',
-                'footerlinks' => '#f0f3f5',
-                'titleslogan' => '#fffeff',
-                'text' => '#333333',
-                'link' => '#3b7498',
+                'primarylight' => '#47b8ac',
+                'primarybright' => '#458fb4',
+                'primaryhighlight' => '#00bfe9',
+                'primaryalt' => '#27798b',
+                'primary' => '#146577',
+                'primarydark' => '#115361',
+                'primarydarker' => '#043751',
+                'success' => '#007554',
+                'danger' => '#cc0000',
+                'warning' => '#f9c642',
+                'beta' => '#880e48',
             ),
         ),
-
     ),
 
+    // CSS files (excluding @import) to rewrite with new color scheme.
+    'css' => array(
+        'css/colors.css',
+    ),
 
-  // CSS files (excluding @import) to rewrite with new color scheme.
-  'css' => array(
-    'css/colors.css',
-),
-
-  // Files to copy.
-  'copy' => array(
-    'logo.svg',
-),
-
+    // Files to copy.
+    'copy' => array(
+        'logo.svg',
+    ),
 
     // Gradient definitions.
-  'gradients' => array(
-    array(
-        // (x, y, width, height).
-        'dimension' => array(0, 0, 0, 0),
-        // Direction of gradient ('vertical' or 'horizontal').
-        'direction' => 'vertical',
-        // Keys of colors to use for the gradient.
-        'colors' => array('top', 'bottom'),
+    'gradients' => array(
+        array(
+            // (x, y, width, height).
+            'dimension' => array(0, 0, 0, 0),
+            // Direction of gradient ('vertical' or 'horizontal').
+            'direction' => 'vertical',
+            // Keys of colors to use for the gradient.
+            'colors' => array('top', 'bottom'),
+        ),
     ),
-),
 
-  // Preview files.
-  'preview_library' => 'govcmsui/color.preview',
-  'preview_html' => 'color/preview.html',
+    // Preview files.
+    'preview_library' => 'govcmsui/color.preview',
+    'preview_html' => 'color/preview.html',
 
-  // Attachments.
-  '#attached' => [
-    'drupalSettings' => [
-        'color' => [
-            // Put the logo path into JavaScript for the live preview.
-            'logo' => theme_get_setting('logo.url', 'govcmsui'),
+    // Attachments.
+    '#attached' => [
+        'drupalSettings' => [
+            'color' => [
+                // Put the logo path into JavaScript for the live preview.
+                'logo' => theme_get_setting('logo.url', 'govcmsui'),
+            ],
         ],
     ],
-],
 );

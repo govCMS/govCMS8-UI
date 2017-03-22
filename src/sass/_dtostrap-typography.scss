@@ -14,8 +14,7 @@ body {
 }
 
 
-
-// Heading text
+// Headings
 h1 {
   font-weight: $font-weight-bold;
 }
@@ -48,17 +47,16 @@ h6 {
 }
 
 
-
-// base for a link
+// Base for a link
 a {
-  color: darken( $blue-bright, 15% );
+  color: darken( $primary-highlight, 15% );
   &:active,
   &:focus,
   &:hover {
     text-decoration: none !important;
   }
 }
-// your average content link (and page footer)
+// Your average content link (and page footer)
 body > div,
 body > main,
 body > footer {
@@ -79,56 +77,36 @@ body > footer {
       color: $grey-dark;
       text-decoration: none;
       outline: none;
-      border-bottom: solid 1px $blue-bright;
+      border-bottom: solid 1px $primary-highlight;
       transition: 0.1s all ease-in-out;
       padding: 1px;
       &:hover,
       &:focus,
       &:active {
         color: $grey-dark;
-        background-color: $blue-bright;
+        background-color: $primary-highlight;
         text-decoration: none;
       }
-
-      // external links
-      // &[rel~='external'] {
-      //   // display: inline;
-      //   position: relative;
-      //   margin-right: 1.6em;
-      // }
       &[rel~='external'] {
         &:after {
-          // DTO way, with svg.
-            // background-size: 0.9em auto;
-            // content: '';
-            // position: absolute;
-            // // display: inline;
-            // width: 1.2em;
-            // height: 1.2em;
-            // background-repeat: no-repeat;
-            // background-position: right 0.4em;
-            // border-bottom: 1px solid transparent;
-            // background-image: url('../img/icons/external-link--aqua.svg');
-          // ...but assuming Boostrap has loaded the font icons anyway
-          content: "\e164"; // external link icon
+          content: "\e164"; // External link icon
           position: relative;
           top: 1px;
           display: inline-block;
           font-family: 'Glyphicons Halflings';
           font-style: normal;
-          font-weight: 400;
+          font-weight: $font-weight-normal;
           line-height: 1;
           padding-left: 5px;
           padding-right: 2px;
           -webkit-font-smoothing: antialiased;
-          // color: $blue-bright;
-          color: $darker-aqua;
+          color: $primary-dark;
         }
         &:hover,
         &:active,
         &:focus {
           &:after {
-            color: $grey-dark;  // if using the font icon method
+            color: $grey-dark;
           }
         }
       }
@@ -136,7 +114,7 @@ body > footer {
     }
   }
 }
-// your average content link that's in a small tag and should be grey not 'black'
+// Your average content link that's in a small tag and should be grey not 'black'
 body > div,
 body > footer {
   small {
@@ -158,6 +136,8 @@ p {
   max-width: 48em;   // for readability
 }
 .alert,
+.well,
+blockquote,
 #main li {
   max-width: 48em;   // for readability
 }

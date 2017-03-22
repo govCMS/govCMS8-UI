@@ -3,7 +3,7 @@ cd "$(dirname "$0")"
 
 ps -ef | grep gulp | grep -v grep | awk '{print $2}' | xargs kill
 
-cd src/sass/
+cd ../src/sass/
 
 wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-vars.scss
 wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-mixins.scss
