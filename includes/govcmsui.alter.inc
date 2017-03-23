@@ -74,3 +74,44 @@ function govcmsui_theme_suggestions_block_alter(array &$suggestions, array $vari
     }
     return $suggestions;
 }
+
+function govcmsui_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+        $suggestions[] = 'page__node__' . $node->getType();
+    }
+}
+
+function govcmsui_theme_suggestions_views_exposed_form_alter(array &$suggestions, array $variables) {
+    if (isset($variables['form']) && isset($variables['form']['#id'])) {
+        $original_theme_hook = $variables['theme_hook_original'];
+        $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['form']['#id']);
+    }
+    return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_alter
+ */
+function govcmsui_theme_suggestions_alter(array &$suggestions, array $variables) {
+    if (isset($variables['element']) && isset($variables['element']['#id'])) {
+        $original_theme_hook = $variables['theme_hook_original'];
+        $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+        if(isset($variables['element']['#type'])) {
+            $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']) . '_' . str_replace('-', '_', $variables['element']['#type']);
+        }
+    }
+    return $suggestions;
+}
+
+
+function govcmsui_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+    if (isset($variables['element']) && isset($variables['element']['#id']) && isset($variables['element']['#theme'])) {
+        $original_theme_hook = $variables['theme_hook_original'];
+        $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']) . '_' . str_replace('-', '_', $variables['element']['#theme']) ;
+        if(isset($variables['element']['#type'])) {
+            $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']) . '_' . str_replace('-', '_', $variables['element']['#theme']) . '_' . str_replace('-', '_', $variables['element']['#type']);
+        }
+    }
+    return $suggestions;
+}
+

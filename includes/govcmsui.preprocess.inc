@@ -14,6 +14,10 @@ function govcmsui_preprocess_block(&$variables) {
     if(!empty($coa)) {
         $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/' . $coa;
     }
+
+    if (!empty($variables['elements']['#id']) && $variables['base_plugin_id'] == 'views_exposed_filter_block') {
+        $variables['attributes']['id'] = 'search';
+    }
 }
 
 function govcmsui_preprocess_menu__main(&$variables) {

@@ -1,6 +1,6 @@
 <?php
 
-include 'includes/govcmsui.preprocess.inc';
-include 'includes/govcmsui.admin.inc';
-include 'includes/govcmsui.alter.inc';
-include 'includes/govcmsui.forms.inc';
+include_once 'includes/govcmsui.preprocess.inc';
+include_once 'includes/govcmsui.admin.inc';
+include_once 'includes/govcmsui.alter.inc';
+include_once 'includes/govcmsui.forms.inc';
