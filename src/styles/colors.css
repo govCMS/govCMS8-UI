@@ -1780,31 +1780,19 @@ Search
 div#search {
   color: #313131;
 }
-div#search form#search-form input.form-text {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-color: #fff;
-}
-div#search form#search-form .form-item {
-  display: inline-block;
-}
-div#search form#search-form .form-actions {
-  display: inline-block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-div#search form#search-form .form-actions button {
+div#search form .input-group-btn button {
   color: #fff;
-}
-div#search form#search-form .form-actions button.form-submit {
+  width: 100%;
   border-color: #f0f3f5;
   background-color: transparent;
-  padding: 12px 15px;
+  padding: 10px 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
-div#search form#search-form .form-actions button.form-submit:hover, div#search form#search-form .form-actions button.form-submit:active, div#search form#search-form .form-actions button.form-submit:focus {
+div#search form .input-group-btn button:hover, div#search form .input-group-btn button:active, div#search form .input-group-btn button:focus {
   background-color: #115361;
 }
-div#search form#search-form .form-actions button.form-submit i {
+div#search form .input-group-btn button i {
   color: #fff;
   font-size: 20px;
 }

@@ -3,36 +3,24 @@ Search
 */
 div#search {
   color: $grey-dark;
-  form#search-form {
-    input {
-      &.form-text {
-        font-size: 16px;
-        padding: 5px 10px;
-        border-color: #fff;
-      }
-    }
-    .form-item {
-      display: inline-block;
-    }
-    .form-actions {
-      display: inline-block;
-      margin-top: 0px;
-      margin-bottom: 0px;
+  form {
+    .input-group-btn {
       button {
         color: #fff;
-        &.form-submit {
-          border-color: $grey-light;
-          background-color: transparent;
-          padding: 12px 15px;
-          &:hover,
-          &:active,
-          &:focus {
-            background-color: $primary-dark;
-          }
-          i {
-            color: #fff;
-            font-size: 20px;
-          }
+        width: 100%;
+        border-color: $grey-light;
+        background-color: transparent;
+        padding: 10px 15px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $primary-dark;
+        }
+        i {
+          color: #fff;
+          font-size: 20px;
         }
       }
     }

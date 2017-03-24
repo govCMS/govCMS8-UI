@@ -8,14 +8,14 @@ function govcmsui_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormSt
         $variables['block_html_id'] = "search";
 
         //Add CSS to form tag
-        $form['#attributes'] = array('class' => array('pull-right'));
+        $form['#attributes'] = array('class' => array('pull-right', 'col-md-4'));
         //$form['keywords']['#theme'][] = 'exposed_search';
 
         //Hide label.. can't add classes directly to label so add span inside label... hackery
         $form['#info']['filter-search_api_fulltext']['label'] = '<span class="sr-only">Search</span>';
         $form['actions']['submit'] = array(
             '#type' => 'inline_template',
-            '#template' => '<button type="submit" name="op" value="Search" class="form-submit input-group-addon btn btn-lg"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>',
+            '#template' => '<button type="submit" name="op" value="Search" class="btn btn-default btn-lg"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>',
             '#id' => 'edit-submit-search',
             '#name' => 'search-submit-button',
         );
