@@ -4,3 +4,4 @@ govcmsui_use_jquery: 1
 govcmsui_coa: coas-inline.svg
 govcmsui_coa_footer: 1
 govcmsui_navbar_justified: 1
+govcmsui_use_fontawesome: 1

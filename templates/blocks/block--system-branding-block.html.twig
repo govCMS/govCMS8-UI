@@ -13,6 +13,8 @@
  */
 #}
 {% block content %}
+    <h2 class="brand brand-name has-img">
+        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo site-logo-branding">
         {% if govlogo %}
             <img src="{{ govlogo }}" alt="Australian Government" height="70" />
         {% endif %}
@@ -25,4 +27,6 @@
         {% if site_slogan %}
             <div class="site-slogan">{{ site_slogan }}</div>
         {% endif %}
+        </a>
+    </h2>
 {% endblock %}

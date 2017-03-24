@@ -1785,24 +1785,32 @@ div#search form#search-form input.form-text {
   padding: 5px 10px;
   border-color: #fff;
 }
-div#search form#search-form .input-group-btn {
-  margin-top: 0px;
-  width: 100%;
+div#search form#search-form .form-item {
+  display: inline-block;
 }
-div#search form#search-form .input-group-btn button {
+div#search form#search-form .form-actions {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+div#search form#search-form .form-actions button {
   color: #fff;
 }
-div#search form#search-form .input-group-btn button.form-submit {
+div#search form#search-form .form-actions button.form-submit {
   border-color: #f0f3f5;
   background-color: transparent;
   padding: 12px 15px;
 }
-div#search form#search-form .input-group-btn button.form-submit:hover, div#search form#search-form .input-group-btn button.form-submit:active, div#search form#search-form .input-group-btn button.form-submit:focus {
+div#search form#search-form .form-actions button.form-submit:hover, div#search form#search-form .form-actions button.form-submit:active, div#search form#search-form .form-actions button.form-submit:focus {
   background-color: #115361;
 }
-div#search form#search-form .input-group-btn button.form-submit i {
+div#search form#search-form .form-actions button.form-submit i {
   color: #fff;
   font-size: 20px;
+}
+
+h2.brand {
+  display: inline-block;
 }
 
 /**

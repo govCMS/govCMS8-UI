@@ -34,6 +34,19 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         '#default_value' => theme_get_setting('govcmsui_use_jquery'),
         '#description'   => t("Do you want to include the latest jQuery"),
     );
+    $form['govcmsui_framework_details']['govcmsui_use_jquery'] = array(
+        '#type'          => 'checkbox',
+        '#title'         => t('Use jQuery'),
+        '#attributes' => array('disabled' => FALSE),
+        '#default_value' => theme_get_setting('govcmsui_use_jquery'),
+        '#description'   => t("Do you want to include the latest jQuery"),
+    );
+    $form['govcmsui_framework_details']['govcmsui_use_fontawesome'] = array(
+        '#type'          => 'checkbox',
+        '#title'         => t('Use Font Awesome'),
+        '#default_value' => theme_get_setting('govcmsui_use_fontawesome'),
+        '#description'   => t("Do you want to include <a href='http://fontawesome.io' target='_blank'>Font Awesome</a>"),
+    );
 
     $form['govcmsui_navbar_details'] = array(
         '#type' => 'details',

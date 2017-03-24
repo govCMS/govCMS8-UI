@@ -48,6 +48,20 @@ function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $a
 
         );
     }
+
+    if(theme_get_setting('govcmsui_use_fontawesome')) {
+        $css['//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'] = array(
+            'weight' => 0,
+            'group' => -99,
+            'version' => '4.7.0',
+            'type' => 'external',
+            'preprocess' => true,
+            'browsers' => array(),
+            'media' => 'all',
+            'data' => 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+
+        );
+    }
 }
 
 

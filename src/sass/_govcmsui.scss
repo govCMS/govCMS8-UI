@@ -11,9 +11,13 @@ div#search {
         border-color: #fff;
       }
     }
-    .input-group-btn {
+    .form-item {
+      display: inline-block;
+    }
+    .form-actions {
+      display: inline-block;
       margin-top: 0px;
-      width: 100%;
+      margin-bottom: 0px;
       button {
         color: #fff;
         &.form-submit {
@@ -33,6 +37,10 @@ div#search {
       }
     }
   }
+}
+
+h2.brand {
+  display:inline-block;
 }
 
 
