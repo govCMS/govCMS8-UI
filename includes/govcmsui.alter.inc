@@ -69,29 +69,30 @@ function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $a
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function govcmsui_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
-    // Remove the block and replace dashes with underscores in the block ID to
-    // use for the hook name.
-    if (isset($variables['attributes']['block'])) {
-        $hook = str_replace(array('block-', '-'), array('', '_'), $variables['attributes']['block']);
-        $suggestions[] = $variables['theme_hook_original'] . '__' . $hook;
+    if (isset($variables['attributes']['region']) && !empty($variables['attributes']['region'])) {
+        $suggestions[] = 'menu__' . $variables['attributes']['region'];
     }
+    $suggestions = array_unique($suggestions);
 }
 
 function govcmsui_theme_suggestions_block_alter(array &$suggestions, array $variables) {
     if (!empty($variables['elements']['#id'])) {
-        $block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
-        $suggestions[] = 'block__' . $block->getRegion() . '__' . $variables['elements']['#id'];
+        $suggestions[] = 'block__' . $variables['elements']['#id'];
     }
-    else if (isset($variables['elements']['#configuration']['region'])) {
-        $suggestions[] = 'block__page_' . $variables['elements']['#configuration']['region'] . '__' . end(explode(':', $variables['elements']['#plugin_id']));
+    if(!empty($variables['elements']['#configuration']['region'])) {
+        $suggestions[] = 'block__' . $variables['elements']['#configuration']['region'];
     }
-    return $suggestions;
+    if(!empty($variables['elements']['#id']) && !empty($variables['elements']['#configuration']['region'])) {
+        $suggestions[] = 'block__' . $variables['elements']['#configuration']['region'] . '__' . $variables['elements']['#id'];
+    }
+    $suggestions = array_unique($suggestions);
 }
 
 function govcmsui_theme_suggestions_page_alter(array &$suggestions, array $variables) {
     if ($node = \Drupal::routeMatch()->getParameter('node')) {
         $suggestions[] = 'page__node__' . $node->getType();
     }
+    $suggestions = array_unique($suggestions);
 }
 
 function govcmsui_theme_suggestions_views_exposed_form_alter(array &$suggestions, array $variables) {
@@ -99,7 +100,7 @@ function govcmsui_theme_suggestions_views_exposed_form_alter(array &$suggestions
         $original_theme_hook = $variables['theme_hook_original'];
         $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['form']['#id']);
     }
-    return $suggestions;
+    $suggestions = array_unique($suggestions);
 }
 
 function govcmsui_theme_suggestions_alter(array &$suggestions, array $variables) {
@@ -110,7 +111,7 @@ function govcmsui_theme_suggestions_alter(array &$suggestions, array $variables)
             $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']) . '_' . str_replace('-', '_', $variables['element']['#type']);
         }
     }
-    return $suggestions;
+    $suggestions =  array_unique($suggestions);
 }
 
 function govcmsui_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
@@ -121,6 +122,6 @@ function govcmsui_theme_suggestions_form_element_alter(array &$suggestions, arra
             $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']) . '_' . str_replace('-', '_', $variables['element']['#theme']) . '_' . str_replace('-', '_', $variables['element']['#type']);
         }
     }
-    return $suggestions;
+    $suggestions = array_unique($suggestions);
 }
 
