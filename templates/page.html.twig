@@ -125,15 +125,11 @@
         {% endif %}
         <div class="row">
             {%
-            set coa_footer_class = [
-            (coa_bottom is defined ? 'col-md-12')
-            ]
+            set coa_footer_class = 'col-md-12'
             %}
             {% if coa_bottom is defined %}
                 {%
-                set coa_footer_class = [
-                (coa_bottom is defined ? 'col-md-9')
-                ]
+                set coa_footer_class = 'col-md-9'
                 %}
                 <div class="col-md-3">
                     <img src="{{ coa_bottom }}" alt="Australian Government" width="163">

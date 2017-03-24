@@ -82,7 +82,6 @@ function govcmsui_theme_suggestions_block_alter(array &$suggestions, array $vari
         $block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
         $suggestions[] = 'block__' . $block->getRegion() . '__' . $variables['elements']['#id'];
     }
-    /* Use this 'else if' only if you are using page_manager module and want to know which region is the block */
     else if (isset($variables['elements']['#configuration']['region'])) {
         $suggestions[] = 'block__page_' . $variables['elements']['#configuration']['region'] . '__' . end(explode(':', $variables['elements']['#plugin_id']));
     }
@@ -103,9 +102,6 @@ function govcmsui_theme_suggestions_views_exposed_form_alter(array &$suggestions
     return $suggestions;
 }
 
-/**
- * Implements hook_theme_suggestions_alter
- */
 function govcmsui_theme_suggestions_alter(array &$suggestions, array $variables) {
     if (isset($variables['element']) && isset($variables['element']['#id'])) {
         $original_theme_hook = $variables['theme_hook_original'];
@@ -116,7 +112,6 @@ function govcmsui_theme_suggestions_alter(array &$suggestions, array $variables)
     }
     return $suggestions;
 }
-
 
 function govcmsui_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
     if (isset($variables['element']) && isset($variables['element']['#id']) && isset($variables['element']['#theme'])) {
