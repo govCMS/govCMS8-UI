@@ -66,11 +66,6 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         '#title' => t('Coat of Arms'),
         '#open' => false,
     );
-    $form['govcmsui_coa_details']['govcmsui_coa_footer'] = array(
-        '#type'          => 'checkbox',
-        '#title'         => t('Show Coat of Arms in footer'),
-        '#default_value' => theme_get_setting('govcmsui_coa_footer'),
-    );
     $form['govcmsui_coa_details']['govcmsui_coa'] = array(
         '#title' => t('Select which Coat of Arms you want to display on your site'),
         '#type' => 'radios',
@@ -82,6 +77,23 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
             'coas-stacked.svg' => t('Stacked (white)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-admin.svg" /></p>',
             'coas-stacked-colour.svg' => t('Stacked (black)').'<p><img height="80" src="/'.drupal_get_path('theme', 'govcmsui').'/img/coas-stacked-colour.svg" /></p>',
         ),
+    );
+
+    $form['govcmsui_footer'] = array(
+        '#type' => 'details',
+        '#title' => t('Footer'),
+        '#open' => false,
+    );
+    $form['govcmsui_footer']['govcmsui_coa_footer'] = array(
+        '#type'          => 'checkbox',
+        '#title'         => t('Show Coat of Arms in footer'),
+        '#default_value' => theme_get_setting('govcmsui_coa_footer'),
+    );
+    $form['govcmsui_footer']['govcmsui_footer_copyright'] = array(
+        '#type'          => 'textfield',
+        '#title'         => t('Copyright text'),
+        '#default_value' => theme_get_setting('govcmsui_footer_copyright'),
+        '#description'   => t("Leave blank to hide."),
     );
 
 }

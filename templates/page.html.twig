@@ -141,10 +141,11 @@
             {% endif %}
             <div class="{{ coa_footer_class }}">
                 {{ page.footer }}
+                {% if footer_copyright is defined %}
                 <small>
-                    &copy; Commonwealth of Australia <br>
-                    <a href="https://creativecommons.org/licenses/by/3.0/au/">Licensed under Creative Commons.</a>
+                    &copy; {{ footer_copyright }}
                 </small>
+                {% endif %}
             </div>
         </div>
     </div>

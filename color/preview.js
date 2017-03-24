@@ -18,7 +18,14 @@
   }).appendTo('.color-preview');
 
   function iFrameLoaded() {
-    $('#preview_iframe').contents().find('#toolbar-administration').remove();
+    var $colorPreview = $('#preview_iframe').contents();
+    $colorPreview.find('#toolbar-administration').remove();
+    $colorPreview.find('.contextual').each(function() {
+      $(this).remove();
+    });
+    $colorPreview.find('a').each(function() {
+      $(this).removeAttr("href").css("cursor","pointer");
+    });
     $('#preview_iframe').height( $('#preview_iframe').contents().find("body").height() );
   }
 
