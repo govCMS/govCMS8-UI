@@ -70,7 +70,7 @@ function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $a
  */
 function govcmsui_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
     if (isset($variables['attributes']['region']) && !empty($variables['attributes']['region'])) {
-        $suggestions[] = 'menu__' . $variables['attributes']['region'];
+        $suggestions[] = 'menu__region_' . $variables['attributes']['region'];
     }
     $suggestions = array_unique($suggestions);
 }
@@ -80,10 +80,10 @@ function govcmsui_theme_suggestions_block_alter(array &$suggestions, array $vari
         $suggestions[] = 'block__' . $variables['elements']['#id'];
     }
     if(!empty($variables['elements']['#configuration']['region'])) {
-        $suggestions[] = 'block__' . $variables['elements']['#configuration']['region'];
+        $suggestions[] = 'block__region_' . $variables['elements']['#configuration']['region'];
     }
     if(!empty($variables['elements']['#id']) && !empty($variables['elements']['#configuration']['region'])) {
-        $suggestions[] = 'block__' . $variables['elements']['#configuration']['region'] . '__' . $variables['elements']['#id'];
+        $suggestions[] = 'block__region_' . $variables['elements']['#configuration']['region'] . '__' . $variables['elements']['#id'];
     }
     $suggestions = array_unique($suggestions);
 }

@@ -18,6 +18,7 @@
   }).appendTo('.color-preview');
 
   function iFrameLoaded() {
+    var $colorPalette = $('.js-color-palette');
     var $colorPreview = $('#preview_iframe').contents();
     $colorPreview.find('#toolbar-administration').remove();
     $colorPreview.find('.contextual').each(function() {
@@ -26,6 +27,12 @@
     $colorPreview.find('a').each(function() {
       $(this).removeAttr("href").css("cursor","pointer");
     });
+
+    $colorPalette.find("input[name^='palette']").each(function(){
+      var bgColor = $(this).val();
+      $(this).addClass('original-' + bgColor);
+    });
+
     $('#preview_iframe').height( $('#preview_iframe').contents().find("body").height() );
   }
 
@@ -40,21 +47,41 @@
       var gradient_end = $colorPalette.find('input[name="palette[primaryalt]"]').val();
 
       $colorPreview.find('#header').attr('style', 'background-color: ' + gradient_start + '; background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' + gradient_start + '), to(' + gradient_end + ')); background-image: -moz-linear-gradient(-20deg, ' + gradient_start + ', ' + gradient_end + ');');
-      $colorPreview.find('#header').find('#header').css('color', '#ffffff');
 
-      // Solid background.
-      $colorPreview.css('backgroundColor', $colorPalette.find('#ffffff').val());
+      $colorPalette.find("input[name^='palette']").each(function() {
+        var originalHex = $(this).attr('class').match(/original-(.+)/);
+        var newHex = $(this).val();
+        if (originalHex != null) {
+          originalHex = originalHex[1];
+          $colorPreview.find('*').each(function () {
+            var bgColor = $(this).css('background-color');
+            bgColor = rgb2hex(bgColor);
+            if (bgColor == originalHex) {
+              $(this).css('background-color', newHex);
+            }
 
-      // Sidebar block.
-      var $colorPreviewBlock = $colorPreview.find('.color-preview-sidebar .color-preview-block');
-      $colorPreviewBlock.css('background-color', $colorPalette.find('input[name="palette[sidebar]"]').val());
-      $colorPreviewBlock.css('border-color', $colorPalette.find('input[name="palette[sidebarborders]"]').val());
-
-      // Footer wrapper background.
-      $colorPreview.find('.color-preview-footer-wrapper').css('background-color', $colorPalette.find('input[name="palette[footer]"]').val());
-      $colorPreview.find('.color-preview-footer-footer-wrapper').css('background-color', $colorPalette.find('input[name="palette[footerlinks]"]').val());
-      $colorPreview.find('.color-preview-footer-wrapper').css('color', $colorPalette.find('input[name="palette[footertext]"]').val());
-      $colorPreview.find('.color-preview-footer-wrapper a').css('color', $colorPalette.find('input[name="palette[footertext]"]').val());
+            var textColor = $(this).css('color');
+            textColor = rgb2hex(textColor);
+            if (textColor == originalHex) {
+              $(this).css('color', newHex);
+            }
+          });
+        }
+        $(this).removeClass('original-' + originalHex);
+        $(this).addClass('original-' + newHex);
+      });
     }
   };
+
+
+  function rgb2hex(rgb) {
+    if (rgb == null || rgb == 'transparent') return '';
+    if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    function hex(x) {
+      return ("0" + parseInt(x).toString(16)).slice(-2);
+    }
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
 })(jQuery, Drupal, drupalSettings);
