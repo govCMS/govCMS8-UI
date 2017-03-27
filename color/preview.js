@@ -6,6 +6,7 @@
 
   'use strict';
 
+
   $('<iframe>', {
     src: document.location.origin,
     id:  'preview_iframe',
@@ -34,6 +35,8 @@
     });
 
     $('#preview_iframe').height( $('#preview_iframe').contents().find("body").height() );
+
+    $("summary[aria-controls='color_scheme_form']").click();
   }
 
   Drupal.color = {
