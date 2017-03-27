@@ -1,16 +1,8 @@
-/**
- * @file
- * A JavaScript file for the Site.
- */
 
-(function ($, Drupal) {
+(function ($) {
 
     'use strict';
 
-    Drupal.behaviors.govstrap = {
-        attach: function (context, settings) {
-            //jQuery('[data-toggle="tooltip"]').tooltip();
-        }
-    };
 
-})(jQuery, Drupal);
+
+})(jQuery);

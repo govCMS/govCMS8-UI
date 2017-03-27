@@ -5,7 +5,7 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
     if(theme_get_setting('govcmsui_use_bootstrap') || theme_get_setting('govcmsui_use_jquery')) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'] = array(
             'weight' => 0,
-            'group' => -98,
+            'group' => -99,
             'version' => '3.1.1',
             'type' => 'external',
             'cache' => true,
@@ -14,13 +14,14 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
             'scope' => 'footer',
             'attributes' => array(),
             'data' => '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
-
         );
+
+        $javascript['sites/default/themes/govcmsui/js/scripts.js']['group'] = -98;
     }
     if(theme_get_setting('govcmsui_use_bootstrap')) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'] = array(
             'weight' => 0,
-            'group' => -99,
+            'group' => -98,
             'version' => '3.3.7',
             'type' => 'external',
             'cache' => true,

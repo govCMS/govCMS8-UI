@@ -1815,6 +1815,17 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
 .region-nav-secondary a {
   color: #FFFFFF;
 }
+.region-nav-secondary form#search-form {
+  padding: 10px 0px;
+}
+.region-nav-secondary form#search-form .input-group-lg .form-control {
+  height: 35px;
+  padding: 2px 16px;
+}
+.region-nav-secondary form#search-form .input-group-lg button {
+  padding: 0px 15px;
+  height: 35px;
+}
 
 ul.menu.admin-nav-menu {
   margin-right: 15px;
