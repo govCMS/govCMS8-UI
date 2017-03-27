@@ -54,17 +54,43 @@
         if (originalHex != null) {
           originalHex = originalHex[1];
           $colorPreview.find('*').each(function () {
-            var bgColor = $(this).css('background-color');
-            bgColor = rgb2hex(bgColor);
-            if (bgColor == originalHex) {
+            var color = $(this).css('background-color');
+            color = rgb2hex(color);
+            if (color == originalHex) {
               $(this).css('background-color', newHex);
             }
 
-            var textColor = $(this).css('color');
-            textColor = rgb2hex(textColor);
-            if (textColor == originalHex) {
+            var color = $(this).css('color');
+            color = rgb2hex(color);
+            if (color == originalHex) {
               $(this).css('color', newHex);
             }
+
+            var color = $(this).css('border-top-color');
+            color = rgb2hex(color);
+            if (color == originalHex) {
+              $(this).css('border-top-color', newHex);
+            }
+
+            var color = $(this).css('border-bottom-color');
+            color = rgb2hex(color);
+            if (color == originalHex) {
+              $(this).css('border-bottom-color', newHex);
+            }
+
+            var color = $(this).css('border-left-color');
+            color = rgb2hex(color);
+            if (color == originalHex) {
+              $(this).css('border-left-color', newHex);
+            }
+
+            var color = $(this).css('border-right-color');
+            color = rgb2hex(color);
+            if (color == originalHex) {
+              $(this).css('border-right-color', newHex);
+            }
+
+
           });
         }
         $(this).removeClass('original-' + originalHex);
