@@ -50,17 +50,19 @@
                     {{ page.help }}
                 {% endif %}
             </div>
-            {% if page.sidebar_first is defined and page.sidebar_first|render|striptags|trim %}
+            {% set left_exists = (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim is not empty) %}
+            {% set right_exists = (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim is not empty) %}
+            {% if left_exists %}
                 <aside class="col-sm-3" role="complementary">
                     {{ page.sidebar_first }}
                 </aside>
             {% endif %}
+
             {%
                 set content_classes = [
-                (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim) and (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim) ? 'col-sm-6',
-                (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim) and page.sidebar_second is empty ? 'col-sm-9',
-                (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim) and page.sidebar_first is empty ? 'col-sm-9',
-                page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+                (left_exists and right_exists) ? 'col-sm-6',
+                (not left_exists and not right_exists) ? 'col-sm-12',
+                ((left_exists and not right_exists) or (not left_exists and right_exists)) ? 'col-sm-9',
             ]
             %}
             <section id="main-content-section" {{ content_attributes.addClass(content_classes) }} role="main">
@@ -69,7 +71,7 @@
                 </div>
             </section>
 
-            {% if page.sidebar_second is defined and page.sidebar_second|render|striptags|trim %}
+            {% if right_exists %}
                 <aside class="col-sm-3 right-bar" role="complementary">
                     {{ page.sidebar_second }}
                 </aside>

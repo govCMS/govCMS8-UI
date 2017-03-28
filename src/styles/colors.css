@@ -1827,6 +1827,24 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
   height: 35px;
 }
 
+.region-sidebar-first div#search, .region-sidebar-second div#search, .region-content div#search, .region-nav div#search {
+  padding: 10px 0px;
+}
+.region-sidebar-first div#search form .input-group-btn button, .region-sidebar-second div#search form .input-group-btn button, .region-content div#search form .input-group-btn button, .region-nav div#search form .input-group-btn button {
+  border-color: #6e6e6e;
+}
+.region-sidebar-first div#search form .input-group-btn button i, .region-sidebar-second div#search form .input-group-btn button i, .region-content div#search form .input-group-btn button i, .region-nav div#search form .input-group-btn button i {
+  color: #6e6e6e;
+}
+.region-sidebar-first div#search form .input-group-btn button:hover i, .region-sidebar-second div#search form .input-group-btn button:hover i, .region-content div#search form .input-group-btn button:hover i, .region-nav div#search form .input-group-btn button:hover i {
+  color: #fff;
+}
+
+.region-nav div#search {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 ul.menu.admin-nav-menu {
   margin-right: 15px;
   margin-bottom: 0px;
@@ -1867,7 +1885,7 @@ header.navbar nav.navbar {
   margin-bottom: 0px;
 }
 header.navbar nav.navbar div.navbar-header {
-  width: 90%;
+  width: 100%;
 }
 header.navbar nav.navbar div.navbar-header a {
   border-bottom: none;

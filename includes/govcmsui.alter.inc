@@ -77,14 +77,20 @@ function govcmsui_theme_suggestions_menu_alter(array &$suggestions, array $varia
 }
 
 function govcmsui_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+    $original_theme_hook = $variables['theme_hook_original'];
     if (!empty($variables['elements']['#id'])) {
-        $suggestions[] = 'block__' . $variables['elements']['#id'];
-    }
-    if(!empty($variables['elements']['#configuration']['region'])) {
-        $suggestions[] = 'block__region_' . $variables['elements']['#configuration']['region'];
-    }
-    if(!empty($variables['elements']['#id']) && !empty($variables['elements']['#configuration']['region'])) {
-        $suggestions[] = 'block__region_' . $variables['elements']['#configuration']['region'] . '__' . $variables['elements']['#id'];
+        $suggestions[] = $original_theme_hook.'__' . $variables['elements']['#id'];
+
+        $block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
+        $region = $block->getRegion();
+
+        if(isset($region)) {
+            $suggestions[] = $original_theme_hook.'__'.$variables['elements']['#id'].'__region_' . $region;
+
+            if(!empty($variables['elements']['#base_plugin_id'])) {
+                $suggestions[] = $original_theme_hook.'__region_' . $region . '__' . $variables['elements']['#base_plugin_id'];
+            }
+        }
     }
     $suggestions = array_unique($suggestions);
 }
