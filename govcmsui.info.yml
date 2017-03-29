@@ -9,6 +9,7 @@ regions:
   nav_secondary: 'Secondary nav'
   header: 'Header'
   nav: 'Nav bar'
+  nav_search: 'Nav bar Search'
   breadcrumb: 'Breadcrumb'
   highlighted: 'Highlight'
   help: 'Help'

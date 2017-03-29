@@ -22,11 +22,25 @@
     </div>
 </header>
 
+{% set nav_search_exists = false %}
+{% set nav_class = 'col-sm-12' %}
+{% if  page.nav_search is defined and page.nav_search|render|striptags|trim %}
+    {% set nav_search_exists = true %}
+    {% set nav_class = 'col-sm-9' %}
+{% endif %}
+
 <div class="container-full main-nav">
     <div class="container">
         <div class="row">
             <div class="collapse navbar-collapse" id="main-navigation">
-                {{ page.nav }}
+                <div class="{{ nav_class }}">
+                    {{ page.nav }}
+                </div>
+                {% if  page.nav_search is defined and page.nav_search|render|striptags|trim %}
+                    <div class="col-sm-3">
+                        {{ page.nav_search }}
+                    </div>
+                {% endif %}
             </div>
         </div><!-- /.navbar-collapse -->
     </div>

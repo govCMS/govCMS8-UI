@@ -67,7 +67,7 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
   }
 }
 
-.region-sidebar-first, .region-sidebar-second, .region-content, .region-nav {
+.region-sidebar-first, .region-sidebar-second, .region-content, .region-nav, .region-nav-search {
   div#search {
     padding: 10px 0px;
 
@@ -91,7 +91,7 @@ This stuff below here, should really go in DTOStrap / and / or UI KIT once we ge
   }
 }
 
-.region-nav {
+.region-nav, .region-nav-search {
   div#search {
     padding-top: 0px;
     padding-bottom: 0px;
