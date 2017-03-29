@@ -1,43 +1,4 @@
-<div class="uikit-global-nav">
-    <div class="container">
-        {{ page.nav_secondary }}
-    </div>
-</div>
-<header id="header" role="banner" class="navbar">
-    <div class="container">
-        <div class="row">
-            <nav class="navbar">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    {{ page.header }}
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
-
-<div class="container-full main-nav">
-    <div class="container">
-        <div class="row">
-            <div class="collapse navbar-collapse" id="main-navigation">
-                {{ page.nav }}
-            </div>
-        </div><!-- /.navbar-collapse -->
-    </div>
-</div>
-{% if page.highlighted %}
-    <div class="jumbotron">
-        <div id="highlight-region" class="container">
-            {{ page.highlighted }}
-        </div>
-    </div>
-{% endif %}
+{% include directory ~ '/templates/includes/_header.html.twig' %}
 <main class="container">
     <a id="main-content" tabindex="-1"></a>
     <div id="main" class="main-container row">
@@ -59,10 +20,10 @@
             {% endif %}
 
             {%
-                set content_classes = [
-                (left_exists and right_exists) ? 'col-sm-6',
-                (not left_exists and not right_exists) ? 'col-sm-12',
-                ((left_exists and not right_exists) or (not left_exists and right_exists)) ? 'col-sm-9',
+            set content_classes = [
+            (left_exists and right_exists) ? 'col-sm-6',
+            (not left_exists and not right_exists) ? 'col-sm-12',
+            ((left_exists and not right_exists) or (not left_exists and right_exists)) ? 'col-sm-9',
             ]
             %}
             <section id="main-content-section" {{ content_attributes.addClass(content_classes) }} role="main">
@@ -80,73 +41,4 @@
     </div>
 </main>
 
-{% set count = 0 %}
-
-{% if  page.jumbo_footer_1 is defined and page.jumbo_footer_1|render|striptags|trim %}
-    {% set count = count + 1 %}
-{% endif %}
-{% if  page.jumbo_footer_2 is defined and page.jumbo_footer_2|render|striptags|trim %}
-    {% set count = count + 1 %}
-{% endif %}
-{% if  page.jumbo_footer_3 is defined and page.jumbo_footer_3|render|striptags|trim %}
-    {% set count = count + 1 %}
-{% endif %}
-{% if  page.jumbo_footer_4 is defined and page.jumbo_footer_4|render|striptags|trim %}
-    {% set count = count + 1 %}
-{% endif %}
-
-
-
-<footer>
-    <h2 class="sr-only">Footer links</h2>
-    <div class="container">
-        {% if count > 0 %}
-        {% set jumbo_content_class = 12 / count %}
-        <div class="row">
-            {% if page.jumbo_footer_1 is defined and page.jumbo_footer_1|render|striptags|trim %}
-                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                    {{ page.jumbo_footer_1 }}
-                </div>
-            {% endif %}
-            {% if page.jumbo_footer_2 is defined and page.jumbo_footer_2|render|striptags|trim %}
-                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                    {{ page.jumbo_footer_2 }}
-                </div>
-            {% endif %}
-            {% if page.jumbo_footer_3 is defined and page.jumbo_footer_3|render|striptags|trim %}
-                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                    {{ page.jumbo_footer_3 }}
-                </div>
-            {% endif %}
-            {% if page.jumbo_footer_4 is defined and page.jumbo_footer_4|render|striptags|trim %}
-                <div class="col-sm-6 col-md-{{ jumbo_content_class }}">
-                    {{ page.jumbo_footer_4 }}
-                </div>
-            {% endif %}
-        </div>
-        {% endif %}
-        <div class="row">
-            {%
-            set coa_footer_class = 'col-md-12'
-            %}
-            {% if coa_bottom is defined %}
-                {%
-                set coa_footer_class = 'col-md-9'
-                %}
-                <div class="col-md-3">
-                    <img src="{{ coa_bottom }}" alt="Australian Government" width="163">
-                </div>
-            {% endif %}
-            <div class="{{ coa_footer_class }}">
-                {{ page.footer }}
-                {% if footer_copyright is defined %}
-                <small>
-                    &copy; {{ footer_copyright }}
-                </small>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</footer>
-
-
+{% include directory ~ '/templates/includes/_footer.html.twig' %}
