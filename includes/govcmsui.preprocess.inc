@@ -29,7 +29,9 @@ function govcmsui_preprocess_block(&$variables) {
 }
 
 function govcmsui_preprocess_menu(&$variables) {
-    $variables['content']['#attributes']['region'] = $variables['attributes']['region'];
+    if(isset($variables['attributes']['region'])) {
+        $variables['content']['#attributes']['region'] = $variables['attributes']['region'];
+    }
 }
 
 function govcmsui_preprocess_menu__main(&$variables) {
@@ -39,4 +41,8 @@ function govcmsui_preprocess_menu__main(&$variables) {
     if(!empty($nav_justified) && $nav_justified == 1) {
         $variables['attributes']['class'][] = 'nav-justified';
     }
+}
+
+function govcmsui_preprocess_region__nav(&$variables) {
+    $elements = $variables['elements'];
 }
