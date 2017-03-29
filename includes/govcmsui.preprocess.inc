@@ -18,7 +18,6 @@ function govcmsui_preprocess_block(&$variables) {
     $block = \Drupal\block\Entity\Block::load($block_id);
     $variables['content']['#attributes']['region'] = $block->getRegion();
 
-
     $coa = theme_get_setting('govcmsui_coa');
     if(!empty($coa)) {
         $variables['govlogo'] = '/' . drupal_get_path('theme','govcmsui') . '/img/' . $coa;
@@ -35,14 +34,12 @@ function govcmsui_preprocess_menu(&$variables) {
 }
 
 function govcmsui_preprocess_menu__main(&$variables) {
-    $variables['content']['#attributes']['region'] = $variables['attributes']['region'];
+    if(isset($variables['attributes']['region'])) {
+        $variables['content']['#attributes']['region'] = $variables['attributes']['region'];
+    }
 
     $nav_justified = theme_get_setting('govcmsui_navbar_justified');
     if(!empty($nav_justified) && $nav_justified == 1) {
         $variables['attributes']['class'][] = 'nav-justified';
     }
-}
-
-function govcmsui_preprocess_region__nav(&$variables) {
-    $elements = $variables['elements'];
 }

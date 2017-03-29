@@ -27,14 +27,13 @@
       @see http://twig.sensiolabs.org/doc/tags/macro.html
     #}
     {{ menus.menu_links(items, attributes, 0) }}
-
     {% macro menu_links(items, attributes, menu_level) %}
       {% import _self as menus %}
       {% if items %}
         {% if menu_level == 0 %}
-<ul{{ attributes.addClass('main-menu', 'nav', 'nav-tabs') }}>
-    {% else %}
-    <ul {{ attributes.addClass('dropdown-menu') }}>
+            <ul{{ attributes.addClass('main-menu', 'nav', 'nav-tabs') }}>
+        {% else %}
+            <ul {{ attributes.addClass('dropdown-menu') }}>
         {% endif %}
         {% for item in items %}
             <li{{ item.attributes }}>
@@ -44,6 +43,6 @@
                 {% endif %}
             </li>
         {% endfor %}
-    </ul>
+        </ul>
     {% endif %}
     {% endmacro %}

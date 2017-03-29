@@ -30,15 +30,12 @@ set classes = [
 'block',
 'block-' ~ configuration.provider|clean_class,
 'block-' ~ plugin_id|clean_class,
-]
-%}
-{%
-set removeClasses = [
+'main-content-search',
 'col-md-4',
 'pull-right'
 ]
 %}
-<div{{ attributes.addClass(classes).removeClass(removeClasses) }}>
+<div{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {% if label %}
         <h2{{ title_attributes }}>{{ label }}</h2>
