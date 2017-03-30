@@ -1,0 +1,25 @@
+<article{{ attributes }}>
+
+    {{ title_prefix }}
+    {% if not page %}
+        <h2{{ title_attributes }}>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% if display_submitted %}
+        <small{{ author_attributes.addClass('meta') }}>
+            <time datetime="{{ date_timestamp }}">{{ date }} ago</time>
+            <p>by {{ author_name }}</p>
+            {% if date_updated is defined %}
+            Updated <time datetime="{{ date_updated_timestamp }}">{{ date_updated }} ago</time>
+            {% endif %}
+        </small>
+    {% endif %}
+
+    <div{{ content_attributes }}>
+        {{ content }}
+    </div>
+
+</article>
