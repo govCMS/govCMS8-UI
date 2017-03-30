@@ -1,0 +1,23 @@
+<article{{ attributes.addClass('row') }}>
+    <div class="media">
+        <div class="media-left">
+            {{ content.field_featured_image }}
+        </div>
+        <div class="media-body">
+            {{ title_prefix }}
+            {% if not page %}
+                <h2{{ title_attributes.addClass('media-heading') }}>
+                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+                </h2>
+            {% endif %}
+            {{ title_suffix }}
+            {% if display_submitted %}
+                <small{{ author_attributes.addClass('meta') }}>
+                    Posted <time datetime="{{ date_timestamp }}">{{ date }} ago</time> by {{ author_name }}
+                </small>
+            {% endif %}
+            {{ content.body }}
+        </div>
+
+    </div>
+</article>
