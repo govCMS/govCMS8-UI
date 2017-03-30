@@ -46,7 +46,6 @@ function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $a
             'browsers' => array(),
             'media' => 'all',
             'data' => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css',
-
         );
     }
 

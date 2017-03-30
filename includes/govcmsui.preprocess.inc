@@ -43,3 +43,15 @@ function govcmsui_preprocess_menu__main(&$variables) {
         $variables['attributes']['class'][] = 'nav-justified';
     }
 }
+
+function govcmsui_preprocess_node(&$variables) {
+    $date = $variables['node']->getCreatedTime();
+    $updated = $variables['node']->getChangedTime();
+    $variables['date'] = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $date);
+    $variables['date_timestamp'] = date("Y-m-d\TH:i:s", $date);
+
+    if($date != $updated) {
+        $variables['date_updated'] = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $updated);
+        $variables['date_updated_timestamp'] = date("Y-m-d\TH:i:s", $updated);
+    }
+}
