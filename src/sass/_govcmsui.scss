@@ -32,6 +32,26 @@ h2.brand {
 }
 
 
+.blog-article-teaser {
+
+}
+
+.media {
+  .media-left {
+    // Need these to center vertical align, I'm not a style guy so @timhurley, all yours!
+    display: table-cell;
+    vertical-align: middle;
+    .field--name-field-featured-image {
+      display: inline-block;
+      img {
+        height: 150px;
+        width: auto;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
 
 /**
 This stuff below here, should really go in DTOStrap / and / or UI KIT once we get that in.

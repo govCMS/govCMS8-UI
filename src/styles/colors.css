@@ -1801,6 +1801,19 @@ h2.brand {
   display: inline-block;
 }
 
+.media .media-left {
+  display: table-cell;
+  vertical-align: middle;
+}
+.media .media-left .field--name-field-featured-image {
+  display: inline-block;
+}
+.media .media-left .field--name-field-featured-image img {
+  height: 150px;
+  width: auto;
+  vertical-align: middle;
+}
+
 /**
 This stuff below here, should really go in DTOStrap / and / or UI KIT once we get that in.
 */
