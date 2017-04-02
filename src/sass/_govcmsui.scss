@@ -33,7 +33,9 @@ h2.brand {
 
 
 .blog-article-teaser {
-
+  border-bottom: 1px dashed $grey;
+  padding-top: .5em;
+  padding-bottom: .5em;
 }
 
 .media {
@@ -43,10 +45,10 @@ h2.brand {
     vertical-align: middle;
     .field--name-field-featured-image {
       display: inline-block;
+      min-width: 267px;
       img {
         height: 150px;
         width: auto;
-        vertical-align: middle;
       }
     }
   }

@@ -1801,17 +1801,23 @@ h2.brand {
   display: inline-block;
 }
 
+.blog-article-teaser {
+  border-bottom: 1px dashed #6e6e6e;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
 .media .media-left {
   display: table-cell;
   vertical-align: middle;
 }
 .media .media-left .field--name-field-featured-image {
   display: inline-block;
+  min-width: 267px;
 }
 .media .media-left .field--name-field-featured-image img {
   height: 150px;
   width: auto;
-  vertical-align: middle;
 }
 
 /**
