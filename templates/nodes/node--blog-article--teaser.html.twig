@@ -13,7 +13,7 @@
             {{ title_suffix }}
             {% if display_submitted %}
                 <small{{ author_attributes.addClass('meta') }}>
-                    Posted <time datetime="{{ date_timestamp }}">{{ date }} ago</time> by {{ author_name }}
+                    Posted <time datetime="{{ date_timestamp }}" title="{{ date_readable }}">{{ date }} ago</time> by {{ author_name }}
                 </small>
             {% endif %}
             {{ content.field_categories }}

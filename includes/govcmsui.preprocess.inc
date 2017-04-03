@@ -49,9 +49,11 @@ function govcmsui_preprocess_node(&$variables) {
     $updated = $variables['node']->getChangedTime();
     $variables['date'] = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $date);
     $variables['date_timestamp'] = date("Y-m-d\TH:i:s", $date);
+    $variables['date_readable'] = date("j F Y g:i A", $date);
 
     if($date != $updated) {
         $variables['date_updated'] = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $updated);
         $variables['date_updated_timestamp'] = date("Y-m-d\TH:i:s", $updated);
+        $variables['date_updated_readable'] = date("j F Y g:i A", $updated);
     }
 }

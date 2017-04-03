@@ -1,1 +1,1 @@
-!function(t){"use strict"}(jQuery);
+!function(t,a,i){"use strict";a.behaviors.mybehavior={attach:function(a,i){t("main.container [title]").each(function(){t(this).attr("data-toggle","tooltip"),t(this).attr("data-placement","top")}),t('[data-toggle="tooltip"]').tooltip()}}}(jQuery,Drupal,drupalSettings);

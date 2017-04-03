@@ -11,8 +11,8 @@
                     {{ page.help }}
                 {% endif %}
             </div>
-            {% set left_exists = (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim is not empty) %}
-            {% set right_exists = (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim is not empty) %}
+            {% set left_exists = (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim) %}
+            {% set right_exists = (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim) %}
             {% if left_exists %}
                 <aside class="col-sm-3" role="complementary">
                     {{ page.sidebar_first }}

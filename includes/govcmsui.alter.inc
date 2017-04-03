@@ -4,7 +4,7 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
     // Swap out jQuery to use an updated version of the library.
     if(theme_get_setting('govcmsui_use_bootstrap') || theme_get_setting('govcmsui_use_jquery')) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'] = array(
-            'weight' => 0,
+            'weight' => -95,
             'group' => -99,
             'version' => '3.1.1',
             'type' => 'external',
@@ -16,12 +16,16 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
             'data' => '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
         );
 
-        $javascript['sites/default/themes/govcmsui/js/scripts.js']['group'] = -98;
+        $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
+
+        $javascript[$theme_path.'/js/scripts.js']['group'] = -99;
+        $javascript[$theme_path.'/js/scripts.js']['weight'] = -85;
+        $javascript[$theme_path.'/js/scripts.js']['minified'] = true;
     }
     if(theme_get_setting('govcmsui_use_bootstrap')) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'] = array(
-            'weight' => 0,
-            'group' => -98,
+            'weight' => -90,
+            'group' => -99,
             'version' => '3.3.7',
             'type' => 'external',
             'cache' => true,
