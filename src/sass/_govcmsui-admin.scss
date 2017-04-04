@@ -10,3 +10,9 @@
 #main > .col-md-12 > .alert {
   margin-top: 1em;
 }
+
+.primary-tabs {
+  & > li {
+    margin: 0px 1em;
+  }
+}

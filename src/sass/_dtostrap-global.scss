@@ -1,143 +1,251 @@
 // Header, Footer and other global styles
 
-body {
-  // Page header
-  & > header {
-    background-color: $gradient-dark;
-    background: linear-gradient($gradient-angle, $gradient-light, $gradient-dark 80%);
+// Page header
+body > header {
+  background-color: $gradient-dark;
+  background: linear-gradient($gradient-angle, $gradient-light, $gradient-dark 80%);
+  color: #fff;
+  padding: 1.6em 0;
+  &.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+  }
+  a {
     color: #fff;
-    padding: 1.6em 0;
-    margin-bottom: 1.6em;
-    a {
-      color: #fff;
+    &.has-img {
+      .style-line.brand-heading .label {
+        top: -0.4em;
+      }
     }
-    .navbar-brand,
-    .brand-name {
+  }
+  .navbar-collapse,
+  .tagline {
+    width: 100%;
+  }
+  .brand {
+    .brand-heading {
       font-weight: $font-weight-normal;
       margin: 0;
       font-size: 30px;
-      a {
-        &:hover,
-        &:active,
-        &:focus {
-          color: #fff;
-          opacity: 0.9;
-        }
-        img {
-          display: inline-block;
-          margin-right: 20px;
-        }
-      }
-      .label {
-        position: relative;
-        margin-right: -3.65em;
-        padding: 0 10px;
-        margin-left: 0.3em;
-        background-color: $primary-alt;
-        transition: all 0.2s;
-        font-size: 47%;
-        top: -0.38em;
-        padding-bottom: 0.1em;
-      }
+      display: inline-block;  // fallback for non-flex browsers (also, can't use @supports bue do IE11 😒)
     }
+    .label {
+      position: relative;
+      margin-right: -3.65em;
+      padding: 0 10px;
+      margin-left: 0.3em;
+      background-color: $primary-alt;
+      transition: all 0.2s;
+      font-size: 47%;
+      padding-bottom: 0.1em;
+      line-height: 1.5;
+    }
+  }
+  a.brand {
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+    }
+    img {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+  .nav {
     a {
       &:hover,
       &:active,
       &:focus {
+        color: $primary;
         .caret {
-          border-top-color: $primary-dark;
+          border-top-color: $primary;
         }
         .label {
           opacity: 1;
         }
       }
+      &:active,
+      &:focus {
+        .caret {
+          border-top-color: $primary-highlight;
+        }
+      }
     }
-    &.navbar {
+    .dropdown-menu li.dropdown-header {
+      color: $primary-light;
+    }
+  }
+  .caret {
+    border-top-color: #fff;
+  }
+
+  // Inverted colour scheme
+  .inverse {
+    // ******************** TODO ********************
+  }
+
+  // DTO's '3 shades of $primary' thick underline
+  // on hover/focus/active this line visually expands to underline the whole title
+  .style-line {
+    &:before {
+      transition: 0.35s all; // Transitions don't work for gradient bgs, so using position
+      height: 7px;
+      background-color: $gradient-light;
+      background-size: 2.4em 7px;
+      content: "";
+      position: relative;
+      bottom: -1.4em;
+      right: 5.68em;
+      float: right;
+      width: 2.4em;
+    }
+    &:after {
+      transition: 0.35s all; // Transitions don't work for gradient bgs, so using position
+      height: 7px;
+      background: linear-gradient(to left, $primary-highlight 0, $primary-highlight 25%, $primary-light 25%, $primary-light 75%, $gradient-light 75%) no-repeat;
+      background-size: 2.4em 7px;
+      content: "";
+      position: relative;
+      bottom: -1.4em;
+      right: 2.78em;
+      float: right;
+      width: 2.9em;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+      text-decoration: none;
+      &:before {
+        right: 7.62em;
+      }
+    }
+    &.brand-heading {
+      padding-bottom: 20px;
+      .label {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Header search
+  .input-group {
+    .form-control {
+      border-color: #fff;
+      border-top-width: 2px;  // Alignment fix
+      // border-top-left-radius: $radius;
+      // border-bottom-left-radius: $radius;
+    }
+    .input-group-btn {
+      .btn {
+        border-color: #fff;
+        padding: 9px 12px 9px 12px;
+        color: #fff;
+      }
+      // border-top-right-radius: $radius;
+      // border-bottom-right-radius: $radius;
+    }
+  }
+} // Header
+
+// Nav bar under header
+.main-nav {
+  border-bottom: 4px solid $grey-border;
+  background-color: $grey-light;
+  .navbar-collapse {
+    padding: 0;
+  }
+  .dropdown-menu {
+    min-width: 100%;
+  }
+  .nav {
+    margin-bottom: -4px;
+    & > .active > a {
+      border: none;
+      // border-bottom: 4px solid $primary-highlight;
+      &:hover,
+      &:active,
+      &:focus {
+        border: none;
+        border-bottom-width: 4px;
+      }
+    }
+    a {
       border-radius: 0;
+      border-bottom: 4px solid transparent;
+      color: $primary-dark;
     }
-    .navbar-right {
-      // vertically center the menu, assuming default logo size is used. TODO: do this smarter.
-      margin-top: 1.1em;
+    // .dropdown-header {
+    //   margin-left: 0;
+    // }
+  }
+  .input-group {
+    .form-control {
+      margin: 0 0 -4px 0;
+      padding: 1.45em 0.7em;
+      border-top: none;
+      border-bottom: 4px solid $grey-border;
+      &:hover {
+        border-bottom-color: $primary;
+      }
+      &:active,
+      &:focus {
+        border-bottom-color: $primary-highlight;
+      }
     }
-    .caret {
-      border-top-color: #fff;
-    }
-    // Inverted colour scheme
-    .inverse {
-      // ******************** TODO ********************
-    }
-    .brand.style-line {   // DTO 3 shades of $blue thick underline
-      a {
-        &:before {
-          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
-          height: 7px;
-          background-color: $gradient-light;
-          background-size: 2.4em 7px;
-          content: "";
-          position: relative;
-          bottom: -2.1em;
-          // right: 5.3em;  // normal label size
-          right: 5.7em;     // smaller, inline label size
-          float: right;
-          width: 2.4em;
-        }
-        &:after {
-          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
-          height: 7px;
-          background: linear-gradient(to left, $primary-highlight 0, $primary-highlight 25%, $primary-light 25%, $primary-light 75%, $gradient-light 75%) no-repeat;
-          background-size: 2.4em 7px;
-          content: "";
-          position: relative;
-          bottom: -2.1em;
-          // right: 2.4em;  // normal label size
-          right: 2.75em;    // smaller, inline label size
-          float: right;
-          width: 2.9em;
-        }
-        &:hover,
-        &:active,
-        &:focus {
-          opacity: 1;
-          text-decoration: none;
-          &:before {
-            // right: 7.3em;  // normal label size
-            right: 7.65em;    // smaller, inline label size
-          }
-        }
+    .btn {
+      border: none;
+      border-right: 1px solid $grey-border;
+      padding: 15px;
+      margin-bottom: -4px;
+      border-bottom: 4px solid $grey-border;
+      &:hover {
+        border-bottom-color: $primary;
+        color: $grey-dark;
+        background-color: $primary-highlight;
+      }
+      &:active,
+      &:focus {
+        border-bottom-color: $primary-highlight;
+        color: #fff;
+        background-color: $primary-dark;
       }
     }
   }
+} // main-nav
 
 
-  // Page header
-  .page-header {
-    margin-top: 100px;
-  }
 
-  .navbar + .jumbotron {
-    margin-top: -20px;
-  }
+// Page header
+.page-header {
+  margin-top: 100px;
+}
+
+// .navbar + .jumbotron {
+//   margin-top: -20px;
+// }
 
 
-  // Footer
-  & > footer {
-    margin-top: 3.2em;
-    padding: 1.6em 0;
-    background-color: $grey-light;
-    border-top: 6px solid #043751;
-    .row {
-      padding-bottom: 3em;
-      margin-bottom: 3em;
-      border-bottom: 1px solid $grey-border;
-      &:last-of-type {
-        padding-bottom: 0;
-        margin-bottom: 0;
-        border-bottom: 0;
-      }
+// Footer
+body > footer {
+  margin-top: 3.2em;
+  padding: 1.6em 0;
+  background-color: $grey-light;
+  border-top: 6px solid $primary-darker;
+  .row {
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+    border-bottom: 1px solid $grey-border;
+    &:last-of-type {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
     }
-    small {
-      display: inline-block;
-      margin-top: 2.2em;
-    }
+  }
+  small {
+    display: inline-block;
+    margin-top: 2.2em;
   }
 }

@@ -10,6 +10,7 @@ wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap
 wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-global.scss
 wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-typography.scss
 wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-elements.scss
+wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-extra-elements.scss
 wget -N https://raw.githubusercontent.com/fribibb/DTOstrap/master/sass/_dtostrap-responsive.scss
 
 echo "Updated!"

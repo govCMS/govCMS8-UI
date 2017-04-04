@@ -114,6 +114,7 @@ a {
     }
   }
   &.label {
+    border-bottom: none;
     &:hover,
     &:active,
     &:focus {
@@ -277,8 +278,10 @@ a {
       &:active,
       &:focus,
       &:hover {
-        background-color: $primary-highlight;
-        border-bottom-color: $primary;
+        // background-color: $primary-highlight;   // it's just too much
+        background-color: $primary-light;
+        // border-bottom-color: $primary;
+        border-bottom-color: $primary-highlight;
         border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
       }
     }
@@ -307,6 +310,9 @@ a {
       margin-left: 0;
     }
   }
+}
+.nav-tabs.nav-justified > li > a {
+  border-radius: 0;
 }
 
 
@@ -828,7 +834,9 @@ form {
 .list-group-item-heading {
     margin-bottom: 10px;
 }
+
 .repeat-word {
+  & > span,
   a {
     font-size: 150%;
     font-weight: $font-weight-bold;
@@ -853,7 +861,7 @@ form {
 
 
 
-// forms
+// Forms
 .input-group-addon {
     border-radius: $radius;
 }
@@ -875,6 +883,8 @@ select.form-control {
 
 // Dropdown Menus
 .dropdown-menu {
+  // width: 100%;
+  margin-bottom: 1.5em;
   li {
     margin: 0;
     padding: 0;
@@ -882,9 +892,15 @@ select.form-control {
       padding: 1em;
       margin: 0;
       color: $primary-dark;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $grey-dark;
+      }
     }
     &.dropdown-header {
       padding: 15px 20px 5px 0.5em;
+      color: $grey-dark;
     }
   }
 }
@@ -953,9 +969,10 @@ kbd {
 }
 
 
-// Slider / Carousel
+// Slider/Carousel
 .carousel {
   .carousel-control {
+    border-bottom: none;
     &:hover,
     &:active,
     &:focus {

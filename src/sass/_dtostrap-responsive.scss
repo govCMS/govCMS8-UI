@@ -1,16 +1,16 @@
 // Responsive styles
 
 @media (min-width: 992px) {
-  .navbar-header {
-    width: 50%
-  }
+  // .navbar-header {
+  //   width: 50%
+  // }
 } // min-width: 992px
 
 
 @media (max-width: 991px) {
   .brand {
-    width: 100%;
-    &.style-line a {
+    // width: 100%;
+    .style-line {
       &:before,
       &:after {
         display: none;  // It's lovely to have, but not worth the effort to get it aligned on small screens atm...
@@ -26,14 +26,28 @@
 
 
 @media (min-width: 768px) {
-  header {
-    .navbar-header {
-      width: 45%;
-      .brand-name a {
-        margin-top: 0.25em;
-        display: block;
-      }
+  // header {
+  //   .navbar-header {
+  //     width: 45%;
+  //     .brand-name a {
+  //       margin-top: 0.25em;
+  //       display: block;
+  //     }
+  //   }
+  // }
+  // Vertical center alignment - used in header
+  .vcenter {
+    display: flex;
+    align-items: center;
+    & > * {
+      display: flex;
+      align-items: center;            // Align the flex-items vertically
+      // justify-content: center;     // Optional, to align inner flex-items horizontally within the column
     }
+    // .pull-right,
+    // .navbar-right {
+    //   justify-content: right;     // Optional, to align inner flex-items horizontally within the column
+    // }
   }
 } // min-width: 768px
 
@@ -62,11 +76,43 @@
         &:nth-of-type(3) {
           transform: rotate(-225deg);
           margin-top: 6px;
-          // If we want a "^" instead, tweaks thsese:
+          // If we want a "^" instead, tweaks these:
           // margin-top: -2px !important;
           // margin-bottom: 6px;
           // margin-left: 8px;
         }
+      }
+    }
+  }
+  header {
+    .input-group {
+      margin-top: 1.5em;
+    }
+    // .navbar-toggle {
+    //   margin-top: -3.4em;
+    // }
+  }
+  .main-nav {
+    .navbar-toggle {
+      margin: 10px auto;
+      display: block;
+      float: none;
+      border-color: $primary-dark;
+      .icon-bar {
+        background-color: $primary-dark;
+      }
+    }
+    .navbar-collapse.in {
+      overflow: visible;
+    }
+    .nav {
+      margin: 0;
+    }
+    .input-group {
+      border-top: 1px solid $grey-border;
+      margin-top: 10px;
+      .form-control {
+        padding: 1.3em 0.7em;
       }
     }
   }
@@ -99,19 +145,13 @@
         padding-bottom: 15px;
       }
     }
-    .dropdown.open > a,
-    .dropdown > a:hover {
-      color: $grey-dark;
-    }
     .dropdown-header {
       color: $primary-light;
       margin-left: -10px;
     }
   }
-  body > header .brand-name {
-    margin: 0 15px;
-  }
-  // Date layouts - mostly stolen from previous work on australia.gov.au
+
+  // Date layouts
   .calendar-list {
     .calendar-item {
       .calendar-title {
@@ -126,14 +166,14 @@
 
 
 @media screen and (min-width: 768px) {
-  header {
-    .brand.has-img {
-      margin-top: -0.5em;
-      img {
-        margin-top: 0.5em;
-      }
-    }
-  }
+  // header {
+  //   .brand.has-img {
+  //     margin-top: -0.5em;
+  //     img {
+  //       margin-top: 0.5em;
+  //     }
+  //   }
+  // }
   form input[type='radio']+label::before,
   form input[type='checkbox']+label::before {
     top:9px
@@ -149,51 +189,28 @@
       border-bottom-color: $primary;
     }
   }
-
-  // DTO style colour bar under site title in header
-  // - very much made to work for the specific content, so will need to tweak for other headings
-  // - made cooler with on hover awesomeness :) ...but not for IE - see _browser-hacks.scss
-  header {
-    .brand.style-line {
-      a {
-        &:before {
-          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
-          height: 7px;
-          background-color: $gradient-light;
-          background-size: 2.4em 7px;
-          content: "";
-          position: relative;
-          bottom: -2.1em;
-          right: 5.3em;
-          float: right;
-          width: 2.4em;
-        }
-        &:after {
-          transition: 0.35s all; // transitions don't work for gradient bgs, so using position
-          height: 7px;
-          background: linear-gradient(to left, $primary-highlight 0, $primary-highlight 25%, $primary-light 25%, $primary-light 75%, $gradient-light 75%) no-repeat;
-          background-size: 2.4em 7px;
-          content: "";
-          position: relative;
-          bottom: -2.1em;
-          right: 2.4em;
-          float: right;
-          width: 2.9em;
-        }
-        &:hover,
-        &:active,
-        &:focus {
-          opacity: 1;
-          text-decoration: none;
-          &:before {
-            right: 7.3em;
-          }
-        }
-      }
-    }
-  }
 } // min-width 768px
 
+
+// Breakpoint for mobile/hamburger menu
+@media (min-width: 431px) and (max-width: 767px)  {
+  header {
+    .tagline,
+    .input-group {
+      margin-top: 1.5em;
+    }
+    .navbar-toggle {
+      margin-top: -4.72em;
+      margin-right: 0;
+    }
+    .tagline {
+      text-align: center;
+    }
+    .input-group input.form-control {
+      border-top-width: 1px;
+    }
+  }
+}
 
 
 @media (min-width: 431px) {
@@ -210,15 +227,24 @@
 // Center align the header
 @media (max-width: 430px) {
   body > header {
+    .vcenter {
+      display: block; // We don't need flex here
+      & > * {
+        width: 100%;
+        display: block; // We don't need flex here
+      }
+    }
     a {
       display: block;
+      justify-content: middle; // Optional, to align inner flex-items horizontally within the column
     }
-    .brand-name{
+    .brand {
       text-align: center;
       margin: 0;
       img {
         width: 100%;
         margin: auto;
+        margin-bottom: 10px;
       }
       .label {
         margin: 0;
@@ -229,6 +255,9 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+    }
+    .tagline {
+      text-align: center;
     }
   }
 } // max-width 430px
