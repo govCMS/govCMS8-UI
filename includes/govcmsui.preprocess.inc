@@ -83,11 +83,6 @@ function govcmsui_preprocess_file_link(&$variables) {
     $options = array();
 
     $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
-    // @todo Wrap in file_url_transform_relative(). This is currently
-    // impossible. As a work-around, we currently add the 'url.site' cache context
-    // to ensure different file URLs are generated for different sites in a
-    // multisite setup, including HTTP and HTTPS versions of the same site.
-    // Fix in https://www.drupal.org/node/2646744.
     $url = file_create_url($file_entity->getFileUri());
     $variables['#cache']['contexts'][] = 'url.site';
 
