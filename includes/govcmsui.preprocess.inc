@@ -26,10 +26,17 @@ function govcmsui_preprocess_page(&$variables) {
 }
 
 function govcmsui_preprocess_block(&$variables) {
-    $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
-    $block_id = $variables['elements']['#id'];
-    $block = \Drupal\block\Entity\Block::load($block_id);
-    $variables['content']['#attributes']['region'] = $block->getRegion();
+    if (isset($variables['attributes']['id']) && !empty($variables['attributes']['id'])) {
+        $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
+    }
+    if (isset($variables['elements']['#id']) && !empty($variables['elements']['#id'])) {
+        $block_id = $variables['elements']['#id'];
+        $block = \Drupal\block\Entity\Block::load($block_id);
+
+        if (!empty($block)) {
+            $variables['content']['#attributes']['region'] = $block->getRegion();
+        }
+    }
 
     $coa = theme_get_setting('govcmsui_coa');
     if(!empty($coa)) {
