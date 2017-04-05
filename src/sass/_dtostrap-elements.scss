@@ -1,9 +1,18 @@
 // Elements
 
 
+
+// Skip link
+.skiplink {
+  background-color: $grey-dark;
+  color: #fff;
+}
+
+
+
 // Buttons
 .btn {
-  border-radius: $radius-small;
+  border-radius: $radius;
   transition: 0.16s all;
 }
 .btn-default {
@@ -74,36 +83,38 @@
 // Labels
 .label {
   font-weight: $font-weight-normal;
-  border-radius: $radius-large;
+  border-radius: $radius;
+  border: 1px solid $grey-border; // fallback for old browsers
+  border-color: currentColor;
+  background-color: transparent;
 }
 .label-default {
-  background-color: $grey;
+  color: $grey;
 }
 .label-primary {
-  background-color: $primary;
+  color: $primary;
 }
 .label-success {
-  background-color: $success;
+  color: $success;
 }
 .label-info {
-  background-color: $info;
+  color: $info-dark;
 }
 .label-warning {
-  background-color: $warning;
-  color: $grey-dark;
+  color: $warning-dark;
 }
 .label-danger {
-  background-color: $danger;
+  color: $danger;
 }
 .label-alpha {
-  background-color: $grey-dark;
+  color: $alpha;
 }
 .label-beta {
-  background-color: $beta;
+  color: $beta;
 }
 .label-hover {
-  opacity: 0.8;
   text-decoration: none !important;
+  color: #fff;
 }
 a {
   &:hover,
@@ -111,24 +122,71 @@ a {
   &:focus {
     .label {
       @extend .label-hover;
+      &.label-default {
+        @include button-colours($grey, #fff, 0);
+      }
+      &.label-primary {
+        @include button-colours($primary, #fff, 0);
+      }
+      &.label-success {
+        @include button-colours($success, #fff, 0);
+      }
+      &.label-info {
+        @include button-colours($info-dark, #fff, 0);
+      }
+      &.label-warning {
+        @include button-colours($warning-dark, #fff, 0);
+      }
+      &.label-danger {
+        @include button-colours($danger, #fff, 0);
+      }
+      &.label-alpha {
+        @include button-colours($alpha, #fff, 0);
+      }
+      &.label-beta {
+        @include button-colours($beta, #fff, 0);
+      }
     }
   }
   &.label {
-    border-bottom: none;
     &:hover,
     &:active,
     &:focus {
       @extend .label-hover;
+      &.label-default {
+        @include button-colours($grey, #fff, 0);
+      }
+      &.label-primary {
+        @include button-colours($primary, #fff, 0);
+      }
+      &.label-success {
+        @include button-colours($success, #fff, 0);
+      }
+      &.label-info {
+        @include button-colours($info-dark, #fff, 0);
+      }
+      &.label-warning {
+        @include button-colours($warning-dark, #fff, 0);
+      }
+      &.label-danger {
+        @include button-colours($danger, #fff, 0);
+      }
+      &.label-alpha {
+        @include button-colours($alpha, #fff, 0);
+      }
+      &.label-beta {
+        @include button-colours($beta, #fff, 0);
+      }
     }
   }
-  &.label-warning[href] {
-    &:hover,
-    &:active,
-    &:focus {
-      color: $grey-dark;
-      background-color: $warning;
-    }
-  }
+  // &.label-warning[href] {
+  //   &:hover,
+  //   &:active,
+  //   &:focus {
+  //     color: $grey-dark;
+  //     background-color: $warning;
+  //   }
+  // }
 }
 
 
@@ -218,7 +276,7 @@ a {
   color: darken($info, 15%);  // darker for a11y
 }
 .text-warning {
-  color: darken($warning, 15%); // darker to atempt a11y - but please, just don't use this
+  color: $warning-dark; // darker to atempt a11y - but please, just don't use this
 }
 .text-danger {
   color: $danger;
@@ -254,6 +312,9 @@ a {
       font-size: 230%;
     }
   }
+}
+.jumbotron {
+  margin-bottom: 3em;
 }
 
 
@@ -319,8 +380,8 @@ a {
 
 // Breadcrumbs
 .breadcrumb {
-  background-color: $grey-light;
-  margin-top: 10px;
+  background-color: transparent;
+  padding: 10px 0;
   .active {
     color: $grey-dark;
   }
@@ -412,6 +473,9 @@ a {
 
 // Forms
 form {
+  max-width: $max-readable-width;
+}
+form {
   [type='text'],
   [type='number'],
   [type='tel'],
@@ -423,7 +487,7 @@ form {
   optgroup,
   textarea {
     font: inherit;
-    padding: 1.1em 0.7em;
+    padding: 1.12em 0.7em;
     &:active,
     &:focus {
       outline: 2px solid $primary-bright;
@@ -476,7 +540,7 @@ form {
   &.checkbox-inline label,
   &.radio label,
   &.radio-inline label {
-    color: $warning;
+    color: $warning-dark;
   }
 }
 .has-error {
@@ -877,13 +941,28 @@ form {
 select.form-control {
   margin-bottom: 10px;
 }
+.input-group-btn {
+  .btn {
+    padding: 9px 15px;
+  }
+}
+
+// checkbox align
+.checkbox input[type=checkbox],
+.checkbox-inline input[type=checkbox],
+.radio input[type=radio],
+.radio-inline input[type=radio] {
+  margin-top: 6px;
+}
+// .checkbox {
+//   margin: 10px 0;
+// }
 
 
 
 
 // Dropdown Menus
 .dropdown-menu {
-  // width: 100%;
   margin-bottom: 1.5em;
   li {
     margin: 0;
@@ -906,6 +985,8 @@ select.form-control {
 }
 
 
+
+// Caret
 .caret {
   border-top-color: $primary-dark;
 }
@@ -934,39 +1015,6 @@ kbd {
 }
 
 
-// This isn't bootstrap, but may be useful
-.index-links {
-  margin: 3.2em 0 1.6em 0;
-  border-left: 0.4em solid $grey-light;
-  padding: 0 0 1.2em 1.2em;   // yes, this is uneven. Should be: '0 0 0 1.2em' imo, but sticking to their look.
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 1em;
-    margin-top: 1.6em;
-    padding-bottom: 1.2em;
-    color: $grey;
-    font-weight: $font-weight-normal;
-  }
-  a {
-    font-weight: bold;
-  }
-  ul,
-  ol {
-    padding-left: 0;
-    list-style: none;
-    ul,
-    ol {
-      padding-left: 2em;  // in case nested
-    }
-  }
-  li:not(:last-of-type) {
-    margin-bottom: 1.5em;
-  }
-}
 
 
 // Slider/Carousel
@@ -983,68 +1031,6 @@ kbd {
 
 
 
-// Dsahboard
-.dashboard-item {
-  margin: 1em 0 3em 0;
-  .dashboard-icon {
-    font-size: 8em;
-    color: $primary;
-    margin-bottom: 0.2em;
-  }
-  .dashboard-title {
-    margin: 0;
-    padding-bottom: 0.5em;
-  }
-  .dashboard-more-info {
-    outline: 0;
-    transition: all .2s;
-    font-size: 80%;
-    color: #fff;
-    border-bottom: none;
-    background-color: $primary;
-    border-radius: 100%;
-    width: 1.1em;
-    height: 1.1em;
-    display: inline-block;
-    top: 0.2em;
-    position: relative;
-    &:hover,
-    &:active,
-    &:focus{
-      color: $primary-alt;
-      text-decoration: none;
-      background-color: transparent;
-    }
-    i {
-      top: -0.15em;
-      position: relative;
-    }
-  }
-  .dashboard-highlight {
-    color: $primary;
-    display: block;
-    font-size: 180%;
-    margin: 0.5em 0;
-    a {
-      padding: 0.5em 0.1em 0;
-      color: $primary;
-      &:hover,
-      &:active,
-      &:focus{
-        color: $grey-dark;
-      }
-    }
-    strong {
-      font-size: 180%;
-      a {
-        padding: 0;
-      }
-    }
-  }
-  .dashboard-extra {
-    color: $grey-dark;
-  }
-}
 
 // Popovers
 .popover {
@@ -1058,50 +1044,8 @@ kbd {
     font-weight: 500;
   }
 }
-
-
-
-// Date layout - mostly stolen from previous work on australia.gov.au
-.calendar-list {
-  max-width: 48em;
-  padding-left: 0;
-  .calendar-item {
-    display: table;
-    width: 100%;
-    background-color: $grey-light;
-    border-bottom: 1px solid #fff;
-    .calendar-number {
-      display: block;
-      margin: 6px 0;
-      color: $primary;
-      font-size: 1.8em;
-    }
-    .calendar-title {
-      padding: 0 0 0 20px;
-      line-height: 1.4;
-      padding-top: 3px;
-      font-size: 1.25em;
-    }
-    .calendar-note {
-      font-size: 14px;
-      display: block;
-      margin: 3px 0;
-      padding-right: 10px;
-      color: $grey-dark;
-    }
-    .calendar-date,
-    .calendar-name {
-      width: 70px;
-      text-align: center;
-      text-transform: uppercase;
-      line-height: 0.8;
-      padding: 12px 10px;
-      border-right: 1px solid #fff;
-    }
-    .calendar-date,
-    .calendar-title {
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
+// Tooltips
+.tooltip {
+  border-radius: $radius;
+  min-width: 10em;
 }

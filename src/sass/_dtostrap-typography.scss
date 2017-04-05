@@ -41,6 +41,12 @@ h6 {
   small {
     color: $grey;
   }
+  // displayed as a subtitle style note:
+  & + small {
+    margin-top: -1.5em;
+    margin-bottom: 1.5em;
+    display: block;
+  }
   a {
     line-height: 1.6;
   }
@@ -118,6 +124,7 @@ body > footer {
 body > div,
 body > footer {
   small {
+    color: $grey;
     a {
       color: $grey;
     }
@@ -133,13 +140,13 @@ body > footer {
 // Other typography elements
 p {
   font-weight: $font-weight-normal;
-  max-width: 48em;   // for readability
+  max-width: $max-readable-width;   // for readability
 }
 .alert,
 .well,
 blockquote,
 #main li {
-  max-width: 48em;   // for readability
+  max-width: $max-readable-width;   // for readability
 }
 .jumbotron p,
 .lead {

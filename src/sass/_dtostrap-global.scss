@@ -14,7 +14,7 @@ body > header {
   a {
     color: #fff;
     &.has-img {
-      .style-line.brand-heading .label {
+      .brand-heading .label {
         top: -0.4em;
       }
     }
@@ -36,10 +36,12 @@ body > header {
       padding: 0 10px;
       margin-left: 0.3em;
       background-color: $primary-alt;
+      border: none;
       transition: all 0.2s;
       font-size: 47%;
       padding-bottom: 0.1em;
       line-height: 1.5;
+      top: -4px;
     }
   }
   a.brand {
@@ -113,15 +115,6 @@ body > header {
       float: right;
       width: 2.9em;
     }
-    &:hover,
-    &:active,
-    &:focus {
-      opacity: 1;
-      text-decoration: none;
-      &:before {
-        right: 7.62em;
-      }
-    }
     &.brand-heading {
       padding-bottom: 20px;
       .label {
@@ -129,23 +122,30 @@ body > header {
       }
     }
   }
+  .brand {
+      &:hover,
+      &:active,
+      &:focus {
+        .style-line {
+          opacity: 1;
+          text-decoration: none;
+          &:before {
+            right: 7.62em;
+          }
+        }
+      }
+  }
 
   // Header search
   .input-group {
     .form-control {
       border-color: #fff;
-      border-top-width: 2px;  // Alignment fix
-      // border-top-left-radius: $radius;
-      // border-bottom-left-radius: $radius;
     }
     .input-group-btn {
       .btn {
         border-color: #fff;
-        padding: 9px 12px 9px 12px;
         color: #fff;
       }
-      // border-top-right-radius: $radius;
-      // border-bottom-right-radius: $radius;
     }
   }
 } // Header
@@ -164,7 +164,6 @@ body > header {
     margin-bottom: -4px;
     & > .active > a {
       border: none;
-      // border-bottom: 4px solid $primary-highlight;
       &:hover,
       &:active,
       &:focus {
@@ -177,14 +176,11 @@ body > header {
       border-bottom: 4px solid transparent;
       color: $primary-dark;
     }
-    // .dropdown-header {
-    //   margin-left: 0;
-    // }
   }
   .input-group {
     .form-control {
       margin: 0 0 -4px 0;
-      padding: 1.45em 0.7em;
+      padding: 1.46em 0.7em;
       border-top: none;
       border-bottom: 4px solid $grey-border;
       &:hover {
@@ -223,9 +219,6 @@ body > header {
   margin-top: 100px;
 }
 
-// .navbar + .jumbotron {
-//   margin-top: -20px;
-// }
 
 
 // Footer
@@ -246,6 +239,6 @@ body > footer {
   }
   small {
     display: inline-block;
-    margin-top: 2.2em;
+    margin-top: 4.4em;
   }
 }

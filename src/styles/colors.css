@@ -13,7 +13,7 @@ body > header.navbar {
 body > header a {
   color: #fff;
 }
-body > header a.has-img .style-line.brand-heading .label {
+body > header a.has-img .brand-heading .label {
   top: -0.4em;
 }
 body > header .navbar-collapse,
@@ -32,10 +32,12 @@ body > header .brand .label {
   padding: 0 10px;
   margin-left: 0.3em;
   background-color: #27798b;
+  border: none;
   transition: all 0.2s;
   font-size: 47%;
   padding-bottom: 0.1em;
   line-height: 1.5;
+  top: -4px;
 }
 body > header a.brand:hover, body > header a.brand:active, body > header a.brand:focus {
   color: #fff;
@@ -86,26 +88,24 @@ body > header .style-line:after {
   float: right;
   width: 2.9em;
 }
-body > header .style-line:hover, body > header .style-line:active, body > header .style-line:focus {
-  opacity: 1;
-  text-decoration: none;
-}
-body > header .style-line:hover:before, body > header .style-line:active:before, body > header .style-line:focus:before {
-  right: 7.62em;
-}
 body > header .style-line.brand-heading {
   padding-bottom: 20px;
 }
 body > header .style-line.brand-heading .label {
   opacity: 1;
 }
+body > header .brand:hover .style-line, body > header .brand:active .style-line, body > header .brand:focus .style-line {
+  opacity: 1;
+  text-decoration: none;
+}
+body > header .brand:hover .style-line:before, body > header .brand:active .style-line:before, body > header .brand:focus .style-line:before {
+  right: 7.62em;
+}
 body > header .input-group .form-control {
   border-color: #fff;
-  border-top-width: 2px;
 }
 body > header .input-group .input-group-btn .btn {
   border-color: #fff;
-  padding: 9px 12px 9px 12px;
   color: #fff;
 }
 
@@ -136,7 +136,7 @@ body > header .input-group .input-group-btn .btn {
 }
 .main-nav .input-group .form-control {
   margin: 0 0 -4px 0;
-  padding: 1.45em 0.7em;
+  padding: 1.46em 0.7em;
   border-top: none;
   border-bottom: 4px solid #bbb;
 }
@@ -186,7 +186,7 @@ body > footer .row:last-of-type {
 }
 body > footer small {
   display: inline-block;
-  margin-top: 2.2em;
+  margin-top: 4.4em;
 }
 
 html {
@@ -229,6 +229,16 @@ h4 small,
 h5 small,
 h6 small {
   color: #6e6e6e;
+}
+h1 + small,
+h2 + small,
+h3 + small,
+h4 + small,
+h5 + small,
+h6 + small {
+  margin-top: -1.5em;
+  margin-bottom: 1.5em;
+  display: block;
 }
 h1 a,
 h2 a,
@@ -581,6 +591,10 @@ body > footer ol a[rel~='external']:focus:after {
   color: #313131;
 }
 
+body > div small,
+body > footer small {
+  color: #6e6e6e;
+}
 body > div small a,
 body > footer small a {
   color: #6e6e6e;
@@ -683,8 +697,13 @@ article h1:first-of-type {
   margin-top: 0;
 }
 
+.skiplink {
+  background-color: #313131;
+  color: #fff;
+}
+
 .btn {
-  border-radius: 1px;
+  border-radius: 3px;
   transition: 0.16s all;
 }
 
@@ -803,53 +822,288 @@ article h1:first-of-type {
 
 .label {
   font-weight: 400;
-  border-radius: 12px;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  border-color: currentColor;
+  background-color: transparent;
 }
 
 .label-default {
-  background-color: #6e6e6e;
+  color: #6e6e6e;
 }
 
 .label-primary {
-  background-color: #146577;
+  color: #146577;
 }
 
 .label-success {
-  background-color: #007554;
+  color: #007554;
 }
 
 .label-info {
-  background-color: #00bfe9;
+  color: #00809d;
 }
 
 .label-warning {
-  background-color: #f9c642;
-  color: #313131;
+  color: #b68506;
 }
 
 .label-danger {
-  background-color: #cc0000;
+  color: #cc0000;
 }
 
 .label-alpha {
-  background-color: #313131;
+  color: #313131;
 }
 
 .label-beta {
-  background-color: #880e48;
+  color: #880e48;
 }
 
 .label-hover, a:hover .label, a:active .label, a:focus .label, a.label:hover, a.label:active, a.label:focus {
-  opacity: 0.8;
   text-decoration: none !important;
+  color: #fff;
 }
 
-a.label {
-  border-bottom: none;
+a:hover .label.label-default, a:active .label.label-default, a:focus .label.label-default {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+  color: #fff;
 }
-a.label-warning[href]:hover, a.label-warning[href]:active, a.label-warning[href]:focus {
-  color: #313131;
-  background-color: #f9c642;
+a:hover .label.label-default:hover, a:hover .label.label-default:active, a:hover .label.label-default:focus, a:active .label.label-default:hover, a:active .label.label-default:active, a:active .label.label-default:focus, a:focus .label.label-default:hover, a:focus .label.label-default:active, a:focus .label.label-default:focus {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+  color: #fff;
+}
+a:hover .label.label-default.disabled:hover, a:hover .label.label-default.disabled.focus, a:hover .label.label-default.disabled:focus, a:hover .label.label-default[disabled]:hover, a:hover .label.label-default[disabled].focus, a:hover .label.label-default[disabled]:focus, fieldset[disabled] a:hover .label.label-default:hover, fieldset[disabled] a:hover .label.label-default.focus, fieldset[disabled] a:hover .label.label-default:focus, a:active .label.label-default.disabled:hover, a:active .label.label-default.disabled.focus, a:active .label.label-default.disabled:focus, a:active .label.label-default[disabled]:hover, a:active .label.label-default[disabled].focus, a:active .label.label-default[disabled]:focus, fieldset[disabled] a:active .label.label-default:hover, fieldset[disabled] a:active .label.label-default.focus, fieldset[disabled] a:active .label.label-default:focus, a:focus .label.label-default.disabled:hover, a:focus .label.label-default.disabled.focus, a:focus .label.label-default.disabled:focus, a:focus .label.label-default[disabled]:hover, a:focus .label.label-default[disabled].focus, a:focus .label.label-default[disabled]:focus, fieldset[disabled] a:focus .label.label-default:hover, fieldset[disabled] a:focus .label.label-default.focus, fieldset[disabled] a:focus .label.label-default:focus {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+  color: #fff;
+}
+a:hover .label.label-primary, a:active .label.label-primary, a:focus .label.label-primary {
+  background-color: #146577;
+  border-color: #146577;
+  color: #fff;
+}
+a:hover .label.label-primary:hover, a:hover .label.label-primary:active, a:hover .label.label-primary:focus, a:active .label.label-primary:hover, a:active .label.label-primary:active, a:active .label.label-primary:focus, a:focus .label.label-primary:hover, a:focus .label.label-primary:active, a:focus .label.label-primary:focus {
+  background-color: #146577;
+  border-color: #146577;
+  color: #fff;
+}
+a:hover .label.label-primary.disabled:hover, a:hover .label.label-primary.disabled.focus, a:hover .label.label-primary.disabled:focus, a:hover .label.label-primary[disabled]:hover, a:hover .label.label-primary[disabled].focus, a:hover .label.label-primary[disabled]:focus, fieldset[disabled] a:hover .label.label-primary:hover, fieldset[disabled] a:hover .label.label-primary.focus, fieldset[disabled] a:hover .label.label-primary:focus, a:active .label.label-primary.disabled:hover, a:active .label.label-primary.disabled.focus, a:active .label.label-primary.disabled:focus, a:active .label.label-primary[disabled]:hover, a:active .label.label-primary[disabled].focus, a:active .label.label-primary[disabled]:focus, fieldset[disabled] a:active .label.label-primary:hover, fieldset[disabled] a:active .label.label-primary.focus, fieldset[disabled] a:active .label.label-primary:focus, a:focus .label.label-primary.disabled:hover, a:focus .label.label-primary.disabled.focus, a:focus .label.label-primary.disabled:focus, a:focus .label.label-primary[disabled]:hover, a:focus .label.label-primary[disabled].focus, a:focus .label.label-primary[disabled]:focus, fieldset[disabled] a:focus .label.label-primary:hover, fieldset[disabled] a:focus .label.label-primary.focus, fieldset[disabled] a:focus .label.label-primary:focus {
+  background-color: #146577;
+  border-color: #146577;
+  color: #fff;
+}
+a:hover .label.label-success, a:active .label.label-success, a:focus .label.label-success {
+  background-color: #007554;
+  border-color: #007554;
+  color: #fff;
+}
+a:hover .label.label-success:hover, a:hover .label.label-success:active, a:hover .label.label-success:focus, a:active .label.label-success:hover, a:active .label.label-success:active, a:active .label.label-success:focus, a:focus .label.label-success:hover, a:focus .label.label-success:active, a:focus .label.label-success:focus {
+  background-color: #007554;
+  border-color: #007554;
+  color: #fff;
+}
+a:hover .label.label-success.disabled:hover, a:hover .label.label-success.disabled.focus, a:hover .label.label-success.disabled:focus, a:hover .label.label-success[disabled]:hover, a:hover .label.label-success[disabled].focus, a:hover .label.label-success[disabled]:focus, fieldset[disabled] a:hover .label.label-success:hover, fieldset[disabled] a:hover .label.label-success.focus, fieldset[disabled] a:hover .label.label-success:focus, a:active .label.label-success.disabled:hover, a:active .label.label-success.disabled.focus, a:active .label.label-success.disabled:focus, a:active .label.label-success[disabled]:hover, a:active .label.label-success[disabled].focus, a:active .label.label-success[disabled]:focus, fieldset[disabled] a:active .label.label-success:hover, fieldset[disabled] a:active .label.label-success.focus, fieldset[disabled] a:active .label.label-success:focus, a:focus .label.label-success.disabled:hover, a:focus .label.label-success.disabled.focus, a:focus .label.label-success.disabled:focus, a:focus .label.label-success[disabled]:hover, a:focus .label.label-success[disabled].focus, a:focus .label.label-success[disabled]:focus, fieldset[disabled] a:focus .label.label-success:hover, fieldset[disabled] a:focus .label.label-success.focus, fieldset[disabled] a:focus .label.label-success:focus {
+  background-color: #007554;
+  border-color: #007554;
+  color: #fff;
+}
+a:hover .label.label-info, a:active .label.label-info, a:focus .label.label-info {
+  background-color: #00809d;
+  border-color: #00809d;
+  color: #fff;
+}
+a:hover .label.label-info:hover, a:hover .label.label-info:active, a:hover .label.label-info:focus, a:active .label.label-info:hover, a:active .label.label-info:active, a:active .label.label-info:focus, a:focus .label.label-info:hover, a:focus .label.label-info:active, a:focus .label.label-info:focus {
+  background-color: #00809d;
+  border-color: #00809d;
+  color: #fff;
+}
+a:hover .label.label-info.disabled:hover, a:hover .label.label-info.disabled.focus, a:hover .label.label-info.disabled:focus, a:hover .label.label-info[disabled]:hover, a:hover .label.label-info[disabled].focus, a:hover .label.label-info[disabled]:focus, fieldset[disabled] a:hover .label.label-info:hover, fieldset[disabled] a:hover .label.label-info.focus, fieldset[disabled] a:hover .label.label-info:focus, a:active .label.label-info.disabled:hover, a:active .label.label-info.disabled.focus, a:active .label.label-info.disabled:focus, a:active .label.label-info[disabled]:hover, a:active .label.label-info[disabled].focus, a:active .label.label-info[disabled]:focus, fieldset[disabled] a:active .label.label-info:hover, fieldset[disabled] a:active .label.label-info.focus, fieldset[disabled] a:active .label.label-info:focus, a:focus .label.label-info.disabled:hover, a:focus .label.label-info.disabled.focus, a:focus .label.label-info.disabled:focus, a:focus .label.label-info[disabled]:hover, a:focus .label.label-info[disabled].focus, a:focus .label.label-info[disabled]:focus, fieldset[disabled] a:focus .label.label-info:hover, fieldset[disabled] a:focus .label.label-info.focus, fieldset[disabled] a:focus .label.label-info:focus {
+  background-color: #00809d;
+  border-color: #00809d;
+  color: #fff;
+}
+a:hover .label.label-warning, a:active .label.label-warning, a:focus .label.label-warning {
+  background-color: #b68506;
+  border-color: #b68506;
+  color: #fff;
+}
+a:hover .label.label-warning:hover, a:hover .label.label-warning:active, a:hover .label.label-warning:focus, a:active .label.label-warning:hover, a:active .label.label-warning:active, a:active .label.label-warning:focus, a:focus .label.label-warning:hover, a:focus .label.label-warning:active, a:focus .label.label-warning:focus {
+  background-color: #b68506;
+  border-color: #b68506;
+  color: #fff;
+}
+a:hover .label.label-warning.disabled:hover, a:hover .label.label-warning.disabled.focus, a:hover .label.label-warning.disabled:focus, a:hover .label.label-warning[disabled]:hover, a:hover .label.label-warning[disabled].focus, a:hover .label.label-warning[disabled]:focus, fieldset[disabled] a:hover .label.label-warning:hover, fieldset[disabled] a:hover .label.label-warning.focus, fieldset[disabled] a:hover .label.label-warning:focus, a:active .label.label-warning.disabled:hover, a:active .label.label-warning.disabled.focus, a:active .label.label-warning.disabled:focus, a:active .label.label-warning[disabled]:hover, a:active .label.label-warning[disabled].focus, a:active .label.label-warning[disabled]:focus, fieldset[disabled] a:active .label.label-warning:hover, fieldset[disabled] a:active .label.label-warning.focus, fieldset[disabled] a:active .label.label-warning:focus, a:focus .label.label-warning.disabled:hover, a:focus .label.label-warning.disabled.focus, a:focus .label.label-warning.disabled:focus, a:focus .label.label-warning[disabled]:hover, a:focus .label.label-warning[disabled].focus, a:focus .label.label-warning[disabled]:focus, fieldset[disabled] a:focus .label.label-warning:hover, fieldset[disabled] a:focus .label.label-warning.focus, fieldset[disabled] a:focus .label.label-warning:focus {
+  background-color: #b68506;
+  border-color: #b68506;
+  color: #fff;
+}
+a:hover .label.label-danger, a:active .label.label-danger, a:focus .label.label-danger {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a:hover .label.label-danger:hover, a:hover .label.label-danger:active, a:hover .label.label-danger:focus, a:active .label.label-danger:hover, a:active .label.label-danger:active, a:active .label.label-danger:focus, a:focus .label.label-danger:hover, a:focus .label.label-danger:active, a:focus .label.label-danger:focus {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a:hover .label.label-danger.disabled:hover, a:hover .label.label-danger.disabled.focus, a:hover .label.label-danger.disabled:focus, a:hover .label.label-danger[disabled]:hover, a:hover .label.label-danger[disabled].focus, a:hover .label.label-danger[disabled]:focus, fieldset[disabled] a:hover .label.label-danger:hover, fieldset[disabled] a:hover .label.label-danger.focus, fieldset[disabled] a:hover .label.label-danger:focus, a:active .label.label-danger.disabled:hover, a:active .label.label-danger.disabled.focus, a:active .label.label-danger.disabled:focus, a:active .label.label-danger[disabled]:hover, a:active .label.label-danger[disabled].focus, a:active .label.label-danger[disabled]:focus, fieldset[disabled] a:active .label.label-danger:hover, fieldset[disabled] a:active .label.label-danger.focus, fieldset[disabled] a:active .label.label-danger:focus, a:focus .label.label-danger.disabled:hover, a:focus .label.label-danger.disabled.focus, a:focus .label.label-danger.disabled:focus, a:focus .label.label-danger[disabled]:hover, a:focus .label.label-danger[disabled].focus, a:focus .label.label-danger[disabled]:focus, fieldset[disabled] a:focus .label.label-danger:hover, fieldset[disabled] a:focus .label.label-danger.focus, fieldset[disabled] a:focus .label.label-danger:focus {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a:hover .label.label-alpha, a:active .label.label-alpha, a:focus .label.label-alpha {
+  background-color: #313131;
+  border-color: #313131;
+  color: #fff;
+}
+a:hover .label.label-alpha:hover, a:hover .label.label-alpha:active, a:hover .label.label-alpha:focus, a:active .label.label-alpha:hover, a:active .label.label-alpha:active, a:active .label.label-alpha:focus, a:focus .label.label-alpha:hover, a:focus .label.label-alpha:active, a:focus .label.label-alpha:focus {
+  background-color: #313131;
+  border-color: #313131;
+  color: #fff;
+}
+a:hover .label.label-alpha.disabled:hover, a:hover .label.label-alpha.disabled.focus, a:hover .label.label-alpha.disabled:focus, a:hover .label.label-alpha[disabled]:hover, a:hover .label.label-alpha[disabled].focus, a:hover .label.label-alpha[disabled]:focus, fieldset[disabled] a:hover .label.label-alpha:hover, fieldset[disabled] a:hover .label.label-alpha.focus, fieldset[disabled] a:hover .label.label-alpha:focus, a:active .label.label-alpha.disabled:hover, a:active .label.label-alpha.disabled.focus, a:active .label.label-alpha.disabled:focus, a:active .label.label-alpha[disabled]:hover, a:active .label.label-alpha[disabled].focus, a:active .label.label-alpha[disabled]:focus, fieldset[disabled] a:active .label.label-alpha:hover, fieldset[disabled] a:active .label.label-alpha.focus, fieldset[disabled] a:active .label.label-alpha:focus, a:focus .label.label-alpha.disabled:hover, a:focus .label.label-alpha.disabled.focus, a:focus .label.label-alpha.disabled:focus, a:focus .label.label-alpha[disabled]:hover, a:focus .label.label-alpha[disabled].focus, a:focus .label.label-alpha[disabled]:focus, fieldset[disabled] a:focus .label.label-alpha:hover, fieldset[disabled] a:focus .label.label-alpha.focus, fieldset[disabled] a:focus .label.label-alpha:focus {
+  background-color: #313131;
+  border-color: #313131;
+  color: #fff;
+}
+a:hover .label.label-beta, a:active .label.label-beta, a:focus .label.label-beta {
+  background-color: #880e48;
+  border-color: #880e48;
+  color: #fff;
+}
+a:hover .label.label-beta:hover, a:hover .label.label-beta:active, a:hover .label.label-beta:focus, a:active .label.label-beta:hover, a:active .label.label-beta:active, a:active .label.label-beta:focus, a:focus .label.label-beta:hover, a:focus .label.label-beta:active, a:focus .label.label-beta:focus {
+  background-color: #880e48;
+  border-color: #880e48;
+  color: #fff;
+}
+a:hover .label.label-beta.disabled:hover, a:hover .label.label-beta.disabled.focus, a:hover .label.label-beta.disabled:focus, a:hover .label.label-beta[disabled]:hover, a:hover .label.label-beta[disabled].focus, a:hover .label.label-beta[disabled]:focus, fieldset[disabled] a:hover .label.label-beta:hover, fieldset[disabled] a:hover .label.label-beta.focus, fieldset[disabled] a:hover .label.label-beta:focus, a:active .label.label-beta.disabled:hover, a:active .label.label-beta.disabled.focus, a:active .label.label-beta.disabled:focus, a:active .label.label-beta[disabled]:hover, a:active .label.label-beta[disabled].focus, a:active .label.label-beta[disabled]:focus, fieldset[disabled] a:active .label.label-beta:hover, fieldset[disabled] a:active .label.label-beta.focus, fieldset[disabled] a:active .label.label-beta:focus, a:focus .label.label-beta.disabled:hover, a:focus .label.label-beta.disabled.focus, a:focus .label.label-beta.disabled:focus, a:focus .label.label-beta[disabled]:hover, a:focus .label.label-beta[disabled].focus, a:focus .label.label-beta[disabled]:focus, fieldset[disabled] a:focus .label.label-beta:hover, fieldset[disabled] a:focus .label.label-beta.focus, fieldset[disabled] a:focus .label.label-beta:focus {
+  background-color: #880e48;
+  border-color: #880e48;
+  color: #fff;
+}
+a.label:hover.label-default, a.label:active.label-default, a.label:focus.label-default {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+  color: #fff;
+}
+a.label:hover.label-default:hover, a.label:hover.label-default:active, a.label:hover.label-default:focus, a.label:active.label-default:hover, a.label:active.label-default:active, a.label:active.label-default:focus, a.label:focus.label-default:hover, a.label:focus.label-default:active, a.label:focus.label-default:focus {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+  color: #fff;
+}
+a.label:hover.label-default.disabled:hover, a.label:hover.label-default.disabled.focus, a.label:hover.label-default.disabled:focus, a.label:hover.label-default[disabled]:hover, a.label:hover.label-default[disabled].focus, a.label:hover.label-default[disabled]:focus, fieldset[disabled] a.label:hover.label-default:hover, fieldset[disabled] a.label:hover.label-default.focus, fieldset[disabled] a.label:hover.label-default:focus, a.label:active.label-default.disabled:hover, a.label:active.label-default.disabled.focus, a.label:active.label-default.disabled:focus, a.label:active.label-default[disabled]:hover, a.label:active.label-default[disabled].focus, a.label:active.label-default[disabled]:focus, fieldset[disabled] a.label:active.label-default:hover, fieldset[disabled] a.label:active.label-default.focus, fieldset[disabled] a.label:active.label-default:focus, a.label:focus.label-default.disabled:hover, a.label:focus.label-default.disabled.focus, a.label:focus.label-default.disabled:focus, a.label:focus.label-default[disabled]:hover, a.label:focus.label-default[disabled].focus, a.label:focus.label-default[disabled]:focus, fieldset[disabled] a.label:focus.label-default:hover, fieldset[disabled] a.label:focus.label-default.focus, fieldset[disabled] a.label:focus.label-default:focus {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+  color: #fff;
+}
+a.label:hover.label-primary, a.label:active.label-primary, a.label:focus.label-primary {
+  background-color: #146577;
+  border-color: #146577;
+  color: #fff;
+}
+a.label:hover.label-primary:hover, a.label:hover.label-primary:active, a.label:hover.label-primary:focus, a.label:active.label-primary:hover, a.label:active.label-primary:active, a.label:active.label-primary:focus, a.label:focus.label-primary:hover, a.label:focus.label-primary:active, a.label:focus.label-primary:focus {
+  background-color: #146577;
+  border-color: #146577;
+  color: #fff;
+}
+a.label:hover.label-primary.disabled:hover, a.label:hover.label-primary.disabled.focus, a.label:hover.label-primary.disabled:focus, a.label:hover.label-primary[disabled]:hover, a.label:hover.label-primary[disabled].focus, a.label:hover.label-primary[disabled]:focus, fieldset[disabled] a.label:hover.label-primary:hover, fieldset[disabled] a.label:hover.label-primary.focus, fieldset[disabled] a.label:hover.label-primary:focus, a.label:active.label-primary.disabled:hover, a.label:active.label-primary.disabled.focus, a.label:active.label-primary.disabled:focus, a.label:active.label-primary[disabled]:hover, a.label:active.label-primary[disabled].focus, a.label:active.label-primary[disabled]:focus, fieldset[disabled] a.label:active.label-primary:hover, fieldset[disabled] a.label:active.label-primary.focus, fieldset[disabled] a.label:active.label-primary:focus, a.label:focus.label-primary.disabled:hover, a.label:focus.label-primary.disabled.focus, a.label:focus.label-primary.disabled:focus, a.label:focus.label-primary[disabled]:hover, a.label:focus.label-primary[disabled].focus, a.label:focus.label-primary[disabled]:focus, fieldset[disabled] a.label:focus.label-primary:hover, fieldset[disabled] a.label:focus.label-primary.focus, fieldset[disabled] a.label:focus.label-primary:focus {
+  background-color: #146577;
+  border-color: #146577;
+  color: #fff;
+}
+a.label:hover.label-success, a.label:active.label-success, a.label:focus.label-success {
+  background-color: #007554;
+  border-color: #007554;
+  color: #fff;
+}
+a.label:hover.label-success:hover, a.label:hover.label-success:active, a.label:hover.label-success:focus, a.label:active.label-success:hover, a.label:active.label-success:active, a.label:active.label-success:focus, a.label:focus.label-success:hover, a.label:focus.label-success:active, a.label:focus.label-success:focus {
+  background-color: #007554;
+  border-color: #007554;
+  color: #fff;
+}
+a.label:hover.label-success.disabled:hover, a.label:hover.label-success.disabled.focus, a.label:hover.label-success.disabled:focus, a.label:hover.label-success[disabled]:hover, a.label:hover.label-success[disabled].focus, a.label:hover.label-success[disabled]:focus, fieldset[disabled] a.label:hover.label-success:hover, fieldset[disabled] a.label:hover.label-success.focus, fieldset[disabled] a.label:hover.label-success:focus, a.label:active.label-success.disabled:hover, a.label:active.label-success.disabled.focus, a.label:active.label-success.disabled:focus, a.label:active.label-success[disabled]:hover, a.label:active.label-success[disabled].focus, a.label:active.label-success[disabled]:focus, fieldset[disabled] a.label:active.label-success:hover, fieldset[disabled] a.label:active.label-success.focus, fieldset[disabled] a.label:active.label-success:focus, a.label:focus.label-success.disabled:hover, a.label:focus.label-success.disabled.focus, a.label:focus.label-success.disabled:focus, a.label:focus.label-success[disabled]:hover, a.label:focus.label-success[disabled].focus, a.label:focus.label-success[disabled]:focus, fieldset[disabled] a.label:focus.label-success:hover, fieldset[disabled] a.label:focus.label-success.focus, fieldset[disabled] a.label:focus.label-success:focus {
+  background-color: #007554;
+  border-color: #007554;
+  color: #fff;
+}
+a.label:hover.label-info, a.label:active.label-info, a.label:focus.label-info {
+  background-color: #00809d;
+  border-color: #00809d;
+  color: #fff;
+}
+a.label:hover.label-info:hover, a.label:hover.label-info:active, a.label:hover.label-info:focus, a.label:active.label-info:hover, a.label:active.label-info:active, a.label:active.label-info:focus, a.label:focus.label-info:hover, a.label:focus.label-info:active, a.label:focus.label-info:focus {
+  background-color: #00809d;
+  border-color: #00809d;
+  color: #fff;
+}
+a.label:hover.label-info.disabled:hover, a.label:hover.label-info.disabled.focus, a.label:hover.label-info.disabled:focus, a.label:hover.label-info[disabled]:hover, a.label:hover.label-info[disabled].focus, a.label:hover.label-info[disabled]:focus, fieldset[disabled] a.label:hover.label-info:hover, fieldset[disabled] a.label:hover.label-info.focus, fieldset[disabled] a.label:hover.label-info:focus, a.label:active.label-info.disabled:hover, a.label:active.label-info.disabled.focus, a.label:active.label-info.disabled:focus, a.label:active.label-info[disabled]:hover, a.label:active.label-info[disabled].focus, a.label:active.label-info[disabled]:focus, fieldset[disabled] a.label:active.label-info:hover, fieldset[disabled] a.label:active.label-info.focus, fieldset[disabled] a.label:active.label-info:focus, a.label:focus.label-info.disabled:hover, a.label:focus.label-info.disabled.focus, a.label:focus.label-info.disabled:focus, a.label:focus.label-info[disabled]:hover, a.label:focus.label-info[disabled].focus, a.label:focus.label-info[disabled]:focus, fieldset[disabled] a.label:focus.label-info:hover, fieldset[disabled] a.label:focus.label-info.focus, fieldset[disabled] a.label:focus.label-info:focus {
+  background-color: #00809d;
+  border-color: #00809d;
+  color: #fff;
+}
+a.label:hover.label-warning, a.label:active.label-warning, a.label:focus.label-warning {
+  background-color: #b68506;
+  border-color: #b68506;
+  color: #fff;
+}
+a.label:hover.label-warning:hover, a.label:hover.label-warning:active, a.label:hover.label-warning:focus, a.label:active.label-warning:hover, a.label:active.label-warning:active, a.label:active.label-warning:focus, a.label:focus.label-warning:hover, a.label:focus.label-warning:active, a.label:focus.label-warning:focus {
+  background-color: #b68506;
+  border-color: #b68506;
+  color: #fff;
+}
+a.label:hover.label-warning.disabled:hover, a.label:hover.label-warning.disabled.focus, a.label:hover.label-warning.disabled:focus, a.label:hover.label-warning[disabled]:hover, a.label:hover.label-warning[disabled].focus, a.label:hover.label-warning[disabled]:focus, fieldset[disabled] a.label:hover.label-warning:hover, fieldset[disabled] a.label:hover.label-warning.focus, fieldset[disabled] a.label:hover.label-warning:focus, a.label:active.label-warning.disabled:hover, a.label:active.label-warning.disabled.focus, a.label:active.label-warning.disabled:focus, a.label:active.label-warning[disabled]:hover, a.label:active.label-warning[disabled].focus, a.label:active.label-warning[disabled]:focus, fieldset[disabled] a.label:active.label-warning:hover, fieldset[disabled] a.label:active.label-warning.focus, fieldset[disabled] a.label:active.label-warning:focus, a.label:focus.label-warning.disabled:hover, a.label:focus.label-warning.disabled.focus, a.label:focus.label-warning.disabled:focus, a.label:focus.label-warning[disabled]:hover, a.label:focus.label-warning[disabled].focus, a.label:focus.label-warning[disabled]:focus, fieldset[disabled] a.label:focus.label-warning:hover, fieldset[disabled] a.label:focus.label-warning.focus, fieldset[disabled] a.label:focus.label-warning:focus {
+  background-color: #b68506;
+  border-color: #b68506;
+  color: #fff;
+}
+a.label:hover.label-danger, a.label:active.label-danger, a.label:focus.label-danger {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a.label:hover.label-danger:hover, a.label:hover.label-danger:active, a.label:hover.label-danger:focus, a.label:active.label-danger:hover, a.label:active.label-danger:active, a.label:active.label-danger:focus, a.label:focus.label-danger:hover, a.label:focus.label-danger:active, a.label:focus.label-danger:focus {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a.label:hover.label-danger.disabled:hover, a.label:hover.label-danger.disabled.focus, a.label:hover.label-danger.disabled:focus, a.label:hover.label-danger[disabled]:hover, a.label:hover.label-danger[disabled].focus, a.label:hover.label-danger[disabled]:focus, fieldset[disabled] a.label:hover.label-danger:hover, fieldset[disabled] a.label:hover.label-danger.focus, fieldset[disabled] a.label:hover.label-danger:focus, a.label:active.label-danger.disabled:hover, a.label:active.label-danger.disabled.focus, a.label:active.label-danger.disabled:focus, a.label:active.label-danger[disabled]:hover, a.label:active.label-danger[disabled].focus, a.label:active.label-danger[disabled]:focus, fieldset[disabled] a.label:active.label-danger:hover, fieldset[disabled] a.label:active.label-danger.focus, fieldset[disabled] a.label:active.label-danger:focus, a.label:focus.label-danger.disabled:hover, a.label:focus.label-danger.disabled.focus, a.label:focus.label-danger.disabled:focus, a.label:focus.label-danger[disabled]:hover, a.label:focus.label-danger[disabled].focus, a.label:focus.label-danger[disabled]:focus, fieldset[disabled] a.label:focus.label-danger:hover, fieldset[disabled] a.label:focus.label-danger.focus, fieldset[disabled] a.label:focus.label-danger:focus {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  color: #fff;
+}
+a.label:hover.label-alpha, a.label:active.label-alpha, a.label:focus.label-alpha {
+  background-color: #313131;
+  border-color: #313131;
+  color: #fff;
+}
+a.label:hover.label-alpha:hover, a.label:hover.label-alpha:active, a.label:hover.label-alpha:focus, a.label:active.label-alpha:hover, a.label:active.label-alpha:active, a.label:active.label-alpha:focus, a.label:focus.label-alpha:hover, a.label:focus.label-alpha:active, a.label:focus.label-alpha:focus {
+  background-color: #313131;
+  border-color: #313131;
+  color: #fff;
+}
+a.label:hover.label-alpha.disabled:hover, a.label:hover.label-alpha.disabled.focus, a.label:hover.label-alpha.disabled:focus, a.label:hover.label-alpha[disabled]:hover, a.label:hover.label-alpha[disabled].focus, a.label:hover.label-alpha[disabled]:focus, fieldset[disabled] a.label:hover.label-alpha:hover, fieldset[disabled] a.label:hover.label-alpha.focus, fieldset[disabled] a.label:hover.label-alpha:focus, a.label:active.label-alpha.disabled:hover, a.label:active.label-alpha.disabled.focus, a.label:active.label-alpha.disabled:focus, a.label:active.label-alpha[disabled]:hover, a.label:active.label-alpha[disabled].focus, a.label:active.label-alpha[disabled]:focus, fieldset[disabled] a.label:active.label-alpha:hover, fieldset[disabled] a.label:active.label-alpha.focus, fieldset[disabled] a.label:active.label-alpha:focus, a.label:focus.label-alpha.disabled:hover, a.label:focus.label-alpha.disabled.focus, a.label:focus.label-alpha.disabled:focus, a.label:focus.label-alpha[disabled]:hover, a.label:focus.label-alpha[disabled].focus, a.label:focus.label-alpha[disabled]:focus, fieldset[disabled] a.label:focus.label-alpha:hover, fieldset[disabled] a.label:focus.label-alpha.focus, fieldset[disabled] a.label:focus.label-alpha:focus {
+  background-color: #313131;
+  border-color: #313131;
+  color: #fff;
+}
+a.label:hover.label-beta, a.label:active.label-beta, a.label:focus.label-beta {
+  background-color: #880e48;
+  border-color: #880e48;
+  color: #fff;
+}
+a.label:hover.label-beta:hover, a.label:hover.label-beta:active, a.label:hover.label-beta:focus, a.label:active.label-beta:hover, a.label:active.label-beta:active, a.label:active.label-beta:focus, a.label:focus.label-beta:hover, a.label:focus.label-beta:active, a.label:focus.label-beta:focus {
+  background-color: #880e48;
+  border-color: #880e48;
+  color: #fff;
+}
+a.label:hover.label-beta.disabled:hover, a.label:hover.label-beta.disabled.focus, a.label:hover.label-beta.disabled:focus, a.label:hover.label-beta[disabled]:hover, a.label:hover.label-beta[disabled].focus, a.label:hover.label-beta[disabled]:focus, fieldset[disabled] a.label:hover.label-beta:hover, fieldset[disabled] a.label:hover.label-beta.focus, fieldset[disabled] a.label:hover.label-beta:focus, a.label:active.label-beta.disabled:hover, a.label:active.label-beta.disabled.focus, a.label:active.label-beta.disabled:focus, a.label:active.label-beta[disabled]:hover, a.label:active.label-beta[disabled].focus, a.label:active.label-beta[disabled]:focus, fieldset[disabled] a.label:active.label-beta:hover, fieldset[disabled] a.label:active.label-beta.focus, fieldset[disabled] a.label:active.label-beta:focus, a.label:focus.label-beta.disabled:hover, a.label:focus.label-beta.disabled.focus, a.label:focus.label-beta.disabled:focus, a.label:focus.label-beta[disabled]:hover, a.label:focus.label-beta[disabled].focus, a.label:focus.label-beta[disabled]:focus, fieldset[disabled] a.label:focus.label-beta:hover, fieldset[disabled] a.label:focus.label-beta.focus, fieldset[disabled] a.label:focus.label-beta:focus {
+  background-color: #880e48;
+  border-color: #880e48;
+  color: #fff;
 }
 
 .progress-bar {
@@ -947,7 +1201,7 @@ a.label-warning[href]:hover, a.label-warning[href]:active, a.label-warning[href]
 }
 
 .text-warning {
-  color: #e7a907;
+  color: #b68506;
 }
 
 .text-danger {
@@ -992,6 +1246,10 @@ a.label-warning[href]:hover, a.label-warning[href]:active, a.label-warning[href]
 
 .container .jumbotron h1 {
   font-size: 230%;
+}
+
+.jumbotron {
+  margin-bottom: 3em;
 }
 
 .page-header {
@@ -1052,8 +1310,8 @@ a.label-warning[href]:hover, a.label-warning[href]:active, a.label-warning[href]
 }
 
 .breadcrumb {
-  background-color: #f0f3f5;
-  margin-top: 10px;
+  background-color: transparent;
+  padding: 10px 0;
 }
 .breadcrumb .active {
   color: #313131;
@@ -1144,6 +1402,10 @@ a.label-warning[href]:hover, a.label-warning[href]:active, a.label-warning[href]
   border-radius: 1px;
 }
 
+form {
+  max-width: 48em;
+}
+
 form [type='text'],
 form [type='number'],
 form [type='tel'],
@@ -1155,7 +1417,7 @@ select,
 form optgroup,
 form textarea {
   font: inherit;
-  padding: 1.1em 0.7em;
+  padding: 1.12em 0.7em;
 }
 form [type='text']:active, form [type='text']:focus,
 form [type='number']:active,
@@ -1216,7 +1478,7 @@ form input.invalid[type='checkbox'] {
 .has-warning .help-block,
 .has-warning .radio,
 .has-warning .radio-inline, .has-warning.checkbox label, .has-warning.checkbox-inline label, .has-warning.radio label, .has-warning.radio-inline label {
-  color: #f9c642;
+  color: #b68506;
 }
 
 .has-error .checkbox,
@@ -1488,6 +1750,17 @@ select.form-control {
   margin-bottom: 10px;
 }
 
+.input-group-btn .btn {
+  padding: 9px 15px;
+}
+
+.checkbox input[type=checkbox],
+.checkbox-inline input[type=checkbox],
+.radio input[type=radio],
+.radio-inline input[type=radio] {
+  margin-top: 6px;
+}
+
 .dropdown-menu {
   margin-bottom: 1.5em;
 }
@@ -1533,8 +1806,32 @@ kbd kbd {
   border: none;
 }
 
+.carousel .carousel-control {
+  border-bottom: none;
+}
+.carousel .carousel-control:hover, .carousel .carousel-control:active, .carousel .carousel-control:focus {
+  background-color: transparent;
+}
+
+.popover {
+  border-radius: 3px;
+}
+.popover.right > .arrow {
+  left: -11px;
+}
+.popover .popover-title {
+  background-color: #f0f3f5;
+  color: #115361;
+  font-weight: 500;
+}
+
+.tooltip {
+  border-radius: 3px;
+  min-width: 10em;
+}
+
 .index-links {
-  margin: 3.2em 0 1.6em 0;
+  margin: 1.6em 0;
   border-left: 0.4em solid #f0f3f5;
   padding: 0 0 1.2em 1.2em;
 }
@@ -1566,13 +1863,6 @@ kbd kbd {
 }
 .index-links li:not(:last-of-type) {
   margin-bottom: 1.5em;
-}
-
-.carousel .carousel-control {
-  border-bottom: none;
-}
-.carousel .carousel-control:hover, .carousel .carousel-control:active, .carousel .carousel-control:focus {
-  background-color: transparent;
 }
 
 .dashboard-item {
@@ -1631,18 +1921,6 @@ kbd kbd {
 }
 .dashboard-item .dashboard-extra {
   color: #313131;
-}
-
-.popover {
-  border-radius: 3px;
-}
-.popover.right > .arrow {
-  left: -11px;
-}
-.popover .popover-title {
-  background-color: #f0f3f5;
-  color: #115361;
-  font-weight: 500;
 }
 
 .calendar-list {

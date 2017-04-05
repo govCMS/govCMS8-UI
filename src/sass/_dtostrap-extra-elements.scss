@@ -1,0 +1,152 @@
+// Things that aren't Bootstrap, but may be useful...
+
+
+.index-links {
+  // margin: 3.2em 0 1.6em 0;
+  margin: 1.6em 0;
+  border-left: 0.4em solid $grey-light;
+  padding: 0 0 1.2em 1.2em;   // yes, this is uneven. Should be: '0 0 0 1.2em' imo, but sticking to their look.
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1em;
+    margin-top: 1.6em;
+    padding-bottom: 1.2em;
+    color: $grey;
+    font-weight: $font-weight-normal;
+  }
+  a {
+    font-weight: bold;
+  }
+  ul,
+  ol {
+    padding-left: 0;
+    list-style: none;
+    ul,
+    ol {
+      padding-left: 2em;  // in case of nesting
+    }
+  }
+  li:not(:last-of-type) {
+    margin-bottom: 1.5em;
+  }
+}
+
+
+
+
+
+// Dashboard
+.dashboard-item {
+  margin: 1em 0 3em 0;
+  .dashboard-icon {
+    font-size: 8em;
+    color: $primary;
+    margin-bottom: 0.2em;
+  }
+  .dashboard-title {
+    margin: 0;
+    padding-bottom: 0.5em;
+  }
+  .dashboard-more-info {
+    outline: 0;
+    transition: all .2s;
+    font-size: 80%;
+    color: #fff;
+    border-bottom: none;
+    background-color: $primary;
+    border-radius: 100%;
+    width: 1.1em;
+    height: 1.1em;
+    display: inline-block;
+    top: 0.2em;
+    position: relative;
+    &:hover,
+    &:active,
+    &:focus{
+      color: $primary-alt;
+      text-decoration: none;
+      background-color: transparent;
+    }
+    i {
+      top: -0.15em;
+      position: relative;
+    }
+  }
+  .dashboard-highlight {
+    color: $primary;
+    display: block;
+    font-size: 180%;
+    margin: 0.5em 0;
+    a {
+      padding: 0.5em 0.1em 0;
+      color: $primary;
+      &:hover,
+      &:active,
+      &:focus{
+        color: $grey-dark;
+      }
+    }
+    strong {
+      font-size: 180%;
+      a {
+        padding: 0;
+      }
+    }
+  }
+  .dashboard-extra {
+    color: $grey-dark;
+  }
+}
+
+
+
+
+
+// Date layout - mostly stolen from previous work on australia.gov.au
+.calendar-list {
+  max-width: 48em;
+  padding-left: 0;
+  .calendar-item {
+    display: table;
+    width: 100%;
+    background-color: $grey-light;
+    border-bottom: 1px solid #fff;
+    .calendar-number {
+      display: block;
+      margin: 6px 0;
+      color: $primary;
+      font-size: 1.8em;
+    }
+    .calendar-title {
+      padding: 0 0 0 20px;
+      line-height: 1.4;
+      padding-top: 3px;
+      font-size: 1.25em;
+    }
+    .calendar-note {
+      font-size: 14px;
+      display: block;
+      margin: 3px 0;
+      padding-right: 10px;
+      color: $grey-dark;
+    }
+    .calendar-date,
+    .calendar-name {
+      width: 70px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 0.8;
+      padding: 12px 10px;
+      border-right: 1px solid #fff;
+    }
+    .calendar-date,
+    .calendar-title {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}

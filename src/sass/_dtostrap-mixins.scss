@@ -2,8 +2,7 @@
 
 
 // @include button-colours($primary-dark, #fff);
-@mixin button-colours($bg, $fg) {
-  $darken-percent: 8%;
+@mixin button-colours($bg, $fg, $darken-percent: 8%) {
   background-color: $bg;
   border-color: darken($bg, $darken-percent);
   color: $fg;
@@ -31,7 +30,7 @@
 // iOS style background blurring
 // TODO: update as more support available
 @mixin blurBG() {
-  $blurAmount: 10px;
-  -webkit-backdrop-filter: blur($blurAmount);
-  backdrop-filter: blur($blurAmount);
+  $blur-amount: 10px;
+  -webkit-backdrop-filter: blur($blur-amount);
+  backdrop-filter: blur($blur-amount);
 }
