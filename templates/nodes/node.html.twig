@@ -10,10 +10,9 @@
 
     {% if display_submitted %}
         <small{{ author_attributes.addClass('meta') }}>
-            <time datetime="{{ date_timestamp }}">{{ date }} ago</time>
-            <p>by {{ author_name }}</p>
+            Posted <time datetime="{{ date_timestamp }}" title="{{ date_readable }}">{{ date }} ago</time> by {{ author_name }}
             {% if date_updated is defined %}
-            Updated <time datetime="{{ date_updated_timestamp }}">{{ date_updated }} ago</time>
+                <br />Updated <time datetime="{{ date_updated_timestamp }}" title="{{ date_updated_readable }}">{{ date_updated }} ago</time>
             {% endif %}
         </small>
     {% endif %}

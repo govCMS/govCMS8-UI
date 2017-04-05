@@ -1,5 +1,9 @@
 <?php
 
+use Drupal\file\Entity\File;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+
 function govcmsui_preprocess_page(&$variables) {
     $coa_footer = theme_get_setting('govcmsui_coa_footer');
     if(!empty($coa_footer) && $coa_footer == 1) {
@@ -56,4 +60,77 @@ function govcmsui_preprocess_node(&$variables) {
         $variables['date_updated_timestamp'] = date("Y-m-d\TH:i:s", $updated);
         $variables['date_updated_readable'] = date("j F Y g:i A", $updated);
     }
+}
+
+function govcmsui_preprocess_file_link(&$variables) {
+    $file = $variables['file'];
+    $options = array();
+
+    $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
+    // @todo Wrap in file_url_transform_relative(). This is currently
+    // impossible. As a work-around, we currently add the 'url.site' cache context
+    // to ensure different file URLs are generated for different sites in a
+    // multisite setup, including HTTP and HTTPS versions of the same site.
+    // Fix in https://www.drupal.org/node/2646744.
+    $url = file_create_url($file_entity->getFileUri());
+    $variables['#cache']['contexts'][] = 'url.site';
+
+    $mime_type = $file->getMimeType();
+    // Set options as per anchor format described at
+    // http://microformats.org/wiki/file-format-examples
+    $options['attributes']['type'] = $mime_type . '; length=' . $file->getSize();
+
+    // Use the description as the link text if available.
+    if (empty($variables['description'])) {
+        $link_text = $file_entity->getFilename();
+    }
+    else {
+        $link_text = $variables['description'];
+        $options['attributes']['title'] = $file_entity->getFilename();
+    }
+
+    $icon_class = _govcmsui_file_icon_map($mime_type);
+
+    // Set file classes to the options array.
+    $variables['attributes'] = new Attribute($variables['attributes']);
+    $variables['link'] = \Drupal::l($link_text, Url::fromUri($url, $options));
+
+    $variables['icon'] = array(
+        '#type' => 'container',
+        '#prefix' => '<i class="fa fa-'.$icon_class.'-o">',
+        '#suffix' => '</i>',
+    );
+}
+
+
+function _govcmsui_file_icon_map($mime_type)
+{
+    // List of official MIME Types: http://www.iana.org/assignments/media-types/media-types.xhtml
+    static $font_awesome_file_icon_classes = array(
+        // Images
+        'image' => 'file-image',
+        // Audio
+        'audio' => 'file-audio',
+        // Video
+        'video' => 'file-video',
+        // Documents
+        'application/pdf' => 'file-pdf',
+        'text/plain' => 'file-text',
+        'text/html' => 'file-code',
+        'application/json' => 'file-code',
+        // Archives
+        'application/gzip' => 'file-archive',
+        'application/zip' => 'file-archive',
+        // Misc
+        'application/octet-stream' => 'file',
+    );
+    if (isset($font_awesome_file_icon_classes[ $mime_type ])) {
+        return $font_awesome_file_icon_classes[ $mime_type ];
+    }
+    $mime_parts = explode('/', $mime_type, 2);
+    $mime_group = $mime_parts[0];
+    if (isset($font_awesome_file_icon_classes[ $mime_group ])) {
+        return $font_awesome_file_icon_classes[ $mime_group ];
+    }
+    return "file";
 }
