@@ -119,7 +119,8 @@ function govcmsui_preprocess_file_link(&$variables) {
         $file_size = format_size($file_size);
         $variables['size'] = array(
             '#type' => 'container',
-            '#prefix' => '('.$file_size.')'
+            '#prefix' => '<small class="meta">('.$file_size.')',
+            '#suffix' => '</small>'
         );
     }
 }
