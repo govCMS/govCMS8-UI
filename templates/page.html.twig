@@ -13,7 +13,7 @@
             </div>
             {% set left_exists = sidebar_first_exists is defined %}
             {% set right_exists = sidebar_second_exists is defined %}
-            {% if left_exists %}
+            {% if page.sidebar_first %}
                 <aside class="col-sm-3" role="complementary">
                     {{ page.sidebar_first }}
                 </aside>
@@ -32,7 +32,7 @@
                 </div>
             </section>
 
-            {% if (right_exists) %}
+            {% if (page.sidebar_second) %}
                 <aside class="col-sm-3 right-bar" role="complementary">
                     {{ page.sidebar_second }}
                 </aside>
