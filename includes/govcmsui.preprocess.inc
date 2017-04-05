@@ -5,6 +5,15 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 
 function govcmsui_preprocess_page(&$variables) {
+    // This is a cheeky workaround to make sure the sidebar classes get set correctly, I don't think it's fool proof though.. e.g. empty views.
+    if(!empty($variables['page']['sidebar_second'])) {
+        $variables['sidebar_second_exists'] = TRUE;
+    }
+    // This is a cheeky workaround to make sure the sidebar classes get set correctly, I don't think it's fool proof though.. e.g. empty views.
+    if(!empty($variables['page']['sidebar_first'])) {
+        $variables['sidebar_first_exists'] = TRUE;
+    }
+
     $coa_footer = theme_get_setting('govcmsui_coa_footer');
     if(!empty($coa_footer) && $coa_footer == 1) {
         $variables['coa_bottom'] = '/' . drupal_get_path('theme','govcmsui') . '/img/coas-dark.svg';

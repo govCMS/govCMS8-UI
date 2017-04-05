@@ -11,8 +11,8 @@
                     {{ page.help }}
                 {% endif %}
             </div>
-            {% set left_exists = (page.sidebar_first is defined and page.sidebar_first|render|striptags|trim) %}
-            {% set right_exists = (page.sidebar_second is defined and page.sidebar_second|render|striptags|trim) %}
+            {% set left_exists = sidebar_first_exists is defined %}
+            {% set right_exists = sidebar_second_exists is defined %}
             {% if left_exists %}
                 <aside class="col-sm-3" role="complementary">
                     {{ page.sidebar_first }}
@@ -32,7 +32,7 @@
                 </div>
             </section>
 
-            {% if right_exists %}
+            {% if (right_exists) %}
                 <aside class="col-sm-3 right-bar" role="complementary">
                     {{ page.sidebar_second }}
                 </aside>
