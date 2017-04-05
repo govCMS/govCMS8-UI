@@ -10,4 +10,4 @@
  * @see template_preprocess_image()
  */
 #}
-<img{{ attributes.removeAttribute('width').removeAttribute('height').addClass('media-object') }} />
+<img{{ attributes.removeAttribute('height').addClass('media-object').setAttribute('width', '100%') }} />
