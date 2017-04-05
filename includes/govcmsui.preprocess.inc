@@ -65,6 +65,9 @@ function govcmsui_preprocess_menu__main(&$variables) {
 }
 
 function govcmsui_preprocess_node(&$variables) {
+    if(isset($variables['view_mode'])) {
+        $variables['attributes']['class'][] = 'view-mode-'.$variables['view_mode'];
+    }
     $date = $variables['node']->getCreatedTime();
     $updated = $variables['node']->getChangedTime();
     $variables['date'] = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $date);
@@ -111,6 +114,14 @@ function govcmsui_preprocess_file_link(&$variables) {
         '#prefix' => '<i class="fa fa-'.$icon_class.'-o">',
         '#suffix' => '</i>',
     );
+    $file_size = $file_entity->getSize();
+    if(isset($file_size) && $file_size > 0) {
+        $file_size = format_size($file_size);
+        $variables['size'] = array(
+            '#type' => 'container',
+            '#prefix' => '('.$file_size.')'
+        );
+    }
 }
 
 

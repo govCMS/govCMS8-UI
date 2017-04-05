@@ -1898,6 +1898,11 @@ h2.brand {
   display: inline-block;
 }
 
+.view-mode-full .field--name-field-featured-image img {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
 .media .media-left {
   display: table-cell;
   vertical-align: middle;

@@ -32,8 +32,14 @@ h2.brand {
 }
 
 
-.blog-article-teaser {
-
+.view-mode-full {
+  // This is a node viewed in Full
+  .field--name-field-featured-image {
+    img {
+      padding-top: .5em;
+      padding-bottom: .5em;
+    }
+  }
 }
 
 .media {
