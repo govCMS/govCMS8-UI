@@ -1,4 +1,6 @@
 
+logo:
+  use_default: true
 govcmsui_use_bootstrap: 1
 govcmsui_use_jquery: 1
 govcmsui_coa: coas-stacked.svg
