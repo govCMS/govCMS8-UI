@@ -2176,6 +2176,10 @@ h2.brand {
   display: inline-block;
 }
 
+.calendar-text {
+  margin-top: 0.25em;
+}
+
 .view-mode-full .field--name-field-featured-image img {
   padding-top: .5em;
   padding-bottom: .5em;
