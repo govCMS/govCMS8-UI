@@ -11,12 +11,16 @@
                 </h2>
             {% endif %}
             {{ title_suffix }}
+            {% if content.field_date_range %}
             <small class="meta">
                 {{ content.field_date_range }}
             </small>
+            {% endif %}
+            {% if content.field_location %}
             <small class="meta">
                 {{ content.field_location }}
             </small>
+            {% endif %}
             {{ content.field_categories }}
             {{ content.body }}
         </div>

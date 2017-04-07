@@ -10,7 +10,7 @@
 
     {% if display_submitted %}
         <small{{ author_attributes.addClass('meta') }}>
-            Posted <time datetime="{{ date_timestamp }}">{{ date }} ago</time> by {{ author_name }}
+            <i class="fa fa-clock-o"></i> Posted <time datetime="{{ date_timestamp }}">{{ date }} ago</time> by {{ author_name }}
         </small>
     {% endif %}
 

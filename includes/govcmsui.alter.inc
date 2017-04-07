@@ -124,6 +124,15 @@ function govcmsui_theme_suggestions_alter(array &$suggestions, array $variables)
     $suggestions =  array_unique($suggestions);
 }
 
+function govcmsui_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+    if (isset($variables['element'])) {
+        $original_theme_hook = $variables['theme_hook_original'];
+        $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#field_name']) . '__'  . str_replace('-', '_', $variables['element']['#view_mode']);
+        $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#bundle']) . '__' . str_replace('-', '_', $variables['element']['#field_name']) . '__'  . str_replace('-', '_', $variables['element']['#view_mode']);
+    }
+    $suggestions =  array_unique($suggestions);
+}
+
 function govcmsui_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
     if (isset($variables['element']) && isset($variables['element']['#id']) && isset($variables['element']['#theme'])) {
         $original_theme_hook = $variables['theme_hook_original'];
