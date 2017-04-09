@@ -2180,6 +2180,11 @@ h2.brand {
   margin-top: 0.25em;
 }
 
+.view-mode-teaser .media-left {
+  min-width: 277px;
+  max-width: 277px;
+}
+
 .view-mode-full .field--name-field-featured-image img {
   padding-top: .5em;
   padding-bottom: .5em;
@@ -2191,7 +2196,6 @@ h2.brand {
 }
 .media .media-left .field--name-field-featured-image {
   display: inline-block;
-  min-width: 267px;
 }
 .media .media-left .field--name-field-featured-image img {
   height: 150px;

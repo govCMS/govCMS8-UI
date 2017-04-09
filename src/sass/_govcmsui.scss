@@ -35,6 +35,13 @@ h2.brand {
   margin-top: 0.25em;
 }
 
+.view-mode-teaser {
+  .media-left {
+    min-width: 277px;
+    max-width: 277px;
+  }
+}
+
 
 .view-mode-full {
   // This is a node viewed in Full
@@ -53,7 +60,6 @@ h2.brand {
     vertical-align: middle;
     .field--name-field-featured-image {
       display: inline-block;
-      min-width: 267px;
       img {
         height: 150px;
         width: auto;

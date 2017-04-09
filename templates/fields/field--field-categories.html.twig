@@ -55,12 +55,12 @@ label_display == 'visually_hidden' ? 'visually-hidden',
     {% if multiple %}
         <div{{ attributes.addClass(classes, 'field__items') }}>
             {% for item in items %}
-                <a class="label label-default" href="{{ item['content']['#url'] }}">{{ item['content']['#title'] }}</a>
+                <a class="label label-default" href="{{ item['content']['#url'] }}"><i class="fa fa-tag"></i> {{ item['content']['#title'] }}</a>
             {% endfor %}
         </div>
     {% else %}
         {% for item in items %}
-            <a class="label label-default" href="{{ item['content']['#url'] }}">{{ item['content']['#title'] }}</a>
+            <a class="label label-default" href="{{ item['content']['#url'] }}"><i class="fa fa-tag"></i> {{ item['content']['#title'] }}</a>
         {% endfor %}
     {% endif %}
 {% else %}
@@ -70,7 +70,7 @@ label_display == 'visually_hidden' ? 'visually-hidden',
         <div class="field__items">
             {% endif %}
             {% for item in items %}
-                <a class="label label-default" href="{{ item['content']['#url'] }}">{{ item['content']['#title'] }}</a>
+                <a class="label label-default" href="{{ item['content']['#url'] }}"><i class="fa fa-tag"></i> {{ item['content']['#title'] }}</a>
             {% endfor %}
             {% if multiple %}
         </div>
