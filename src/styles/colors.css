@@ -2180,6 +2180,16 @@ h2.brand {
   margin-top: 0.25em;
 }
 
+.calendar-day-text {
+  margin-top: 0.15em;
+  font-size: 0.6em;
+}
+
+.calendar-month-text {
+  margin-top: 1.4em;
+  font-size: 0.4em;
+}
+
 .view-mode-teaser .media-left {
   min-width: 277px;
   max-width: 277px;
