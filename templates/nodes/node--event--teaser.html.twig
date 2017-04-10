@@ -4,8 +4,8 @@
             {% if node.field_date_range is not empty %}
                 <span class="fa-stack fa-5x">
                   <i class="fa fa-calendar-o fa-stack-2x"></i>
-                  <strong class="fa-stack-1x calendar-day-text">{{ node.field_date_range.value|date('j') }}</strong>
-                  <strong class="fa-stack-1x calendar-month-text">{{ node.field_date_range.value|date('M')|upper }}</strong>
+                  <strong class="fa-stack-1x calendar-day-text">{{ node.field_date_range.start_date|date('j') }}</strong>
+                  <strong class="fa-stack-1x calendar-month-text">{{ node.field_date_range.start_date|date('M')|upper }}</strong>
                 </span>
             {% else %}
                 {{ content.field_featured_image }}
@@ -22,9 +22,6 @@
             {% if content.field_date_range %}
             <small class="meta">
                 {{ content.field_date_range }}
-            </small>
-            <small class="meta">
-                DEBUG Timestamp: {{ node.field_date_range.value|date('U') }}
             </small>
             {% endif %}
             {% if content.field_location %}
