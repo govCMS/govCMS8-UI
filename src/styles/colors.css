@@ -2172,6 +2172,10 @@ div#search form .input-group-btn button i {
   font-size: 20px;
 }
 
+.position-above {
+  display: block;
+}
+
 h2.brand {
   display: inline-block;
 }
