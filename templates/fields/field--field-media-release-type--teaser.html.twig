@@ -47,26 +47,20 @@ set classes = [
 %}
 {%
 set title_classes = [
-'field__label',
-label_display == 'visually_hidden' ? 'visually-hidden',
+label_display == 'visually_hidden' ? 'sr-only',
+label_display == 'above' ? 'position-above',
+label_display == 'inline' ? 'position-inline',
 ]
 %}
-
-{% if label_hidden %}
-    {% for item in items %}
-        <span{{ attributes.addClass(classes, 'field__item') }}><i class="fa fa-newspaper-o"></i> {{ item.content }}</span>
-    {% endfor %}
-{% else %}
-    <span{{ attributes.addClass(classes) }}>
-        <span{{ title_attributes.addClass(title_classes) }}>{{ label }}</span>
-        {% if multiple %}
-        <span class="field__items">
-            {% endif %}
-            {% for item in items %}
-                <span{{ item.attributes.addClass('field__item') }}><i class="fa fa-newspaper-o"></i> {{ item.content }}</span>
-            {% endfor %}
-            {% if multiple %}
-        </span>
+<div{{ attributes.addClass(classes) }}>
+    {% if not label_hidden %}
+        {% if label_display == 'inline' %}
+            <i class="fa fa-newspaper-o"></i><div{{ title_attributes.addClass(title_classes).addClass('sr-only') }}>{{ label }}</div>
+        {% else %}
+            <div{{ title_attributes.addClass(title_classes) }}><i class="fa fa-newspaper-o"></i> {{ label }}</div>
         {% endif %}
-    </span>
-{% endif %}
+    {% endif %}
+    {% for item in items %}
+        <span{{ item.attributes.addClass('field__item') }}>{{ item.content }}</span>
+    {% endfor %}
+</div>

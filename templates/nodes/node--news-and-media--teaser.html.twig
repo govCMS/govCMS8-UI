@@ -13,7 +13,7 @@
             {{ title_suffix }}
             {% if display_submitted %}
                 <small{{ author_attributes.addClass('meta') }}>
-                    {{ content.field_media_release_type }}<br />
+                    {{ content.field_media_release_type }}
                     <i class="fa fa-clock-o"></i> Posted <time datetime="{{ date_timestamp }}" title="{{ date_readable }}">{{ date }} ago</time>
                 </small>
             {% endif %}

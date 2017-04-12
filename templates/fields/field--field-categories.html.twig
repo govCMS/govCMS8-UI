@@ -47,33 +47,20 @@ set classes = [
 %}
 {%
 set title_classes = [
-'field__label',
-label_display == 'visually_hidden' ? 'visually-hidden',
+label_display == 'visually_hidden' ? 'sr-only',
+label_display == 'above' ? 'position-above',
+label_display == 'inline' ? 'position-inline',
 ]
 %}
-{% if label_hidden %}
-    {% if multiple %}
-        <div{{ attributes.addClass(classes, 'field__items') }}>
-            {% for item in items %}
-                <a class="label label-default" href="{{ item['content']['#url'] }}"><i class="fa fa-tag"></i> {{ item['content']['#title'] }}</a>
-            {% endfor %}
-        </div>
-    {% else %}
-        {% for item in items %}
-            <a class="label label-default" href="{{ item['content']['#url'] }}"><i class="fa fa-tag"></i> {{ item['content']['#title'] }}</a>
-        {% endfor %}
-    {% endif %}
-{% else %}
-    <div{{ attributes.addClass(classes) }}>
-        <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-        {% if multiple %}
-        <div class="field__items">
-            {% endif %}
-            {% for item in items %}
-                <a class="label label-default" href="{{ item['content']['#url'] }}"><i class="fa fa-tag"></i> {{ item['content']['#title'] }}</a>
-            {% endfor %}
-            {% if multiple %}
-        </div>
+<div{{ attributes.addClass(classes) }}>
+    {% if not label_hidden %}
+        {% if label_display == 'inline' %}
+            <i class="fa fa-tag"></i><div{{ title_attributes.addClass(title_classes).addClass('sr-only') }}>{{ label }}</div>
+        {% else %}
+            <div{{ title_attributes.addClass(title_classes) }}><i class="fa fa-tag"></i> {{ label }}</div>
         {% endif %}
-    </div>
-{% endif %}
+    {% endif %}
+    {% for item in items %}
+        <a class="label label-default" href="{{ item['content']['#url'] }}">{{ item['content']['#title'] }}</a>
+    {% endfor %}
+</div>

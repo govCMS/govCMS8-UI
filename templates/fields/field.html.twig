@@ -54,7 +54,7 @@ label_display == 'inline' ? 'position-inline',
 %}
 <div{{ attributes.addClass(classes) }}>
 {% if not label_hidden %}
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    <label{{ title_attributes.addClass(title_classes) }}>{{ label }}</label>
 {% endif %}
 {% for item in items %}
     <span{{ item.attributes.addClass('field__item') }}>{{ item.content }}</span>
