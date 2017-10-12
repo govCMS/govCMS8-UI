@@ -99,8 +99,8 @@ function govcmsui_theme_suggestions_block_alter(array &$suggestions, array $vari
 }
 
 function govcmsui_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-    if ($node = \Drupal::routeMatch()->getParameter('node')) {
-        $suggestions[] = 'page__node__' . $node->getType();
+    if (($node = \Drupal::request()->attributes->get('node')) && (strpos($_SERVER['REQUEST_URI'], "revisions") == false)) {
+        array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
     }
     $suggestions = array_unique($suggestions);
 }
@@ -143,4 +143,3 @@ function govcmsui_theme_suggestions_form_element_alter(array &$suggestions, arra
     }
     $suggestions = array_unique($suggestions);
 }
-
