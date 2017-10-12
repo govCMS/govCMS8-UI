@@ -25,7 +25,7 @@ var imagemin = require('gulp-imagemin');
 var notify = require('gulp-notify');
 var autoprefix = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
-var compass = require('gulp-compass');
+var sass = require('gulp-sass');
 var uncss = require('gulp-uncss');
 var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
@@ -35,6 +35,7 @@ var uglify = require('gulp-uglify');
 //          https://docs.npmjs.com/files/package.json
 // Using OS X Iconical for now though,
 // check the DESIGN folder
+// fix up instructions above to take into account npm install.
 
 
 
@@ -57,11 +58,10 @@ gulp.task('images', function() {
 
 
 // Compile the Sass
-gulp.task('compass', function() {
+gulp.task('sass', function() {
     gulp.src('./src/sass/colors.scss')
-        .pipe(compass({
-            css: './src/styles',
-            sass: './src/sass'
+        .pipe(sass({
+            noCache: true
         }))
         .pipe(gulp.dest('./src/styles'));
 });
@@ -81,7 +81,7 @@ gulp.task('styles', function() {
 
 
 // default gulp task
-gulp.task('default', ['images', 'scripts', 'compass', 'styles'], function() {
+gulp.task('default', ['images', 'scripts', 'sass', 'styles'], function() {
 
     // watch for img optim changes
     gulp.watch('./src/img/*', function() {
@@ -98,7 +98,7 @@ gulp.task('default', ['images', 'scripts', 'compass', 'styles'], function() {
 
     // watch for Sass changes
     gulp.watch('./src/sass/*.scss', function() {
-        gulp.start('compass');
+        gulp.start('sass');
     });
 
     // watch for CSS changes
