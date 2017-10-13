@@ -1,41 +1,49 @@
-// Elements
+// Elements.
+// Overwrites for elements that are part of Bootstrap
 
-
-
-// Skip link
+// Skip link:
 .skiplink {
   background-color: $grey-dark;
   color: #fff;
 }
 
+// Abbreviations:
+abbr {
+  &,
+  &[data-original-title],
+  &[title] {
+    text-decoration: none;     // Stop Chrome overriding
+    // border-bottom: none;    // TODO: alternate for when many browsers support "text-decoration: underline dotted;"
+  }
+}
 
-
-// Buttons
+// Buttons:
 .btn {
   border-radius: $radius;
-  transition: 0.16s all;
+  font-size: 17px;
+  transition: all 0.16s;
 }
 .btn-default {
-  // can't use mixin here as its different pattern to the others - has a transparent bg, etc.
+  // Can't use mixin here as its different pattern to the others - has a transparent bg, etc.
   background-color: transparent;
-  color: $primary;
   border-color: $primary;
-  &:hover,
+  color: $primary;
   &:active,
-  &:focus {
+  &:focus,
+  &:hover {
     background-color: $primary-dark;
-    color: #fff;
     border-color: darken($primary-dark, 10%);
+    color: #fff;
   }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    &:hover,
     &.focus,
-    &:focus {
+    &:focus,
+    &:hover {
       background-color: #fff;
-      color: $primary;
       border-color: $primary;
+      color: $primary;
     }
   }
 }
@@ -55,38 +63,37 @@
   @include button-colours($danger, #fff);
 }
 .btn-link {
-  color: $grey-dark;
   border-bottom: solid 1px $primary-bright;
+  border-radius: 0;
+  color: $grey-dark;
   transition: 0.1s all ease-in-out;
   &:not(:disabled) {
-    &:hover,
+    &:active,
     &:focus,
-    &:active {
-      color: $grey-dark;
+    &:hover {
       background-color: $primary-bright;
+      color: $grey-dark;
       text-decoration: none;
+    }
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $grey-light;
+      border-bottom-color: $grey-border;
     }
   }
 }
 
-// Large forms (commentted out = super large, full width form)
-.input-group-lg > {
-  .form-control,
-  .input-group-addon,
-  .input-group-btn > .btn {
-    border-radius: $radius;
-  }
-}
-
-
-
-// Labels
+// Labels:
 .label {
-  font-weight: $font-weight-normal;
-  border-radius: $radius;
+  background-color: transparent;
   border: 1px solid $grey-border; // fallback for old browsers
   border-color: currentColor;
-  background-color: transparent;
+  border-radius: $radius;
+  font-weight: $font-weight-normal;
 }
 .label-default {
   color: $grey;
@@ -113,45 +120,52 @@
   color: $beta;
 }
 .label-hover {
-  text-decoration: none !important;
   color: #fff;
+  text-decoration: none !important;
 }
 a {
-  &:hover,
   &:active,
-  &:focus {
+  &:focus,
+  &:hover {
     .label {
       @extend .label-hover;
       &.label-default {
         @include button-colours($grey, #fff, 0);
       }
+
       &.label-primary {
         @include button-colours($primary, #fff, 0);
       }
+
       &.label-success {
         @include button-colours($success, #fff, 0);
       }
+
       &.label-info {
         @include button-colours($info-dark, #fff, 0);
       }
+
       &.label-warning {
         @include button-colours($warning-dark, #fff, 0);
       }
+
       &.label-danger {
         @include button-colours($danger, #fff, 0);
       }
+
       &.label-alpha {
         @include button-colours($alpha, #fff, 0);
       }
+
       &.label-beta {
         @include button-colours($beta, #fff, 0);
       }
     }
   }
   &.label {
-    &:hover,
     &:active,
-    &:focus {
+    &:focus,
+    &:hover {
       @extend .label-hover;
       &.label-default {
         @include button-colours($grey, #fff, 0);
@@ -179,21 +193,11 @@ a {
       }
     }
   }
-  // &.label-warning[href] {
-  //   &:hover,
-  //   &:active,
-  //   &:focus {
-  //     color: $grey-dark;
-  //     background-color: $warning;
-  //   }
-  // }
 }
 
-
-
-// Progress bars
+// Progress bars:
 .progress-bar {
-  background-color: $beta;  //  ¯\_(ツ)_/¯ ...I needed another colour
+  background-color: $beta; //  ¯\_(ツ)_/¯ ...I needed another colour
 }
 .progress-bar-default {
   background-color: $grey;
@@ -214,21 +218,19 @@ a {
   background-color: $danger;
 }
 
-
-// Badges
+// Badges:
 .badge {
   background-color: $grey;
 }
 
-
-// Alert
+// Alert:
 .alert {
+  background: transparent;
+  border: 0;
   border-radius: $radius-small;
-  padding: 1.2em;
   box-shadow: 0 0 8px $grey-border;
   color: $grey-dark;
-  background: transparent;
-  border: none;
+  padding: 1.2em;
 }
 .alert-default {
   padding-left: 1.6em;
@@ -248,7 +250,6 @@ a {
 .alert-danger {
   border-left: 0.4em solid $danger;
 }
-
 .alert-calendar {
   border-left: 0.4em solid $primary;
   .calendar-date,
@@ -262,7 +263,7 @@ a {
   }
 }
 
-// Basically the p tag equiv of above
+// Basically the p tag equiv of .alert:
 .text-muted {
   color: $grey;
 }
@@ -273,7 +274,7 @@ a {
   color: $success;
 }
 .text-info {
-  color: darken($info, 15%);  // darker for a11y
+  color: darken($info, 15%); // darker for a11y
 }
 .text-warning {
   color: $warning-dark; // darker to atempt a11y - but please, just don't use this
@@ -282,15 +283,13 @@ a {
   color: $danger;
 }
 
-
-
-
-// Jumbotrons and Wells
+// Jumbotrons and Wells:
 .jumbotron,
 .well {
-  border-radius: $radius-small;
-  border: 0;
   background-color: $grey-light;
+  border: 0;
+  border-radius: $radius-small;
+
   h1,
   h2,
   h3,
@@ -298,16 +297,17 @@ a {
   h5,
   h6 {
     &:first-child {
-      margin-top: 0;
       margin-bottom: 0.8em;
+      margin-top: 0;
     }
+
     &:last-child {
       margin-bottom: 0;
     }
   }
 }
 .container {
-  .jumbotron{
+  .jumbotron {
     h1 {
       font-size: 230%;
     }
@@ -317,49 +317,40 @@ a {
   margin-bottom: 3em;
 }
 
-
-.page-header {
-  border-bottom: 1px solid $grey-light;
-}
-
-
-
-
-
-// Inline list of links
-.nav-tabs,
-.nav-pills {
+// Inline list of links:
+.nav-pills,
+.nav-tabs {
   border-bottom: 1px solid $grey;
   li {
     list-style: none;
     a {
-      border-radius: 0;
-      border: none;
+      border: 0;
       border-bottom: solid 4px transparent;
+      border-radius: 0;
       &:active,
       &:focus,
       &:hover {
         // background-color: $primary-highlight;   // it's just too much
         background-color: $primary-light;
+        border-bottom: 4px solid $primary; // can't just do colour because of .nav-tabs
         // border-bottom-color: $primary;
         border-bottom-color: $primary-highlight;
-        border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
       }
     }
     &.active {
       & > a {
-        color: $primary;
         background-color: $primary-light;
+        border: 0;
+        border-bottom: 4px solid $primary; // can't just do colour because of .nav-tabs
+        color: $primary;
         margin-right: 0;
-        border: none;
-        border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
         &:active,
         &:focus,
         &:hover {
-          color: $primary;
           background-color: $primary-light;
-          border: none;
-          border-bottom: 4px solid $primary;  // can't just do colour because of .nav-tabs
+          border: 0;
+          border-bottom: 4px solid $primary; // can't just do colour because of .nav-tabs
+          color: $primary;
         }
         .badge {
           background-color: $primary;
@@ -376,9 +367,7 @@ a {
   border-radius: 0;
 }
 
-
-
-// Breadcrumbs
+// Breadcrumbs:
 .breadcrumb {
   background-color: transparent;
   padding: 10px 0;
@@ -387,52 +376,49 @@ a {
   }
   li {
     margin-bottom: 2px;
-    &+li:before {
-      content: "\0203A";
+    & + li:before {
       color: $grey;
+      content: "\0203A";
       padding: 0 15px;
     }
   }
 }
 
-
-
-// Pagination
-.pagination,
-.pager {
+// Pagination:
+.pager,
+.pagination {
   & > li {
     & > a,
     & > span {
-      color: $primary;
       background-color: #fff;
       border: 1px solid $grey-border;
-      &:hover,
+      color: $primary;
       &:active,
-      &:focus {
-        color: $grey-dark;
-        color: $primary-dark;
+      &:focus,
+      &:hover {
         background-color: $grey-light;
         border: 1px solid $primary;
+        // color: $grey-dark;
+        color: $primary-dark;
       }
-      &:active,
-      &:focus {
-        color: $grey-dark;
+      &:active {
         background-color: $primary-bright;
         border-color: $grey;
+        color: $grey-dark;
       }
     }
-    &:first-child > {
+    &:first-child >  {
       a,
       span {
-        border-top-left-radius: $radius-small;
         border-bottom-left-radius: $radius-small;
+        border-top-left-radius: $radius-small;
       }
     }
-    &:last-child > {
+    &:last-child >  {
       a,
       span {
-        border-top-right-radius: $radius-small;
         border-bottom-right-radius: $radius-small;
+        border-top-right-radius: $radius-small;
       }
     }
     &.active {
@@ -440,21 +426,21 @@ a {
       span {
         background-color: $primary-dark;
         border-color: $primary-dark;
-        &:hover,
         &:active,
-        &:focus {
-          color: #fff;
+        &:focus,
+        &:hover {
           background-color: $primary-dark;
           border-color: $primary-dark;
+          color: #fff;
         }
       }
     }
     &.disabled {
       a,
       span {
-        color: $grey;
         background-color: #fff;
         border-color: $grey-border;
+        color: $grey;
       }
     }
   }
@@ -468,206 +454,522 @@ a {
   }
 }
 
-
-
-
-// Forms
+// Forms:
 form {
   max-width: $max-readable-width;
-}
-form {
-  [type='text'],
-  [type='number'],
-  [type='tel'],
-  [type='email'],
-  [type='password'],
-  input[type='radio'],
-  input[type='checkbox']
-  select,
+  [type="email"],
+  [type="number"],
+  [type="password"],
+  [type="tel"],
+  [type="text"],
+  input[type="checkbox"] select,
+  input[type="radio"],
   optgroup,
   textarea {
     font: inherit;
+    font-size: 17px;
     padding: 1.12em 0.7em;
     &:active,
     &:focus {
       outline: 2px solid $primary-bright;
     }
   }
-  [type='text']:invalid,
-  [type='number']:invalid,
-  [type='tel']:invalid,
-  [type='email']:invalid,
-  [type='password']:invalid,
-  textarea:invalid,
-  input[type='radio']:invalid,
-  input[type='checkbox']:invalid,
-  .invalid[type='text'],
-  .invalid[type='number'],
-  .invalid[type='tel'],
-  .invalid[type='email'],
-  .invalid[type='password'],
-  textarea.invalid,
-  input.invalid[type='radio'],
-  input.invalid[type='checkbox'] {
-      outline: 2px solid $danger;
+  input[type="file"] {
+    line-height: 0;
+    margin-top: 10px;
+  }
+  label {
+    color: #333;
+    margin-bottom: 3px;
+    margin-top: 6px;
   }
 }
 .help-block {
   color: $grey;
 }
 .has-success {
+  label,
+  &.checkbox label,
+  &.checkbox-inline label,
+  &.radio label,
+  &.radio-inline label,
   .checkbox,
   .checkbox-inline,
   .control-label,
   .help-block,
   .radio,
   .radio-inline,
-  &.checkbox label,
-  &.checkbox-inline label,
-  &.radio label,
-  &.radio-inline label {
+  .form-control-feedback {
     color: $success;
+  }
+  .form-control {
+    border-color: $success;
   }
 }
 .has-warning {
+  label,
+  &.checkbox label,
+  &.checkbox-inline label,
+  &.radio label,
+  &.radio-inline label,
   .checkbox,
   .checkbox-inline,
   .control-label,
   .help-block,
   .radio,
   .radio-inline,
-  &.checkbox label,
-  &.checkbox-inline label,
-  &.radio label,
-  &.radio-inline label {
+  .form-control-feedback {
     color: $warning-dark;
+  }
+  .form-control {
+    border-color: $warning-dark;
   }
 }
 .has-error {
+  label,
+  &.checkbox label,
+  &.checkbox-inline label,
+  &.radio label,
+  &.radio-inline label,
   .checkbox,
   .checkbox-inline,
   .control-label,
   .help-block,
   .radio,
   .radio-inline,
-  &.checkbox label,
-  &.checkbox-inline label,
-  &.radio label,
-  &.radio-inline label {
+  .form-control-feedback {
     color: $danger;
   }
+  .form-control {
+    border-color: $danger;
+  }
+}
+.has-feedback label ~ .form-control-feedback {
+  &.glyphicon {
+    top: 2.3em;
+  }
+  &.fa {
+    top: 2.75em;
+  }
+  // &.icon {
+  //   top: 2.5em;
+  // }
 }
 .form-control {
   border-radius: $radius-small;
+  box-shadow: none;
+  font-size: 17px;
+}
+// Disabled form elements:
+.form-control:disabled,
+fieldset[disabled] .form-control {
+  background-color: $grey-light;
+  color: $grey;
+}
+// More padding:
+.checkbox,
+.radio {
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+// More form styles:
+.input-group-addon {
+  border-radius: $radius;
+}
+.input-group-addon {
+  background-color: $grey-light;
+  border: 1px solid $grey-border;
+  color: $grey;
+}
+.form-control {
+  border: 1px solid $grey-border;
+  color: $grey;
+}
+select.form-control {
+  margin-bottom: 10px;
+  min-height: 2.3em;
+}
+.input-group-btn {
+  .btn {
+    padding: 7px 15px;
+  }
+  &:last-child {
+    & > .btn,
+    & > .btn-group {
+      border-radius: $radius-small;
+    }
+  }
 }
 
-// TODO:
+// Checkbox align
+.checkbox,
+.checkbox-inline,
+.radio,
+.radio-inline {
+  input {
+    &[type="radio"],
+    &[type="checkbox"] {
+      margin-top: 6px;
+    }
+  }
+}
+
+// Large forms
+.input-group-lg >  {
+  .form-control,
+  .input-group-addon,
+  .input-group-btn > .btn {
+    border-radius: $radius;
+  }
+}
+
+// Form labels
+label {
+  width: 100%;
+  .optional {
+    color: $primary-dark;
+    float: right;
+    font-weight: 400;
+  }
+}
+
 // Custom styled radio btns and checkboxes
-// form input {
-//   &[type='radio'],
-//   &[type='checkbox'] {
-//     height: 1px;
-//     left: -10000px;
-//     position: absolute;
-//     visibility: visible;
-//     width: 1px;
-//   }
-//   &[type='radio']:focus + label,
-//   &[type='checkbox']:focus + label {
-//     outline: 1px solid $grey-border;
-//   }
-//   &[type='radio']:invalid + label,
-//   &[type='checkbox']:invalid + label {
-//     color: $danger;
-//   }
-//   &[type='radio']:invalid + label:before,
-//   &[type='checkbox']:invalid + label:before {
-//     border-color: $danger;
-//   }
-//   &[type='radio'] + label,
-//   &[type='checkbox'] + label {
-//     display: inline-block;
-//     float: left;
-//     width: 100%;
-//     margin-left: 0.8em;
-//   }
-//   &[type='radio'] + label:before,
-//   &[type='checkbox'] + label:before {
-//     display: inline-block;
-//     float: left;
-//     height: 27px;
-//     width: 27px;
-//     text-align: center;
-//     margin-right: 14px;
-//   }
-//   &[type='radio'] {
-//     + label:before {
-//       border: 2px solid $grey-dark;
-//       border-radius: 50%;
-//       content: '';
-//       left: 18px;
-//     }
-//     &:checked + label {
-//       font-weight: bold;
-//       &:before {
-//         border-radius: 50%;
-//         content: "";
-//       }
-//       &:after {
-//         width: 17px;
-//         height: 17px;
-//         background-color: $grey-dark;
-//         border: 1px solid transparent;
-//         border-radius: 50%;
-//         content: '';
-//         float: left;
-//         margin-left: -36px;
-//         margin-top: 5px;
-//       }
-//     }
-//   }
-//   &[type='checkbox'] {
-//     + label:before {
-//       border: 2px solid $grey-dark;
-//       content: "";
-//     }
-//     &:checked + label {
-//       font-weight: bold;
-//       &:before {
-//         font-size: 18px;
-//         content: "";
-//       }
-//       &:after {
-//         width: 17px;
-//         height: 17px;
-//         background-color: $grey-dark;
-//         border: 1px solid transparent;
-//         content: '';
-//         float: left;
-//         margin-left: -36px;
-//         margin-top: 5px;
-//       }
-//     }
-//   }
-// }
+// ...inspired by the DTO version, but in my bias opinion, made better
+//
+// NOTE: requires "transform: rotate()" and ":before"/":after" support,
+//       but really... ¯\_(ツ)_/¯
+//       https://caniuse.com/#feat=transforms2d
+//       thats <=IE8, which MS even disowned + Opera Mini, which the less used version of the least used browser :P
+// Checkboxes:
+.checkbox {
+  input[type="checkbox"] {
+    cursor: pointer;
+    left: -12px;
+    margin: 0 6px 0 -25px;
+    position: relative;
+    top: -8px;
+    &:before {
+      content: "";
+      height: $checkbox-size;
+      left: 0;
+      position: absolute;
+      transition: all 0.1s ease-out;
+      width: $checkbox-size;
+      z-index: 1;
+    }
+    &:checked:before {
+      border: 4px solid #fff;
+      border-right-style: none;
+      border-top-style: none;
+      height: 10px;
+      left: 4px;
+      top: 5px;
+      transform: rotate(-45deg);
+      width: 19px;
+    }
+    &:after {
+      background: #fff;
+      border: 2px solid $grey-dark;
+      content: "";
+      cursor: pointer;
+      height: $checkbox-size;
+      left: 0;
+      position: absolute;
+      top: -1px;
+      width: $checkbox-size;
+    }
+    &:checked:after {
+      background: $grey-dark;
+      border-color: $grey-dark;
+    }
+  }
+  input[type="checkbox"] {
+    &:active,
+    &:focus {
+      outline: none;
 
+      &:after,
+      &:before {
+        border-color: $primary-highlight;
+      }
+    }
+  }
+  input[type="checkbox"]:checked {
+    &:active,
+    &:focus {
+      color: $primary;
 
+      &:after {
+        border-color: $grey-dark;
+      }
+    }
+  }
+  &:hover {
+    input[type="checkbox"] {
+      &:after {
+        border-color: $primary;
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+    line-height: 135%;
+    margin: 0.5rem 0.5rem 0.5rem 1em;
+    position: relative;
+  }
+  label {
+    &:active,
+    &:focus,
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+}
+// Colour according to validation state colours:
+.has-success {
+  .checkbox {
+    input:after {
+      border-color: $success;
+    }
+  }
+}
+.has-warning {
+  .checkbox {
+    input:after {
+      border-color: $warning-dark;
+    }
+  }
+}
+.has-error {
+  .checkbox {
+    input:after {
+      border-color: $danger;
+    }
+  }
+}
+// Account for if fieldset is .disabled:
+.checkbox.disabled,
+fieldset:disabled .checkbox {
+  cursor: not-allowed;
+  label {
+    color: $grey-border;
+  }
+  input:disabled {
+    &:after,
+    &:before {
+      cursor: not-allowed;
+    }
+    &:after {
+      background-color: $grey-light;
+      border-color: $grey-border;
+    }
+  }
+}
+// Radio buttons:
+.radio {
+  input[type="radio"] {
+    cursor: pointer;
+    left: -11px;
+    margin: 0 0 0 -19px;
+    outline: none;
+    outline: none;
+    position: relative;
+    top: -0.6rem;
+    top: -9px;
+    transition: all 0.1s ease;
+    &:active,
+    &:focus {
+      outline: none;
+    }
+    &:before {
+      border: 3px solid #fff;
+      border-radius: 100%;
+      content: "";
+      height: $checkbox-size;
+      height: 19px;
+      left: 0;
+      left: -3px;
+      position: absolute;
+      top: 4px;
+      transform: scale(0);
+      transition: all 0.16s ease;
+      width: $checkbox-size;
+      width: 19px;
+      z-index: 1;
+    }
+    &:checked:before {
+      transform: scale(1);
+    }
+    &:after {
+      background: #fff;
+      border: 2px solid $grey-dark;
+      border-radius: 100%;
+      content: "";
+      cursor: pointer;
+      height: $checkbox-size;
+      left: -7px;
+      position: absolute;
+      width: $checkbox-size;
+    }
+    &:checked:after {
+      background: $grey-dark;
+      border-color: $grey-dark;
+    }
+  }
+  input[type="radio"] {
+    &:active,
+    &:focus {
+      &:after,
+      &:before {
+        border-color: $primary-highlight;
+      }
+    }
+  }
+  input[type="radio"]:checked {
+    &:active,
+    &:focus {
+      &:after {
+        border-color: $grey-dark;
+      }
+    }
+  }
+  &:hover {
+    input[type="radio"] {
+      &:after {
+        border-color: $primary;
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+    line-height: 135%;
+    margin: 0.5rem 0.5rem 0.5rem 1em;
+    position: relative;
+  }
+  &:active,
+  &:focus,
+  &:hover {
+    label {
+      color: $primary-dark;
+    }
+  }
+}
 
+// Account for if fieldset is .disabled:
+.radio.disabled,
+fieldset:disabled .radio {
+  cursor: not-allowed;
+  label {
+    color: $grey-border;
+  }
+  input:disabled {
+    &:after,
+    &:before {
+      cursor: not-allowed;
+    }
+    &:after {
+      background-color: $grey-light;
+      border-color: $grey-border;
+    }
+  }
+}
 
+// Dropdown menus (<select>)
+select.form-control {
+  -moz-appearance: none;
+  -moz-box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  background-image: linear-gradient(45deg, transparent 50%, $grey-dark 50%),
+    linear-gradient(135deg, $grey-dark 50%, transparent 50%);
+  // linear-gradient(to right, #ccc, #ccc); // divider
+  background-position: calc(100% - 15px) calc(0.9em + 2px),
+    calc(100% - 10px) calc(0.9em + 2px);
+  // 1px 1.5em;  // divider
+  background-repeat: no-repeat;
+  // calc(100% - 2.5em) 0.5em;  // divider
+  background-size: 6px 6px, 6px 6px;
+  border-radius: $radius-small;
+  box-sizing: border-box;
+  color: $grey-dark;
+  &:active,
+  &:focus {
+    background-image: linear-gradient(
+        45deg,
+        transparent 50%,
+        $primary-highlight 50%
+      ),
+      linear-gradient(135deg, $primary-highlight 50%, transparent 50%);
+    border-color: $primary-highlight;
+  }
+  &:hover {
+    background-image: linear-gradient(45deg, transparent 50%, $primary 50%),
+      linear-gradient(135deg, $primary 50%, transparent 50%);
+    border-color: $primary;
+  }
+  // ...but not on multiselect list items.
+  &[multiple] {
+    background: none;
+    option {
+      margin: 0;
+      padding: 0;
+      &:active,
+      &:checked,
+      &:focus {
+        box-shadow: inset 1000px 1000px $primary-highlight; // pushes the browsers bg-color out of site
+        color: $grey-dark; // TODO: make this take effect in all situations
+      }
+    }
+  }
+  &:disabled {
+    background-color: $grey-light;
+    background-image: linear-gradient(45deg, transparent 50%, $grey-border 50%),
+      linear-gradient(135deg, $grey-border 50%, transparent 50%);
+    border-color: $grey-border;
+    color: $grey;
+    &:after,
+    &:before {
+      cursor: not-allowed;
+    }
+    &:after {
+      background-color: $grey-light;
+      border-color: $grey-border;
+    }
+    &:active,
+    &:focus,
+    &:hover {
+      background-image: linear-gradient(
+          45deg,
+          transparent 50%,
+          $grey-border 50%
+        ),
+        linear-gradient(135deg, $grey-border 50%, transparent 50%);
+      border-color: $grey-border;
+    }
+    // ...but, again; not on multiselect list items.
+    &[multiple] {
+      background: $grey-light;
+    }
+  }
+}
 
-// Tables
+// Disabled:
+fieldset:disabled,
+select.form-control:disabled {
+  cursor: not-allowed; // account for if fieldset is .disabled
+}
+
+// Tables:
 .table {
   & > tbody > tr:nth-of-type(even) {
     background-color: $grey-light;
   }
-}
-.table {
-  & > thead,
   & > tbody,
-  & > tfoot {
+  & > tfoot,
+  & > thead {
     & > tr {
-      &>td,
-      &>th {
+      & > td,
+      & > th {
         border-top: 1px solid $grey-light;
         padding: 1em;
       }
@@ -677,27 +979,25 @@ form {
     }
   }
   & > thead > tr > th {
-    vertical-align: bottom;
     border-bottom: solid 2px $grey;
+    vertical-align: bottom;
   }
 }
 .table-bordered {
   border: 1px solid $grey-light;
-  & > thead,
   & > tbody,
-  & > tfoot {
+  & > tfoot,
+  & > thead {
     & > tr {
-      &>td,
-      &>th {
+      & > td,
+      & > th {
         border: 1px solid $grey-light;
       }
     }
   }
 }
 
-
-
-// Images
+// Images:
 .img-circle,
 .img-rounded,
 .img-thumbnail {
@@ -708,28 +1008,31 @@ form {
   border-radius: $radius;
 }
 
-// Thumbnails
+// Thumbnails:
 .thumbnail {
-  padding: 0;
   border: 1px solid $grey-light;
+  padding: 0;
   .caption {
     padding: 9px 13px;
     .meta,
-    time,
-    small {
-      @extend .meta;
-      padding: 0.8em 0;
+    small,
+    time {
       display: inline-block;
+      padding: 0.8em 0;
+      @extend .meta;
     }
   }
 }
 
-// Misc. ".meta" text
+// Misc. ".meta" text:
 .meta {
   color: $grey;
 }
 
-// Media
+// Media:
+.media {
+  margin-bottom: 2.5em;
+}
 .media-heading {
   margin-bottom: 10px;
 }
@@ -740,40 +1043,49 @@ form {
   }
 }
 
-
-// Panels / accordions / collapsible navigation
+// Panels / accordions / collapsible navigation:
 .panel {
-  .panel-heading,
-  .panel-footer {
+  .panel-footer,
+  .panel-heading {
     background-color: $grey-light;
   }
   .panel-heading {
-    color: #fff;
-    padding: 0;
     border-top-left-radius: $radius-small;
     border-top-right-radius: $radius-small;
+    color: #fff;
+    padding: 0;
     .panel-title {
+      font-size: 100%;
       padding: 1.5em 1em;
     }
-    a.panel-title { // Yes, that's right - the a tag is the title. Heading needs to be nested unless http://caniuse.com/#feat=css-has or silimar car be used 😒
+    a.panel-title {
+      border-bottom: 0; // Yes, that's right - the a tag is the title. Heading needs to be nested unless http://caniuse.com/#feat=css-has or silimar car be used 😒
       display: block;
-      border-bottom: none;
-      &:hover,
       &:active,
-      &:focus {
+      &:focus,
+      &:hover {
         background-color: $grey-border;
+        &:after {
+          color: $primary;
+        }
+        & > * {
+          border-bottom: solid 1px $primary-highlight;
+          padding-bottom: 2px;
+        }
       }
-      &:after {   // ">" symbol
-        font-family:'Glyphicons Halflings';
+      &:after {
+        color: $primary-darker;
         content: "\e113";
+        // ">" symbol
         float: right;
-        color: $grey;
+        font-family: 'Glyphicons Halflings';
+        transition: all 0.2s;
       }
       &.collapsed:after {
-        content: "\e114";
+        transform: rotate(180deg);
       }
-      & > * {   // Stop the h4 etc from stuffing up the ">" symbol location
-        display: inline;
+      & > * {
+        display: inline; // Stop the h4 etc from stuffing up the ">" symbol location
       }
     }
   }
@@ -781,19 +1093,19 @@ form {
     padding: 1.5em 1em;
   }
   .panel-footer {
+    border-bottom-left-radius: $radius-small;
+    border-bottom-right-radius: $radius-small;
     border-top: 1px solid $grey-border;
     padding: 1.2em 1em;
-    border-bottom-right-radius: $radius-small;
-    border-bottom-left-radius: $radius-small;
   }
 }
 
-// Panel types
+// Panel types:
 .panel-default {
   border-color: $grey-border;
   .panel-heading {
+    border: 0;
     color: $grey-dark;
-    border: none;
   }
   .panel-body {
     border-top: 1px solid $grey-border !important;
@@ -818,7 +1130,7 @@ form {
   .panel-heading {
     background-color: $info;
     border-color: $info;
-    color: $grey-dark;  // for a11y
+    color: $grey-dark; // for a11y
   }
 }
 .panel-warning {
@@ -826,7 +1138,7 @@ form {
   .panel-heading {
     background-color: $warning;
     border-color: $warning;
-    color: $grey-dark;  // for a11y
+    color: $grey-dark; // for a11y
   }
 }
 .panel-danger {
@@ -837,51 +1149,20 @@ form {
   }
 }
 
-
-
-// List groups
+// List groups:
 .list-group {
   border-radius: 0;
-  .list-group-item.active {
-    background-color: $primary;
-  }
-  &.list-group-icon {
-    margin-top: 2em;
-    .list-group-item {
-      font-size: 18px;  // Visually like a h4
-      font-weight: bold;
-      padding: 0.8em 0 1.6em 30px; // Extra padding ...for some reason (requested by SDT)
-      a {
-        padding: 2px;
-        margin-left: 45px;
-        &:hover,
-        &:active,
-        &:focus {
-          .icon {
-            color: $primary-bright;
-          }
-        }
-        .icon {
-          margin-left: -65px;
-          color: $grey;
-          font-size: 35px;
-          top: 7px;
-          position: relative;
-          &:before {
-            margin-right: 0.5em;
-          }
-        }
-      }
-    }
-  }
 }
 .list-group-item {
   border: 1px solid $grey-border;
-  border-left: none;
-  border-right: none;
+  border-left: 0;
+  border-right: 0;
   &:first-child,
   &:last-child {
     border-radius: 0;
+  }
+  &.active {
+    background-color: $primary;
   }
   h1,
   h2,
@@ -896,143 +1177,72 @@ form {
   }
 }
 .list-group-item-heading {
-    margin-bottom: 10px;
-}
-
-.repeat-word {
-  & > span,
-  a {
-    font-size: 150%;
-    font-weight: $font-weight-bold;
-    line-height: 1.4;
-    display: inline-block;
-    span {
-      display: block;
-      font-size: 65%;
-    }
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    a {
-      font-size: 100%;
-    }
-  }
-}
-
-
-
-// Forms
-.input-group-addon {
-    border-radius: $radius;
-}
-.input-group-addon {
-  color: $grey;
-  background-color: $grey-light;
-  border: 1px solid $grey-border;
-}
-.form-control {
-  color: $grey;
-  border: 1px solid $grey-border;
-}
-select.form-control {
   margin-bottom: 10px;
 }
-.input-group-btn {
-  .btn {
-    padding: 9px 15px;
-  }
-}
 
-// checkbox align
-.checkbox input[type=checkbox],
-.checkbox-inline input[type=checkbox],
-.radio input[type=radio],
-.radio-inline input[type=radio] {
-  margin-top: 6px;
-}
-// .checkbox {
-//   margin: 10px 0;
-// }
-
-
-
-
-// Dropdown Menus
+// Dropdown Menus:
 .dropdown-menu {
   margin-bottom: 1.5em;
   li {
     margin: 0;
     padding: 0;
     a {
-      padding: 1em;
-      margin: 0;
       color: $primary-dark;
-      &:hover,
+      margin: 0;
+      padding: 1em;
       &:active,
-      &:focus {
+      &:focus,
+      &:hover {
         color: $grey-dark;
       }
     }
     &.dropdown-header {
-      padding: 15px 20px 5px 0.5em;
       color: $grey-dark;
+      padding: 15px 20px 5px 0.5em;
     }
   }
 }
 
-
-
-// Caret
+// Caret:
 .caret {
   border-top-color: $primary-dark;
 }
 
-
-
-// Code snippets
-pre,
-code {
+// Code snippets:
+code,
+pre {
   background-color: $grey-light;
 }
 kbd {
-  display: inline-block;
+  background-color: $grey-light;
   border: solid 1px $primary-bright;
   border-radius: 3px;
   box-shadow: 0 1px 0 0 $primary-bright;
-  background-color: $grey-light;
   color: $primary;
-  text-align: center;
+  display: inline-block;
   font-size: 87.5%;
-  padding: 0 0.8em;
   margin: 1px 0.4em;
+  padding: 0 0.8em;
+  text-align: center;
+
   kbd {
-    border: none;
+    border: 0;
   }
 }
 
-
-
-
-// Slider/Carousel
+// Slider/Carousel:
 .carousel {
   .carousel-control {
-    border-bottom: none;
-    &:hover,
+    border-bottom: 0;
     &:active,
-    &:focus {
+    &:focus,
+    &:hover {
       background-color: transparent;
     }
   }
 }
 
-
-
-
-// Popovers
+// Popovers:
 .popover {
   border-radius: $radius;
   &.right > .arrow {
@@ -1044,7 +1254,8 @@ kbd {
     font-weight: 500;
   }
 }
-// Tooltips
+
+// Tooltips:
 .tooltip {
   border-radius: $radius;
   min-width: 10em;

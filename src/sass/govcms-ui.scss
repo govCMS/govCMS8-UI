@@ -21,10 +21,14 @@
 
 
 
-// --- Directory styles -----------------------------
+// --- govCMS-UI theme specific styles -----------------------------
 
 // Vars
 @import "govcmsui-vars";
+
+// Icons
+// Not used atm
+// @import "govcmsui-icons";
 
 // Main stylesheet
 @import "govcmsui";
@@ -35,5 +39,5 @@
 // Print styles
 @import "govcmsui-print";
 
-// Admin styles (e.g.: /user)
-@import "govcmsui-admin";
+// admin/logged in styles
+@import "govcmsui-admin";	// TODO: if htis gets big, please seperate out and load conditionally!

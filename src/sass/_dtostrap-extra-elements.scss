@@ -1,33 +1,32 @@
 // Things that aren't Bootstrap, but may be useful...
 
-
+// Table of contents
 .index-links {
-  // margin: 3.2em 0 1.6em 0;
-  margin: 1.6em 0;
   border-left: 0.4em solid $grey-light;
-  padding: 0 0 1.2em 1.2em;   // yes, this is uneven. Should be: '0 0 0 1.2em' imo, but sticking to their look.
+  margin: 1.6em 0;
+  padding: 0 0 1.2em 1.2em; // Yes, this is uneven. Should be: '0 0 0 1.2em' imo, but sticking to their look.
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    color: $grey;
     font-size: 1em;
+    font-weight: $font-weight-normal;
     margin-top: 1.6em;
     padding-bottom: 1.2em;
-    color: $grey;
-    font-weight: $font-weight-normal;
   }
   a {
     font-weight: bold;
   }
   ul,
   ol {
-    padding-left: 0;
     list-style: none;
+    padding-left: 0;
     ul,
     ol {
-      padding-left: 2em;  // in case of nesting
+      padding-left: 2em; // in case of nesting.
     }
   }
   li:not(:last-of-type) {
@@ -35,16 +34,164 @@
   }
 }
 
+// Repeating word pattern:
+.repeat-word {
+  & > span,
+  a {
+    display: inline-block;
+    font-size: 150%;
+    font-weight: $font-weight-bold;
+    line-height: 1.4;
+    span {
+      display: block;
+      font-size: 65%;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      font-size: 100%;
+    }
+  }
+}
 
+// Progress indicator list
+.progress-indicator {
+  .list-group-item {
+    $indent: 11px;
+    padding-left: $indent + 70px;
+    &:before {
+      color: lighten($grey, 10%);
+      // content: "\2014"; // emdash
+      // content: "\25A1"; // empty square
+      content: '\2022'; // "•"
+      font-size: 150%;
+      left: $indent + 26px;
+      position: absolute;
+      top: 0.42em;
+      width: $indent + 50px;
+    }
+    .label {
+      background-color: transparent;
+      border-color: $grey;
+      color: $grey;
+      padding-top: 3px;
+    }
+    &.progress-indicator--active {
+      border-left: $radius solid $primary;
+      padding-left: $indent + 70 - $radius;
+      &:before {
+        left: $indent + 18 - $radius;
+      }
+    }
+    &.progress-indicator--doing {
+      &:before {
+        color: $primary-dark;
+        content: '\2022\2022\2022'; // "•••"
+        font-size: 150%;
+        left: $indent + 13px;
+        top: 0.42em;
+      }
+      .progress-indicator--heading {
+        color: $primary-dark;
+      }
+      .label {
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+    &.progress-indicator--done {
+      &:before {
+        border: $radius solid lighten($grey, 10%);
+        border-right-style: none;
+        border-top-style: none;
+        // check/tick
+        content: ''; // not using this way
+        height: 12px;
+        left: $indent + 18px;
+        top: 15px;
+        transform: rotate(-45deg);
+        width: 24px;
+      }
+    }
+    .progress-indicator--heading {
+      font-size: 18px;
+      margin: 5px 3em 8px 0;
+      word-break: break-word;
+      a {
+        display: inline-block;
+        line-height: 1.1;
+        padding-left: 0;
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: rgba($primary-highlight, 0.7);
+        }
+      }
+    }
+    .progress-indicator--status {
+      position: absolute;
+      right: 15px;
+      top: 13px;
+    }
+  }
+}
 
-
+// Lists
+.list-group.list-group-icon {
+  .list-group-item {
+    font-size: 18px; // Visually like a h4
+    font-weight: bold;
+    padding: 1.3em 30px; // Extra padding ...for some reason (requested by SDT)
+    padding-left: 82px;
+    & > a {
+      display: inline-block;
+      &:hover,
+      &:active,
+      &:focus {
+        .fa,
+        .glyphicon,
+        .icon {
+          color: $primary-highlight;
+        }
+      }
+      .glyphicon,
+      .icon {
+        top: 0.6em;
+      }
+    }
+    .fa,
+    .glyphicon,
+    .icon {
+      color: $grey;
+      font-size: 35px;
+      margin-left: -61px;
+      margin-right: 0;
+      position: absolute;
+      top: 0.6em;
+      &:before {
+        margin-right: 0.5em;
+      }
+    }
+    .list-group-item-heading {
+      margin-top: 5px;
+    }
+    .list-group-item-text {
+      margin-bottom: 0;
+    }
+  }
+}
 
 // Dashboard
 .dashboard-item {
-  margin: 1em 0 3em 0;
+  margin: 1em 0 3em;
   .dashboard-icon {
-    font-size: 8em;
     color: $primary;
+    font-size: 8em;
     margin-bottom: 0.2em;
   }
   .dashboard-title {
@@ -52,28 +199,41 @@
     padding-bottom: 0.5em;
   }
   .dashboard-more-info {
-    outline: 0;
-    transition: all .2s;
-    font-size: 80%;
+    border-bottom: 0;
     color: #fff;
-    border-bottom: none;
-    background-color: $primary;
-    border-radius: 100%;
-    width: 1.1em;
-    height: 1.1em;
-    display: inline-block;
-    top: 0.2em;
+    font-size: 80%;
+    line-height: 1.1;
+    outline: 0;
     position: relative;
+    top: -3px;
+    transition: all 0.2s;
+    &:before {
+      border: 2px solid $primary;
+      border-radius: 100%;
+      color: $primary;
+      content: 'i';
+      font-family: $font-serif;
+      font-size: 20px;
+      font-style: italic;
+      padding: 0 9px;
+    }
     &:hover,
     &:active,
-    &:focus{
-      color: $primary-alt;
-      text-decoration: none;
+    &:focus {
       background-color: transparent;
+      &:before {
+        background-color: $primary-highlight;
+        border-color: $primary-highlight;
+        color: $grey-dark;
+        text-decoration: none;
+      }
     }
-    i {
-      top: -0.15em;
-      position: relative;
+  }
+  .dashboard-more-info-qmark {
+    &:before {
+      content: '?';
+      font-family: $font-family-base;
+      font-style: normal;
     }
   }
   .dashboard-highlight {
@@ -82,11 +242,11 @@
     font-size: 180%;
     margin: 0.5em 0;
     a {
-      padding: 0.5em 0.1em 0;
       color: $primary;
+      padding: 0.5em 0.1em 0;
       &:hover,
       &:active,
-      &:focus{
+      &:focus {
         color: $grey-dark;
       }
     }
@@ -102,51 +262,115 @@
   }
 }
 
-
-
-
-
 // Date layout - mostly stolen from previous work on australia.gov.au
 .calendar-list {
   max-width: 48em;
   padding-left: 0;
   .calendar-item {
-    display: table;
-    width: 100%;
     background-color: $grey-light;
     border-bottom: 1px solid #fff;
+    display: table;
+    width: 100%;
     .calendar-number {
-      display: block;
-      margin: 6px 0;
       color: $primary;
+      display: block;
       font-size: 1.8em;
+      margin: 6px 0;
     }
     .calendar-title {
-      padding: 0 0 0 20px;
-      line-height: 1.4;
-      padding-top: 3px;
       font-size: 1.25em;
+      line-height: 1.4;
+      padding: 0 0 0 20px;
+      padding-top: 3px;
     }
     .calendar-note {
-      font-size: 14px;
+      color: $grey-dark;
       display: block;
+      font-size: 14px;
       margin: 3px 0;
       padding-right: 10px;
-      color: $grey-dark;
     }
     .calendar-date,
     .calendar-name {
-      width: 70px;
-      text-align: center;
-      text-transform: uppercase;
+      border-right: 1px solid #fff;
       line-height: 0.8;
       padding: 12px 10px;
-      border-right: 1px solid #fff;
+      text-align: center;
+      text-transform: uppercase;
+      width: 70px;
     }
     .calendar-date,
     .calendar-title {
       display: table-cell;
       vertical-align: middle;
     }
+    &.calendar-item-past {
+      .calendar-number,
+      .calendar-title {
+        color: $grey-medium;
+      }
+      .calendar-date {
+        color: $grey;
+      }
+      .calendar-note {
+        color: $grey;
+      }
+    }
+    &.calendar-item-current {
+      background-color: $primary-lighter;
+      .calendar-number,
+      .calendar-title {
+        // color: $info-dark;
+        color: $primary-dark;
+      }
+      .calendar-date,
+      .calendar-note {
+        // color: $primary-dark;
+      }
+    }
+  }
+}
+
+// DTO's CTA link style:
+.cta-link {
+  display: inline-block;
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 1.6em;
+  margin-right: 0.2em;
+  padding: 2px 5px;
+  position: relative;
+  &::after {
+    color: $primary-highlight;
+    content: '›';
+    display: inline-block;
+    font-size: 150%;
+    font-weight: 400;
+    margin-left: 0.3em;
+    margin-top: -0.1em;
+    transition: all 0.2s ease-in;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: $primary-darker;
+    margin-right: 0;
+    &::after {
+      color: $primary-darker;
+      margin-left: 0.45em;
+      transform: scale(
+        1.2
+      ); // Tweaked from DTO version, I couldn't help meself.. :D
+    }
+  }
+}
+
+// Fullpage message style.
+// See message.html for example.
+.full-page {
+  padding: 0;
+  .container {
+    height: 50vh;
+    margin: 25vh auto;
   }
 }
