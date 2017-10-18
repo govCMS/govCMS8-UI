@@ -60,3 +60,59 @@
     max-width: 100%;
   }
 }
+
+
+
+
+
+
+
+/* govUI styles */
+.install-page.page-title {
+  color: #346577;
+}
+
+.install-page {
+  background: linear-gradient(11deg,#24d4dc,#4a6f9d);
+}
+
+.install-pageheader {
+	display: block;
+}
+
+.install-page.site-version {
+	float: left;
+}
+
+.install-page .heading-a {
+	color: #4a6f9d;
+}
+
+.install-page #error {
+	color: #BB271A;
+}
+
+.install-page #warning {
+	color: #AB5F22;
+}
+
+.install-page #ok {
+	color: #327357;
+}
+
+.install-page .system-status-report:last-of-type {
+	margin-bottom: 2em;
+}
+
+.install-page main > a {
+	display: inline-block;
+	padding: 4px 5px;
+	border: 1px solid #4a6f9d;
+	border-radius: 3px;
+	margin-top: 5px;
+}
+.install-page main > a:hover {
+	background: #4a6f9d;
+  color: #fff;
+  text-decoration: none;
+}
