@@ -69,14 +69,11 @@
 
 /* govUI styles */
 .page-title {
-  color: #346577;
+	display: block;
+	color: #395C6D;
 }
 .install-page {
   background: linear-gradient(11deg,#24d4dc,#395C6D);
-}
-h1 {
-	display: block;
-	color: #395C6D;
 }
 .site-version {
 	float: right;
@@ -113,8 +110,15 @@ main > a {
 	transition: all 0.2s;
 	box-shadow: 0;
 }
+.button:active,
+.button:focus,
+main > a:focus,
+main > a:active {
+	background: #24d4dc;
+	color: #111;
+	text-decoration: none;
+}
 .button:hover,
-.form-submit:hover,
 main > a:hover {
 	background: #395C6D;
 	color: #fff;
