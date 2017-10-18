@@ -183,7 +183,7 @@ code {
   box-shadow: 0 0 8px #bbb;
   color: #333;
   padding: 1.2em;
-  margin: 1em 0 2em 0;
+  margin: 0 0 2em 0 !important;
 }
 .form-item-account-pass-pass2 {
 	margin-bottom: 0;
@@ -198,6 +198,7 @@ code {
 }
 .password-strength__indicator.is-strong {
   background-color: #24d4dc;
+	width: 100% !important;
 }
 .password-strength__indicator.is-good {
   background-color: #007554;
@@ -215,4 +216,9 @@ ul.tips,
 div.description,
 .form-item .description {
   color: #696969;
+}
+.install-configure-form .form-text,
+.install-configure-form .password-strength,
+.install-configure-form .chosen-container {
+  width: 100% !important;
 }
