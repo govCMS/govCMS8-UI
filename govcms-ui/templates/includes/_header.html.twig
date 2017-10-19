@@ -1,54 +1,66 @@
 <div class="uikit-global-nav">
-    <div class="container">
-        {{ page.nav_secondary }}
-    </div>
+  <div class="container">
+    {{ page.nav_secondary }}
+  </div>
 </div>
 <header id="header" role="banner" class="navbar">
-    <div class="container">
-        <div class="row">
-            <nav class="navbar">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    {{ page.header }}
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-            </nav>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          {{ page.header }}
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation"
+                  aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
+      </nav>
     </div>
+  </div>
 </header>
 
 {% set nav_search_exists = false %}
 {% set nav_class = 'col-sm-12' %}
 {% if  page.nav_search is defined and page.nav_search|render|striptags|trim %}
-    {% set nav_search_exists = true %}
-    {% set nav_class = 'col-sm-9' %}
+  {% set nav_search_exists = true %}
+  {% set nav_class = 'col-sm-9' %}
 {% endif %}
-
 <div class="container-full main-nav">
-    <div class="container">
-        <div class="row">
-            <div class="collapse navbar-collapse" id="main-navigation">
-                <div class="{{ nav_class }}">
-                    {{ page.nav }}
-                </div>
-                {% if  page.nav_search is defined and page.nav_search|render|striptags|trim %}
-                    <div class="col-sm-3">
-                        {{ page.nav_search }}
-                    </div>
-                {% endif %}
-            </div>
-        </div><!-- /.navbar-collapse -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <nav class="navbar-collapse" id="main-navigation">
+          <ul class="nav navbar-nav nav-tabs nav-justified">
+          {{ page.nav }}
+          </ul>
+        </nav>
+      </div>
+      {% if  page.nav_search is defined and page.nav_search|render|striptags|trim %}
+        <div class="col-sm-3">
+          <form class="input-group" block="block-searchform" region="nav" action="/search/node" method="get"
+                id="search-block-form" accept-charset="UTF-8">
+            <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="search"
+                   id="edit-keys" name="keys">
+            <span class="input-group-btn">
+              <button class="btn btn-default" id="edit-submit" type="search" data-toggle="tooltip" data-placement="top">
+                <i class="glyphicon glyphicon-search"></i>
+                <span class="sr-only">Search</span>
+              </button>
+            </span>
+          </form>
+        </div>
+      {% endif %}
     </div>
+  </div>
 </div>
 {% if page.highlighted and page.highlighted|render|striptags|trim %}
-    <div class="jumbotron">
-        <div id="highlight-region" class="container">
-            {{ page.highlighted }}
-        </div>
+  <div class="jumbotron">
+    <div id="highlight-region" class="container">
+      {{ page.highlighted }}
     </div>
+  </div>
 {% endif %}
