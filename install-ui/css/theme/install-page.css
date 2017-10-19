@@ -65,7 +65,13 @@ word-break: break-all;
 
 
 
-/* govUI styles */
+
+/*
+govCMS distro install page styles
+- To give govCMS look and feel
+- Tim Hurley, Oct. 2017
+*/
+
 .page-title {
 	display: block;
 	color: #395C6D;
@@ -94,30 +100,35 @@ word-break: break-all;
 .system-status-report:last-of-type {
 	margin-bottom: 2em;
 }
+main > a[href$="?rewrite=ok"] {
+	text-decoration: underline;
+}
 .button,
 .form-submit,
-main > a {
+main > a:not([href$="?rewrite=ok"]) {
 	display: inline-block;
-	padding: 4px 7px;
+	padding: 6px 9px;
 	border: 1px solid #395C6D;
 	color: #395C6D;
 	background: transparent;
 	border-radius: 3px;
-	margin-top: 5px;
+	margin: 5px 0;
 	text-shadow: none;
 	transition: all 0.2s;
-	box-shadow: 0;
+	box-shadow: none;
+	font-weight: 600;
+  font-size: 1.3em;
 }
 .button:active,
 .button:focus,
-main > a:focus,
-main > a:active {
+main > a:not([href$="?rewrite=ok"]):focus,
+main > a:not([href$="?rewrite=ok"]):active {
 	background: #24d4dc;
 	color: #111;
 	text-decoration: none;
 }
 .button:hover,
-main > a:hover {
+main > a:not([href$="?rewrite=ok"]):hover {
 	background: #395C6D;
 	color: #fff;
 	text-decoration: none;
@@ -141,7 +152,7 @@ main > a:hover {
 .progress__bar {
 	border-color: #395C6D;
 	background: #24d4dc;
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)),
+	background-image: /*linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)),*/
 										linear-gradient(90deg, #24d4dc 0%, #4F8A97 50%, #24d4dc 100%);
 }
 pre,
@@ -171,9 +182,6 @@ code {
 .progress__track {
 	border-radius: 3px;
 }
-.messages--status {
-  border-left: 0.4em solid #007554;
-}
 .password-suggestions,
 .messages {
   background: transparent;
@@ -184,6 +192,9 @@ code {
   color: #333;
   padding: 1.2em;
   margin: 0 0 2em 0 !important;
+}
+.messages--status {
+  border-left: 0.4em solid #007554 !important;
 }
 .form-item-account-pass-pass2 {
 	margin-bottom: 0;
