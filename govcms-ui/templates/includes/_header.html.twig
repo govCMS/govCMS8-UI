@@ -3,18 +3,16 @@
     <div class="row">
       <div class="col-md-8 col-sm-12">
         <div class="navbar-header">
-          <div>
-            <h2 class="brand brand-name has-img">
-              <a href="/" title="Home" rel="home" class="site-logo site-logo-branding">
-                <img src="/themes/contrib/govcms-ui/govcms-ui/img/coas-stacked.svg" alt="Australian Government" height="70">
+              <a a href="/" class="brand navbar-left has-img vcenter">
                 <img src="/themes/contrib/govcms-ui/govcms-ui/logo.svg" alt="Home" height="70">
-                d8
+                <h1 class="brand-heading style-line CoT-ignore">
+                  DTOstrap
+                  <span class="label">beta</span>
+                </h1>
               </a>
-            </h2>
-          </div>
         </div>
       </div>
-      {% if page.nav_search is defined %}
+      {% if page.header is defined and page.header|render|striptags|trim %}
         <div class="col-md-4 col-sm-12">
         <form class="input-group" block="block-searchform" region="header" action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8" data-drupal-form-fields="edit-keys">
           <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="text" title="" id="edit-keys" name="keys" value="" data-toggle="tooltip" data-placement="top" data-original-title="Search">
@@ -30,13 +28,15 @@
     </div>
   </div>
 </header>
-<div class="container-full main-nav">
+<div class="main-nav">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
-        <nav class="navbar-collapse" id="main-navigation">
+      <div class="col-md-12">
+        <nav class="navbar-collapse collapse" id="main-navigation">
           <ul class="nav navbar-nav nav-tabs nav-justified">
-          {{ page.nav }}
+            <div class="{{ nav_class }}">
+              {{ page.nav }}
+            </div>
           </ul>
         </nav>
       </div>
