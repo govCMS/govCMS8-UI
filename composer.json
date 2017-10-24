@@ -1,8 +1,13 @@
 {
     "name": "govcms/govcms-ui",
     "description": "A Drupal 8 theme for govCMS incorporating the DTA ui toolkit",
+    "keywords": ["govCMS", "govCMS8"],
     "type": "drupal-theme",
-    "license": "GPL-2.0+",
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true,
+    "license": "GPL-2.0+",
+    "require": {},
+    "require-dev": {
+        "geerlingguy/drupal-vm": "dev-master"
+    }
 }
