@@ -32,7 +32,6 @@ drupal_install_profile:          govcms
 drupal_enable_modules:           [ 'devel', 'govcms_optional_govcms_blog_article', 'govcms_optional_govcms_event', 'govcms_optional_govcms_foi', 'govcms_optional_govcms_news_and_media', 'govcms_optional_govcms_standard_page' ]
 
 installed_extras:
-  - adminer
   - drupalconsole
   - drush
   - mailhog
