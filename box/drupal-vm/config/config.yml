@@ -4,8 +4,9 @@ vagrant_ip:                      0.0.0.0
 
 vagrant_synced_folders:
   - local_path:                  .
-    destination:                 /var/www/govcms8/ui
+    destination:                 /var/www/govcms
     type:                        nfs
+    create:                      true
 
 vagrant_plugins:
   - name:                        vagrant-vbguest
@@ -18,7 +19,7 @@ drupal_composer_project_options: "--prefer-dist --stability dev --no-interaction
 drupal_build_composer:           false
 
 drupal_composer_path:            false
-drupal_composer_install_dir:     /var/www/govcms8
+drupal_composer_install_dir:     /var/www/govcms/govcms8
 
 drupal_core_path:                "{{ drupal_composer_install_dir }}/docroot"
 
@@ -44,4 +45,4 @@ php_version:                     "7.1"
 
 solr_version:                    "4.5.1"
 
-ssh_home:                        /var/www/govcms8
+ssh_home:                        /var/www/govcms
