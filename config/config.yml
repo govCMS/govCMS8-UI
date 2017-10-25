@@ -1,0 +1,47 @@
+vagrant_hostname:                govcms8-ui.test
+vagrant_machine_name:            govcms8_ui
+vagrant_ip:                      0.0.0.0
+
+vagrant_synced_folders:
+  - local_path:                  .
+    destination:                 /var/www/govcms8/ui
+    type:                        nfs
+
+vagrant_plugins:
+  - name:                        vagrant-vbguest
+  - name:                        vagrant-hostsupdater
+  - name:                        vagrant-auto_network
+
+drupal_build_composer_project:   true
+drupal_composer_project_package: "govcms/govcms8"
+drupal_composer_project_options: "--prefer-dist --stability dev --no-interaction"
+drupal_build_composer:           false
+
+drupal_composer_path:            false
+drupal_composer_install_dir:     /var/www/govcms8
+
+drupal_core_path:                "{{ drupal_composer_install_dir }}/docroot"
+
+drupal_db_user:                  govcms
+drupal_db_password:              govcms
+drupal_db_name:                  govcms8
+
+drupal_site_name:                govCMS8
+drupal_install_profile:          govcms
+drupal_enable_modules:           [ 'devel', 'govcms_optional_govcms_blog_article', 'govcms_optional_govcms_event', 'govcms_optional_govcms_foi', 'govcms_optional_govcms_news_and_media', 'govcms_optional_govcms_standard_page' ]
+
+installed_extras:
+  - adminer
+  - drupalconsole
+  - drush
+  - mailhog
+  - pimpmylog
+  - solr
+  - upload-progress
+  - xdebug
+
+php_version:                     "7.1"
+
+solr_version:                    "4.5.1"
+
+ssh_home:                        /var/www/govcms8
