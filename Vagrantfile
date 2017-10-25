@@ -1,6 +1,6 @@
 # The absolute path to the root directory of the project. Both Drupal VM and
 # the config file need to be contained within this path.
-ENV['DRUPALVM_PROJECT_ROOT'] = "#{__dir__}"
+ENV['DRUPALVM_PROJECT_ROOT'] = "#{__dir__}/box/drupal-vm"
 
 # The relative path from the project root to the config directory where you
 # placed your config.yml file.
