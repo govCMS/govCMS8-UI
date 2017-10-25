@@ -4,7 +4,7 @@ vagrant_ip:                      0.0.0.0
 
 vagrant_synced_folders:
   - local_path:                  .
-    destination:                 /var/www/govcms-ui
+    destination:                 /var/www/govcms8-ui
     type:                        nfs
     create:                      true
 
