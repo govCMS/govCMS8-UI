@@ -34,11 +34,9 @@ drupal_enable_modules:           [ 'devel', 'govcms_optional_govcms_blog_article
 installed_extras:
   - drupalconsole
   - drush
-  - java
   - mailhog
-  - pimpmylog
   - solr
-  - upload-progress
+  - xdebug
 
 php_version:                     "7.1"
 php_memory_limit:                "256M"
