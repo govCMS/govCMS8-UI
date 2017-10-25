@@ -25,6 +25,7 @@ Icon
 
 # DrupalVM
 .vagrant/
+govcms8/
 
 # IDEs
 .idea
