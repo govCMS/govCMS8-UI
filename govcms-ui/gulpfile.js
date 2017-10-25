@@ -1,11 +1,5 @@
 // *************************
 //
-// SETUP STEPS:
-//
-// # brew install node
-// # cd {here}
-// # npm install
-//
 // Run 'gulp' to watch directory for changes for images, fonts icons, Sass, etc.
 // Or for full site testing run 'gulp test'
 //
