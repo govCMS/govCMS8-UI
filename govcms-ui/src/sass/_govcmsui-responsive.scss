@@ -64,7 +64,7 @@
 
 
 
-// Up to 769px
+// At least 769px
 @media screen and (min-width: 769px) {
   .column-3 {
     column-count: 3;
@@ -74,7 +74,9 @@
   }
   .main-nav {
     .nav-tabs.nav-justified {
-      margin-bottom: -4px;
+      margin-bottom: -2px;
+      width: 100%;
+      border-bottom: 0;
     }
   }
   body.not-front {

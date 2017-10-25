@@ -166,25 +166,6 @@ ul.menu.admin-nav-menu {
   }
 }
 
-div.main-nav {
-  background-color: #f0f3f5;
-  border-bottom: 4px solid #bbb;
-
-  .nav-tabs.nav-justified {
-    margin-bottom: -4px;
-
-    & > li > a {
-      border-radius: 0px;
-      border-bottom: 4px solid transparent;
-
-      &:hover {
-        border-radius: 0px;
-      }
-    }
-  }
-
-}
-
 header.navbar {
   border-top: none;
   margin-bottom: 0px;
