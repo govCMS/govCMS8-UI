@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbf52524d91596ef56392425719d892b",
+    "content-hash": "792015b2fd3e57aaef9770255feafe56",
     "packages": [],
     "packages-dev": [
         {
@@ -52,7 +52,7 @@
     "stability-flags": {
         "geerlingguy/drupal-vm": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
