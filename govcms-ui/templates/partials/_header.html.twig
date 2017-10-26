@@ -3,27 +3,27 @@
     <div class="row">
       <div class="col-md-8 col-sm-12">
         <div class="navbar-header">
-              <a a href="/" class="brand navbar-left has-img vcenter">
-                <img src="/themes/contrib/govcms-ui/govcms-ui/logo.svg" alt="Home" height="70">
-                <h1 class="brand-heading style-line CoT-ignore">
-                  DTOstrap
-                  <span class="label">beta</span>
-                </h1>
-              </a>
+          <a a href="/" class="brand navbar-left has-img vcenter">
+            <img src="/themes/contrib/govcms-ui/govcms-ui/logo.svg" alt="Home" height="70">
+            <h1 class="brand-heading style-line CoT-ignore">
+              DTOstrap
+              <span class="label">beta</span>
+            </h1>
+          </a>
         </div>
       </div>
-      {% if page.header is defined and page.header|render|striptags|trim %}
+      {% if page.header is defined and page.header | render | striptags | trim %}
         <div class="col-md-4 col-sm-12">
-        <form class="input-group" block="block-searchform" region="header" action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8" data-drupal-form-fields="edit-keys">
-          <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="text" title="" id="edit-keys" name="keys" value="" data-toggle="tooltip" data-placement="top" data-original-title="Search">
-          <span class="input-group-btn">
-								<button class="btn btn-default" data-drupal-selector="edit-submit" type="submit" id="edit-submit" title="" data-toggle="tooltip" data-placement="top" >
-									<i class="glyphicon glyphicon-search"></i>
-									<span class="sr-only">Search</span>
-								</button>
-							</span>
-        </form>
-      </div>
+          <form class="input-group" block="block-searchform" region="header" action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8" data-drupal-form-fields="edit-keys">
+            <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="text" title="" id="edit-keys" name="keys" value="" data-toggle="tooltip" data-placement="top" data-original-title="Search">
+            <span class="input-group-btn">
+              <button class="btn btn-default" data-drupal-selector="edit-submit" type="submit" id="edit-submit" title="" data-toggle="tooltip" data-placement="top">
+                <i class="glyphicon glyphicon-search"></i>
+                <span class="sr-only">Search</span>
+              </button>
+            </span>
+          </form>
+        </div>
       {% endif %}
     </div>
   </div>
@@ -40,12 +40,10 @@
           </ul>
         </nav>
       </div>
-      {% if  page.nav_search is defined and page.nav_search|render|striptags|trim %}
+      {% if page.nav_search is defined and page.nav_search | render | striptags | trim %}
         <div class="col-sm-3">
-          <form class="input-group" block="block-searchform" region="nav" action="/search/node" method="get"
-                id="search-block-form" accept-charset="UTF-8">
-            <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="search"
-                   id="edit-keys" name="keys">
+          <form class="input-group" block="block-searchform" region="nav" action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+            <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys">
             <span class="input-group-btn">
               <button class="btn btn-default" id="edit-submit" type="search" data-toggle="tooltip" data-placement="top">
                 <i class="glyphicon glyphicon-search"></i>
@@ -58,7 +56,7 @@
     </div>
   </div>
 </div>
-{% if page.highlighted and page.highlighted|render|striptags|trim %}
+{% if page.highlighted and page.highlighted | render | striptags | trim %}
   <div class="jumbotron">
     <div id="highlight-region" class="container">
       {{ page.highlighted }}
