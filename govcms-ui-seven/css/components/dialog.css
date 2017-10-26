@@ -47,7 +47,7 @@
   left: 20px;
 }
 .ui-dialog .ui-icon.ui-icon-closethick {
-  background: url(../../../../misc/icons/ffffff/ex.svg) 0 0 no-repeat;
+  background: url(/core/misc/icons/ffffff/ex.svg) 0 0 no-repeat;
   margin-top: -12px;
 }
 .ui-dialog .ui-widget-content.ui-dialog-content {
@@ -90,7 +90,7 @@
   top: 48.5%;
   z-index: 1000;
   background-color: #232323;
-  background-image: url(../../../../misc/loading-small.gif);
+  background-image: url(/core/misc/loading-small.gif);
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 7px;
