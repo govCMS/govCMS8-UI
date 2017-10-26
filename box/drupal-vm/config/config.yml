@@ -45,6 +45,7 @@ post_provision_scripts:
   - "../../../../box/drupal-vm/scripts/configure-solr.sh"
   - "../../../../box/drupal-vm/scripts/post-provision.sh"
 
-solr_version:                    "4.5.1"
+# Not working well in current VM, the version below is for matching Acquia Search.
+# solr_version:                    "4.5.1"
 
 ssh_home:                        /var/www/govcms8
