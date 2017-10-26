@@ -7,13 +7,3 @@ global-styling:
     js/scripts.js: {}
   dependencies:
       - core/drupalSettings
-
-color.preview:
-  version: 1.x
-  css:
-    theme:
-      color/preview.css: {}
-  js:
-    color/preview.js: {}
-  dependencies:
-    - color/drupal.color
