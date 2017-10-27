@@ -20,19 +20,20 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         '#open' => false,
         '#description' => t('Options for the govCMS Framework e.g. Bootstrap, govau UI Toolkit, jQuery')
     );
-    $form['govcmsui_framework_details']['govcmsui_use_bootstrap'] = array(
-        '#type'          => 'checkbox',
-        '#title'         => t('Use Bootstrap'),
-        '#attributes' => array('disabled' => FALSE),
-        '#default_value' => theme_get_setting('govcmsui_use_bootstrap'),
-        '#description'   => t("Do you want to include bootstrap. See <a href='http://getbootstrap.com/' target='_blank'>http://getbootstrap.com/</a>"),
-    );
-    $form['govcmsui_framework_details']['govcmsui_use_jquery'] = array(
-        '#type'          => 'checkbox',
-        '#title'         => t('Use jQuery'),
-        '#attributes' => array('disabled' => FALSE),
-        '#default_value' => theme_get_setting('govcmsui_use_jquery'),
-        '#description'   => t("Do you want to include the latest jQuery"),
+    $form['govcmsui_framework_details']['govcmsui_grid_choice'] = array(
+        '#type'          => 'radios',
+        '#title'         => t('Select framework'),
+        '#attributes'    => array('disabled' => FALSE),
+        '#default_value' => theme_get_setting('govcmsui_grid_choice'),
+        '#description'   => t("Do you want to include <a href='@bootstrap'>Bootstrap</a>, <a href='@ui-kit'>UI Kit 2.0</a> or no framework?", array(
+          '@bootstrap'   => 'http://getbootstrap.com/',
+          '@ui-kit'      => 'https://github.com/govau/uikit',
+        )),
+        '#options' => array(
+          0 => t('Bootstrap'),
+          1 => t('UI Kit 2.0'),
+          2 => t('None'),
+        ),
     );
     $form['govcmsui_framework_details']['govcmsui_use_jquery'] = array(
         '#type'          => 'checkbox',

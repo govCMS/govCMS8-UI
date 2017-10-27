@@ -2,7 +2,7 @@
 
 function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
     // Swap out jQuery to use an updated version of the library.
-    if(theme_get_setting('govcmsui_use_bootstrap') || theme_get_setting('govcmsui_use_jquery')) {
+    if(theme_get_setting('govcmsui_grid_choice') == 0 || theme_get_setting('govcmsui_use_jquery')) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'] = array(
             'weight' => -95,
             'group' => -99,
@@ -22,7 +22,7 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
         $javascript[$theme_path.'/js/scripts.js']['weight'] = -85;
         $javascript[$theme_path.'/js/scripts.js']['minified'] = true;
     }
-    if(theme_get_setting('govcmsui_use_bootstrap')) {
+    if(theme_get_setting('govcmsui_use_bootstrap') == 0) {
         $javascript['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'] = array(
             'weight' => -90,
             'group' => -99,
@@ -40,7 +40,7 @@ function govcmsui_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterf
 }
 
 function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
-    if(theme_get_setting('govcmsui_use_bootstrap')) {
+    if(theme_get_setting('govcmsui_grid_choice') == 0) {
         $css['//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'] = array(
             'weight' => 0,
             'group' => -99,
@@ -51,6 +51,19 @@ function govcmsui_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $a
             'media' => 'all',
             'data' => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css',
         );
+    }
+
+    if(theme_get_setting('govcmsui_grid_choice') == 1) {
+      $theme_path = drupal_get_path('theme', 'govcmsui');
+      $css['uikit-grid'] = array(
+          'weight' => 0,
+          'group' => -99,
+          'type' => 'file',
+          'preprocess' => true,
+          'browsers' => array(),
+          'media' => 'all',
+          'data' => $theme_path . '/pancake/css/pancake.min.css',
+      );
     }
 
     if(theme_get_setting('govcmsui_use_fontawesome')) {
