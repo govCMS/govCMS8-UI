@@ -4,7 +4,8 @@
 
     Drupal.behaviors.mybehavior = {
         attach: function (context, settings) {
-
+          // Check whether Bootstrap is being used. If not, turn off the tooltips.
+          if(typeof tooltip === 'function') {
             // Let's use bootstraps title display as it's much nicer!
             $('main.container [title]').each(function() {
                 if ($(this).parents('.sf-dump, .kint').length) {
@@ -15,7 +16,7 @@
                 $(this).attr('data-placement', 'top');
             });
             $('[data-toggle="tooltip"]').tooltip();
-
+          }
         }
     };
 
