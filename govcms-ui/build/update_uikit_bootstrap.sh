@@ -3,7 +3,7 @@ cd "$(dirname "$0")"
 
 ps -ef | grep gulp | grep -v grep | awk '{print $2}' | xargs kill
 
-cd ../src/sass/
+cd ../src/sass/uikit-bootstrap/
 
 wget -N https://raw.githubusercontent.com/govCMS/uikit-bootstrap/master/sass/_vars.scss
 wget -N https://raw.githubusercontent.com/govCMS/uikit-bootstrap/master/sass/_mixins.scss

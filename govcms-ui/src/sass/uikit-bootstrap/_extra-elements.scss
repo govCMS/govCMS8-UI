@@ -1,5 +1,9 @@
 // Things that aren't Bootstrap, but may be useful...
 
+.meta {
+  line-height: 0.6;
+}
+
 // Table of contents
 .index-links {
   border-left: 0.4em solid $grey-light;
@@ -331,7 +335,7 @@
   }
 }
 
-// DTO's CTA link style:
+// CTA link style:
 .cta-link {
   display: inline-block;
   font-size: 21px;
@@ -360,9 +364,13 @@
       margin-left: 0.45em;
       transform: scale(
         1.2
-      ); // Tweaked from DTO version, I couldn't help meself.. :D
+      ); // Tweaked from UI-Kit version, I couldn't help meself.. :D
     }
   }
+}
+.jumbotron+.cta-link {
+	top: -1em;
+  margin: 0 0 0.7em 0;
 }
 
 // Fullpage message style.

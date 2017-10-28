@@ -189,10 +189,6 @@
 		&:focus {
 			border-bottom-color: $primary;
 		}
-		&.is-active {
-			border-bottom: 4px solid $primary-highlight;
-			background-color: $primary-light;
-		}
 	}
 } // min-width 768px
 
