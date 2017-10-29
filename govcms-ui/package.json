@@ -1,11 +1,11 @@
 {
   "name": "govcms8-ui",
   "version": "1.0.0",
-  "description": "Base theme for govcms8",
+  "description": "Base theme for govCMS8",
   "main": "gulpfile.js",
   "dependencies": {
     "@gov.au/grid-12": "^0.1.1",
-    "autoprefixer": "^7.1.5",
+    "autoprefixer": "^7.1.6",
     "browser-sync": "^2.18.13",
     "cssnano": "^3.10.0",
     "fs": "0.0.1-security",

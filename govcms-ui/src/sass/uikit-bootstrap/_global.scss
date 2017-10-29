@@ -2,64 +2,6 @@
 
 // Page header
 body > header {
-	background: linear-gradient($gradient-angle, $gradient-light, $gradient-dark 80%);
-	background-color: $gradient-dark;
-	color: #fff;
-	padding: 1.6em 0;
-	&.navbar {
-		border: none;
-		border-radius: 0;
-		margin-bottom: 0;
-	}
-	a {
-		color: #fff;
-		&.has-img {
-			.brand-heading .label {
-				top: -0.4em;
-			}
-		}
-	}
-	.navbar-collapse,
-	.tagline {
-		width: 100%;
-	}
-	.brand {
-		.brand-heading {
-			display: inline-block;	// fallback for non-flex browsers (also, can't use @supports bue do IE11 😒)
-			font-size: 30px;
-			font-weight: $font-weight-normal;
-			margin: 0;
-		}
-		.label {
-			background-color: $primary-alt;
-			border: none;
-			font-size: 47%;
-			line-height: 1.5;
-			margin-left: 0.3em;
-			margin-right: -3.65em;
-			padding: 0 10px;
-			padding-bottom: 0.1em;
-			position: relative;
-			top: -4px;
-			transition: all 0.2s;
-		}
-	}
-	a.brand {
-		&:hover,
-		&:active,
-		&:focus {
-			color: #fff;
-		}
-		img {
-			display: inline-block;
-			margin-right: 20px;
-			&.divider {
-				border-right: 1px solid rgba(#fff, 0.3);
-				margin-right: 30px;
-				padding-right: 30px;
-			}
-		}
-	}
 	.nav {
 		a {
 			&:hover,
@@ -87,9 +29,7 @@ body > header {
 	.caret {
 		border-top-color: #fff;
 	}
-
-
-	// DTO's '3 shades of $primary' thick underline
+	// UI-Kit's '3 shades of $primary' thick underline
 	// on hover/focus/active this line visually expands to underline the whole title
 	.style-line {
 		&:before {
@@ -124,17 +64,17 @@ body > header {
 		}
 	}
 	.brand {
-			&:hover,
-			&:active,
-			&:focus {
-				.style-line {
-					opacity: 1;
-					text-decoration: none;
-					&:before {
-						right: 7.62em;
-					}
+		&:hover,
+		&:active,
+		&:focus {
+			.style-line {
+				opacity: 1;
+				text-decoration: none;
+				&:before {
+					right: 7.62em;
 				}
 			}
+		}
 	}
 
 	// Header search
@@ -150,9 +90,75 @@ body > header {
 		}
 	}
 
+} // header
+
+
+
+// Applies to both headers and hero sections
+body > header,
+.hero {
+	background: linear-gradient($gradient-angle, $gradient-light, $gradient-dark 80%);
+	background-color: $gradient-dark;
+	color: #fff;
+	padding: 1.6em 0;
+	&.navbar {
+		border: none;
+		border-radius: 0;
+		margin-bottom: 0;
+	}
+	a {
+		color: #fff;
+		&.has-img {
+			.brand-heading .label {
+				top: -0.4em;
+			}
+		}
+	}
+	.navbar-collapse,
+	.tagline {
+		width: 100%;
+	}
+	a.brand {
+		&:hover,
+		&:active,
+		&:focus {
+			color: #fff;
+		}
+		img {
+			display: inline-block;
+			margin-right: 20px;
+			&.divider {
+				border-right: 1px solid rgba(#fff, 0.3);
+				margin-right: 30px;
+				padding-right: 30px;
+			}
+		}
+	}
+	.brand {
+		.brand-heading {
+			display: inline-block;	// fallback for non-flex browsers (also, can't use @supports bue do IE11 😒)
+			// font-size: 30px;
+			font-weight: $font-weight-normal;
+			margin: 0;
+		}
+		.label {
+			background-color: $primary-alt;
+			border: none;
+			font-size: 47%;
+			line-height: 1.5;
+			margin-left: 0.3em;
+			margin-right: -3.65em;
+			padding: 0 10px;
+			padding-bottom: 0.1em;
+			position: relative;
+			top: -4px;
+			transition: all 0.2s;
+		}
+	}
 	// CTA links
 	.cta-link {
 		border-bottom: 1px solid $primary-highlight;
+		margin-bottom: 0;
 		&:hover,
 		&:active,
 		&:focus {
@@ -231,33 +237,36 @@ body > header {
 			}
 		}
 	} // .dark
+}
 
-	// Hero class. Just one, regardless of colour scheme
-	&.hero {
-		.container .row {
-			padding: 3.5em 0;
-		}
-		.navbar-header {
-			display: block;
-			float: none;
-			width: 100%;
-		}
-		.brand-heading {
-			font-size: 44px;
-			width: 100%;
-			.label {
-				top: -5px;
-			}
-		}
-		.tagline {
-			font-size: 20px;
-			margin-top: 3.1em;
+// Hero class.
+.hero {
+	.container .row {
+		padding: 3.5em 0;
+	}
+	.navbar-header {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	.brand-heading {
+		font-size: 44px;
+		width: 100%;
+		font-weight: $font-weight-normal;
+		.label {
+			top: -5px;
 		}
 	}
-	p + p .cta-link {
-		margin-top: 0.75em; // makgive the cta-link some space if there's a p tag (tagline) above it
-	} // .hero
-} // header
+	.tagline {
+		font-size: 20px;
+		margin-top: 3.1em;
+	}
+}
+p + p .cta-link {
+	margin-top: 0.75em; // makgive the cta-link some space if there's a p tag (tagline) above it
+} // .hero
+
+
 
 // Nav bar under header
 .main-nav {
@@ -270,12 +279,15 @@ body > header {
 		min-width: 100%;
 	}
 	.nav {
+		margin-bottom: -4px;
 		& > .active > a {
 			border: none;
+			border-bottom: 4px solid $primary-highlight;
 			&:hover,
 			&:active,
 			&:focus {
 				border: none;
+				border-bottom: 4px solid $primary-highlight;
 				border-bottom-width: 4px;
 			}
 		}

@@ -289,7 +289,6 @@ a {
   background-color: $grey-light;
   border: 0;
   border-radius: $radius-small;
-
   h1,
   h2,
   h3,
@@ -634,7 +633,7 @@ label {
 }
 
 // Custom styled radio btns and checkboxes
-// ...inspired by the DTO version, but in my bias opinion, made better
+// ...inspired by the UI-Kit version, but in my bias opinion, made better
 //
 // NOTE: requires "transform: rotate()" and ":before"/":after" support,
 //       but really... ¯\_(ツ)_/¯
