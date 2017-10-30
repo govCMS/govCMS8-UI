@@ -7,7 +7,4 @@
     "prefer-stable": true,
     "license": "GPL-2.0+",
     "require": {},
-    "require-dev": {
-        "geerlingguy/drupal-vm": "dev-master"
-    }
 }
