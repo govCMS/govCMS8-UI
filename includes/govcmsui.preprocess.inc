@@ -37,15 +37,12 @@ function govcmsui_preprocess_page(&$variables) {
     $variables['header_logo'] = theme_get_setting('govcmsui_custom_logo');
   } elseif(theme_get_setting('govcmsui_upload_logo')) {
     // Set the uploaded logo.
-    kint(theme_get_setting('govcmsui_upload_logo'));
     $fid = theme_get_setting('govcmsui_upload_logo');
     $uri = File::load($fid[0])->getFileUri();
     $variables['header_logo'] = file_create_url($uri);
   } else {
     $variables['header_logo'] = "/profiles/govcms/logo.svg";
   }
-
-  kint($variables['header_logo']);
 
   $coa_footer = theme_get_setting('govcmsui_coa_footer');
   if (!empty($coa_footer) && $coa_footer == 1) {
