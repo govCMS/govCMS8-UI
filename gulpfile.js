@@ -143,11 +143,12 @@ gulp.task('iconFont', function() {
       fontPath: '/fonts/' // Relative to the site.
     }))
     .pipe(iconfont({
-      fontName: fontName, // Required.
-      prependUnicode: true, // Recommended option.
+      fontName: fontName, 											// Required.
+      prependUnicode: true, 										// Recommended option.
       formats: ['ttf', 'eot', 'woff', 'woff2'], // Default, 'woff2' and 'svg' are available.
-      timestamp: runTimestamp, // Recommended to get consistent builds when watching files.
-      normalize: true, // The provided icons does not have the same height it could lead to unexpected results. Using the normalize option could solve the problem.
+      timestamp: runTimestamp, 									// Recommended to get consistent builds when watching files.
+      normalize: true, 													// The provided icons does not have the same height it could lead to unexpected results. Using the normalize option could solve the problem.
+      fontHeight: 1001, 												// Stops the SVG being redrawn like a 3yo did them.. (https://github.com/nfroidure/gulp-iconfont/issues/138)
     }))
     .pipe(gulp.dest('./fonts/'));
 });
