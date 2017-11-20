@@ -331,6 +331,11 @@ p + p .cta-link {
 	}
 } // main-nav
 
+// main tag
+
+main {
+	@include text-overflow;
+}
 
 // Page header
 .page-header {

@@ -1,6 +1,7 @@
 // --- UI-Kit Bootstrap styles -----------------------------
 // Variables
 @import 'uikit-bootstrap/vars'; // Mixins
+@import 'govcmsui-mixins';
 @import 'uikit-bootstrap/mixins'; //  Header, footer, etc
 @import 'uikit-bootstrap/global'; //  Text size etc.
 @import 'uikit-bootstrap/typography'; // All elements, such as btns, wells, etc
