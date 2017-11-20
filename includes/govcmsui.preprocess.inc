@@ -30,18 +30,19 @@ function govcmsui_preprocess_page(&$variables) {
   // Set logo image.
   $variables['header_logo'] = '';
   if(theme_get_setting('govcmsui_use_default_logo')) {
-    $variables['header_logo'] = "/profile/govcmsui/logo.svg";
+    // Set the default logo.
+    $variables['header_logo'] = "/profiles/govcms/logo.svg";
   } elseif(theme_get_setting('govcmsui_custom_logo')) {
-    kint(theme_get_setting('govcmsui_custom_logo'));
+    // Set the custom logo.
     $variables['header_logo'] = theme_get_setting('govcmsui_custom_logo');
   } elseif(theme_get_setting('govcmsui_upload_logo')) {
+    // Set the uploaded logo.
     kint(theme_get_setting('govcmsui_upload_logo'));
     $fid = theme_get_setting('govcmsui_upload_logo');
-    //$file = \Drupal\file\Entity\File::load($fid);
-    kint($fid);
-  //  $variables['header_logo'] = $file->getFileUri();
+    $uri = File::load($fid[0])->getFileUri();
+    $variables['header_logo'] = file_create_url($uri);
   } else {
-    $variables['header_logo'] = "/profile/govcmsui/logo.svg";
+    $variables['header_logo'] = "/profiles/govcms/logo.svg";
   }
 
   kint($variables['header_logo']);

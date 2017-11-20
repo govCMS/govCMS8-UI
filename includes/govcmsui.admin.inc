@@ -23,6 +23,9 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
       ),
     );
 
+    // Add some JS to alter the form to make it less confusing.
+    $form['#attached']['library'][] = 'govcmsui/govcmsui-theme-settings';
+
     // Alter logo settings.
 
     $form['logo'] = array(
@@ -33,7 +36,7 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
     );
     $form['logo']['govcmsui_use_default_logo'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Use the logo supplied by the theme.'),
+      '#title' => t('Use the logo supplied by the theme. If nothing is set in this form this will become the default.'),
       '#attributes' => array(
         'disabled' => false,
       ),
@@ -152,7 +155,7 @@ function validateForm(array &$form, FormStateInterface $form_state) {
   }
 }
 
-function _govcmsui_saveFile($fid, $theme, $fileType){
+function _govcmsui_saveFile($fid, $theme, $fileType=''){
 
   if(isset($fid) && is_string($fid)){
 
