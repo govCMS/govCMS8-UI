@@ -7,3 +7,9 @@ global-styling:
     js/scripts.js: {}
   dependencies:
       - core/drupalSettings
+govcmsui-theme-settings:
+  version: 1.x
+  js:
+    js/govcmsui.admin.js: {}
+  dependencies:
+    - core/jquery
