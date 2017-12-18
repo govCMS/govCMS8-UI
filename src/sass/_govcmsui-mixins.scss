@@ -1,0 +1,12 @@
+// GovCMS UI Mixins
+
+// This mixin prevents long strings overflowing containers.
+// Taken from https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+
+@mixin text-overflow {
+  word-break: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
