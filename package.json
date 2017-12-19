@@ -13,6 +13,15 @@
   },
   "homepage": "https://github.com/govcms/govCMS8-ui#readme",
   "main": "gulpfile.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "gulp",
+    "prod": "npm run production",
+    "production": "gulp",
+    "watch": "gulp watch",
+    "browser-sync": "browser-sync",
+    "test": "gulp test"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "browser-sync": "^2.18.13",
@@ -30,14 +39,12 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
     "gulp-real-favicon": "^0.2.2",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-w3c-html-validation": "0.0.1",
     "jshint": "^2.9.5",
     "postcss-import": "^11.0.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
