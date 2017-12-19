@@ -64,9 +64,9 @@ gulp.task('scripts', function() {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(gulp.dest('./js/'))
+    // .pipe(gulp.dest('./js/'))
     .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
+    // .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('./js/'));
 });
 
