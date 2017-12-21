@@ -23,8 +23,8 @@
     "test": "gulp test"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
-    "browser-sync": "^2.18.13",
+    "autoprefixer": "^7.2.3",
+    "browser-sync": "^2.19.0",
     "cssnano": "^3.10.0",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
