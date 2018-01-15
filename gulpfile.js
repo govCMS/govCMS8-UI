@@ -1,3 +1,5 @@
+'use strict';
+
 // *************************
 //
 // Run 'gulp' to watch directory for changes for images, fonts icons, Sass, etc.
@@ -29,6 +31,7 @@ const postcss = require('gulp-postcss');
 const cssNano = require('cssnano');
 const atImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 
 // Project vars
@@ -61,7 +64,9 @@ gulp.task('scripts', function() {
     .pipe(plumber({
       errorHandler: onError
     }))
+    // .pipe(gulp.dest('./js/'))
     .pipe(uglify())
+    // .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('./js/'));
 });
 
@@ -143,11 +148,12 @@ gulp.task('iconFont', function() {
       fontPath: '/fonts/' // Relative to the site.
     }))
     .pipe(iconfont({
-      fontName: fontName, // Required.
-      prependUnicode: true, // Recommended option.
+      fontName: fontName, 											// Required.
+      prependUnicode: true, 										// Recommended option.
       formats: ['ttf', 'eot', 'woff', 'woff2'], // Default, 'woff2' and 'svg' are available.
-      timestamp: runTimestamp, // Recommended to get consistent builds when watching files.
-      normalize: true, // The provided icons does not have the same height it could lead to unexpected results. Using the normalize option could solve the problem.
+      timestamp: runTimestamp, 									// Recommended to get consistent builds when watching files.
+      normalize: true, 													// The provided icons does not have the same height it could lead to unexpected results. Using the normalize option could solve the problem.
+      fontHeight: 1001, 												// Stops the SVG being redrawn like a 3yo did them.. (https://github.com/nfroidure/gulp-iconfont/issues/138)
     }))
     .pipe(gulp.dest('./fonts/'));
 });
@@ -260,9 +266,41 @@ gulp.task('check-for-favicon-update', function(done) {
 
 // ********************************************************************************************************************************************
 
-
 // Default gulp task.
-gulp.task('default', ['browser-sync', 'images', 'scripts', 'styles'], function() {
+gulp.task('default', ['images', 'scripts', 'styles']);
+
+
+// BrowserSync gulp task.
+gulp.task('browser-sync', ['browser-sync', 'images', 'scripts', 'styles'], function() {
+  // Watch for img optim changes.
+  gulp.watch('./src/img/**', function() {
+    gulp.start('images');
+  });
+  // Watch for JS changes.
+  gulp.watch('./src/js/*.js', function() {
+    gulp.start('scripts');
+  });
+  // Watch for font icon changes.
+  gulp.watch('./src/font-icons/**', function() {
+    gulp.start('iconFont');
+  });
+  // Watch for Sass changes.
+  gulp.watch('./src/sass/*.scss', function() {
+    gulp.start('styles');
+  });
+  // Watch for master Favicon changes.
+  gulp.watch('./src/favicon/master-favicon.svg', function() {
+    gulp.start('favicon');
+  });
+  // Once the favicons are built, create an optimised copy to use.
+  gulp.watch('./src/favicon/favicons/**', function() {
+    gulp.start('favicons');
+  });
+});
+
+
+// Watch changes.
+gulp.task('watch', ['images', 'scripts', 'styles'], function() {
   // Watch for img optim changes.
   gulp.watch('./src/img/**', function() {
     gulp.start('images');

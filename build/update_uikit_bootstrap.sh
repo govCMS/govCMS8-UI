@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-cd "$(dirname "$0")"
+
+echo "Updating"
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd "$DIR"
 
 ps -ef | grep gulp | grep -v grep | awk '{print $2}' | xargs kill
 
@@ -15,4 +20,4 @@ wget -N https://raw.githubusercontent.com/govCMS/uikit-bootstrap/master/sass/_re
 
 echo "Updated!"
 
-cd "$(dirname "$0")"
+exit

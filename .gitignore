@@ -1,5 +1,6 @@
 # Logs and databases
 *.log
+wget-log*
 *.sql
 *.sqlite
 npm-debug.log*
@@ -25,7 +26,6 @@ Icon
 
 # DrupalVM
 .vagrant/
-govcms8/
 
 # IDEs
 .idea
