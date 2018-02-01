@@ -6,6 +6,7 @@ wget-log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+w3cErrors
 
 # Composer vendor
 vendor/
@@ -15,6 +16,7 @@ vendor/.git
 .sass-cache
 
 # Node
+package-lock.json
 node_modules/
 
 # Drupal console
