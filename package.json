@@ -14,13 +14,14 @@
   "homepage": "https://github.com/govcms/govCMS8-ui#readme",
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "npm run development",
+    "dev": "gulp",
     "development": "gulp",
-    "prod": "npm run production",
+    "prod": "gulp",
     "production": "gulp",
     "watch": "gulp watch",
     "browser-sync": "browser-sync",
-    "test": "gulp test"
+    "test": "gulp test",
+    "build": "bash build/update_uikit_bootstrap.sh"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",

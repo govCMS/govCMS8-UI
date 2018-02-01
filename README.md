@@ -7,13 +7,15 @@ This is a theme for Drupal 8 govCMS based on the DTA UI-Kit - implemented using
 ## Work with it locally
 
 ### Requirements
-- [npm](https://www.npmjs.com/)
+- [yarn](https://yarnpkg.com/)
 - [git](https://git-scm.com/)
 
 ### Updating UI-Kit Bootstrap
 
 To update the UI-Kit Bootstrap run the following...
 
-`bash build/update_uikit_bootstrap.sh`
+`yarn run build`
 
 this fetches the latest Sass files from UI-Kit Bootstrap's Git repo. Then just run gulp to rebuild using them.
+
+`yarn run dev`
