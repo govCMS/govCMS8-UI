@@ -13,6 +13,57 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         }
     }
 
+    // Set validators for file type.
+    $validators = array(
+      'file_validate_extensions' => array(
+        'jpeg',
+        'jpg',
+        'gif',
+        'svg',
+      ),
+    );
+
+    // Add some JS to alter the form to make it less confusing.
+    $form['#attached']['library'][] = 'govcmsui/govcmsui-theme-settings';
+
+    // Alter logo settings.
+
+    $form['logo'] = array(
+      '#type' => 'details',
+      '#title' => t('Logo image'),
+      '#open' => true,
+      '#description' => t('Options for setting the theme logo.'),
+    );
+    $form['logo']['govcmsui_use_default_logo'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use the logo supplied by the theme. If nothing is set in this form this will become the default.'),
+      '#attributes' => array(
+        'disabled' => false,
+      ),
+      '#default_value' => theme_get_setting('govcmsui_use_default_logo'),
+    );
+    $form['logo']['govcmsui_custom_logo'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Path to custom logo'),
+      '#description' => t('Enter the path to your custom logo'),
+      '#default_value' => theme_get_setting('govcmsui_custom_logo'),
+      '#placeholder' => t('/profile/govcmsui/logo.svg'),
+    );
+    $form['logo']['govcmsui_upload_logo'] = array(
+      '#type' => 'managed_file',
+      '#multiple' => false,
+      '#title' => t('Upload logo image'),
+      '#attributes' => array(
+        '#disabled' => false,
+      ),
+      '#default_value' => theme_get_setting('govcmsui_upload_logo'),
+      '#description' => t('Upload a custom logo. Valid file types are .jpeg, .jpg, .gif, .png and .svg.'),
+      '#upload_validators' => array(
+        'file_validate_extensions' => array('jpeg jpg gif svg png'),
+      ),
+      '#upload_location' => 'public://images',
+    );
+
     // govCMS UI Framework Settings
     $form['govcmsui_framework_details'] = array(
         '#type' => 'details',
@@ -95,5 +146,33 @@ function govcmsui_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\For
         '#default_value' => theme_get_setting('govcmsui_footer_copyright'),
         '#description'   => t("Leave blank to hide."),
     );
+    $form['#submit'][] = '_govcmsui_saveFile';
+}
 
+function validateForm(array &$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('upload_logo_file') == NULL) {
+    $form_state->setErrorByName('upload_logo_file', $this->t('File.'));
+  }
+}
+
+function _govcmsui_saveFile($fid, $theme, $fileType=''){
+
+  if(isset($fid) && is_string($fid)){
+
+    /**
+     * @var $file File
+     */
+    $file = File::load($fid);
+
+    // save the file
+    /**
+     * @var $file_usage DatabaseFileUsageBackend
+     */
+    $file_usage = \Drupal::service('file.usage');
+    $file_usage->add($file, $moduleName, $fileType, 1); // or $themeName
+
+    return true;
+  }
+
+  return false;
 }

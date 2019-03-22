@@ -27,6 +27,23 @@ function govcmsui_preprocess_page(&$variables) {
     $variables['sidebar_first_exists'] = TRUE;
   }
 
+  // Set logo image.
+  $variables['header_logo'] = '';
+  if(theme_get_setting('govcmsui_use_default_logo')) {
+    // Set the default logo.
+    $variables['header_logo'] = "/profiles/govcms/logo.svg";
+  } elseif(theme_get_setting('govcmsui_custom_logo')) {
+    // Set the custom logo.
+    $variables['header_logo'] = theme_get_setting('govcmsui_custom_logo');
+  } elseif(theme_get_setting('govcmsui_upload_logo')) {
+    // Set the uploaded logo.
+    $fid = theme_get_setting('govcmsui_upload_logo');
+    $uri = File::load($fid[0])->getFileUri();
+    $variables['header_logo'] = file_create_url($uri);
+  } else {
+    $variables['header_logo'] = "/profiles/govcms/logo.svg";
+  }
+
   $coa_footer = theme_get_setting('govcmsui_coa_footer');
   if (!empty($coa_footer) && $coa_footer == 1) {
     $variables['coa_bottom'] = '/' . drupal_get_path('theme',
